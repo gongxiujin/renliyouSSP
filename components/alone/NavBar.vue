@@ -45,7 +45,7 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-@media (max-width:576px) {
+@media (max-width: $mobile-width) {
 	.nav-bar {
 		.nav {
 			display: none !important;

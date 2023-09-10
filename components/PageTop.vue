@@ -19,7 +19,7 @@
 	})
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 	.page-top{
 		width: 100%;
 		height: $page-top-item-height;

@@ -1,6 +1,6 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-	modules: ['@nuxtjs/tailwindcss','@element-plus/nuxt'],
+	modules: ['@nuxtjs/tailwindcss','@element-plus/nuxt','@pinia/nuxt'],
 	app: {
 		head: {
 			charset: 'utf-8',
