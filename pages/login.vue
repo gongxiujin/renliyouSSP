@@ -1,57 +1,142 @@
 <template>
   <div>
-    <span class="logo" alt="logo"><a ref="/" alt="logo"></a></span>
+    <a ref="/" alt="logo"><span class="logo" alt="logo"></span></a>
     <img class="background" alt="login" />
     <div class="index-form">
-      <div v-if="formType === 'login'">
-        <span>用户登录</span>
-        <el-form ref="form" :model="form">
-          <el-tabs v-model="activeName" @tab-click="handleClick">
-            <el-tab-pane label="手机登录" name="phone"></el-tab-pane>
-            <el-tab-pane label="邮箱登录" name="email"></el-tab-pane>
-          </el-tabs>
+      <div>
+        <span v-if="formType === 'login'">用户登录</span>
+        <span v-if="formType === 'register'">用户注册</span>
+        <span v-if="formType === 'resetPassword'">密码重置</span>
+        <el-tabs
+          v-if="formType !== 'resetPassword'"
+          v-model="activeName"
+          @tab-click="handleClick"
+        >
+          <el-tab-pane label="手机登录" name="phone"></el-tab-pane>
+          <el-tab-pane label="邮箱登录" name="email"></el-tab-pane>
+        </el-tabs>
+        <!-- 登录表单 -->
+        <el-form ref="form" :model="loginform" v-if="formType === 'login'">
           <el-form-item v-if="isPhoneLogin">
-            <el-input v-model="form.phone" placeholder="手机号"></el-input>
+            <el-input v-model="loginform.phone" placeholder="手机号"></el-input>
           </el-form-item>
-          <RegistorCode v-if="isPhoneLogin" v-model:phoneCode="form.phoneCode" />
+          <RegistorCode
+            v-if="isPhoneLogin"
+            v-model:phoneCode="loginform.phoneCode"
+          />
           <el-form-item v-if="!isPhoneLogin">
-            <el-input v-model="form.email" placeholder="邮箱"></el-input>
+            <el-input v-model="loginform.email" placeholder="邮箱"></el-input>
           </el-form-item>
-          <PasswordInput v-if="!isPhoneLogin" v-model:password="form.password" v-model:placeholder="paswdPlaceholder" />
+          <PasswordInput
+            v-if="!isPhoneLogin"
+            v-model:password="loginform.password"
+            v-model:placeholder="paswdPlaceholder"
+            v-model:prop="pwdProp"
+          />
+          <el-checkbox v-model="loginform.agree"
+            >我已阅读并同意<el-link type="primary" href="/">用户协议</el-link
+            >和<el-link type="primary" href="/">隐私政策</el-link>
+          </el-checkbox>
+          <el-form-item v-if="!isPhoneLogin">
+            <span class="forget-pwd" @click="formType = 'resetPassword'"
+              >忘记密码</span
+            >
+          </el-form-item>
+          <el-button class="login-btn"
+              type="primary"
+              @click="handleSubmit('login')"
+              :disabled="!loginform.agree"
+              >登录</el-button
+            >
+          <el-form-item
+            ><span @click="formType = 'register'"
+              >还没账号？注册</span
+            ></el-form-item
+          >
+
+          <el-form-item
+            ><span>其他方式<img src="" alt="wechat" /></span
+          ></el-form-item>
+        </el-form>
+        <!-- 注册表单 -->
+        <el-form
+          ref="form"
+          :model="registorform"
+          :rules="rules"
+          v-if="formType === 'register'"
+        >
+          <el-form-item v-if="isPhoneLogin">
+            <el-input
+              placeholder="手机号"
+              v-model="registorform.phone"
+            ></el-input>
+          </el-form-item>
+          <RegistorCode
+            v-if="isPhoneLogin"
+            v-model:formType="registorform.registerCode"
+          />
+          <el-form-item v-if="!isPhoneLogin">
+            <el-input
+              placeholder="邮箱"
+              v-model="registorform.email"
+            ></el-input>
+          </el-form-item>
+          <PasswordInput
+            v-if="!isPhoneLogin"
+            v-model:password="registorform.password"
+            v-model:placeholder="paswdPlaceholder"
+            v-model:prop="pwdProp"
+          />
           <el-form-item>
-            <el-checkbox v-model="form.agree"
+            <el-checkbox v-model="loginform.agree"
               >我已阅读并同意<el-link type="primary" href="/">用户协议</el-link
               >和<el-link type="primary" href="/">隐私政策</el-link>
             </el-checkbox>
           </el-form-item>
           <el-form-item>
-            <span v-if="!isPhoneLogin" @click="formType = 'resetPassword'"
-              >忘记密码</span
+            <el-button type="primary" @click="handleSubmit('register')"
+              >注册</el-button
             >
           </el-form-item>
           <el-form-item>
-            <el-button
-              type="primary"
-              @click="handleSubmit('login')"
-              :disabled="!form.agree"
-              >登录</el-button
-            >
+            <el-button @click="formType = 'login'">已有账号去登录</el-button>
           </el-form-item>
-          <span @click="formType = 'register'">还没账号？注册</span>
         </el-form>
-        <span>其他方式<img src="" alt="wechat" /></span>
+        <!-- 重置密码表单 -->
+        <el-form
+          ref="form"
+          :model="resetsform"
+          :rules="newRules"
+          v-if="formType === 'resetPassword'"
+        >
+          <el-form-item>
+            <el-input placeholder="邮箱" v-model="resetsform.email"></el-input>
+          </el-form-item>
+          <PasswordInput
+            v-model:password="resetsform.password"
+            v-model:placeholder="newpaswdPlaceholder"
+            v-model:prop="pwdProp"
+          />
+          <PasswordInput
+            v-model:password="resetsform.confirmPassword"
+            v-model:placeholder="cpaswdPlaceholder"
+            v-model:prop="checkProp"
+          />
+          <RegistorCode v-model:phoneCode="resetsform.verificationCode" />
+          <el-form-item>
+            <el-button type="primary" @click="handleSubmit('resetPassword')"
+              >重置密码</el-button
+            >
+            <el-button @click="formType = 'login'">返回登录</el-button>
+          </el-form-item>
+        </el-form>
       </div>
-
-      <template v-if="formType !== 'login'">
-        <AuthForm v-model:formType="formType" />
-      </template>
     </div>
-
-    <!-- 注册表单和重置密码 -->
   </div>
 </template>
 
 <script>
+import { validatePassword } from "~/assets/js/base.js";
 export default {
   setup() {
     definePageMeta({
@@ -72,21 +157,57 @@ export default {
       formType: "login", // form类型，可以是 'login', 'register' 或 'resetPassword'
       isPhoneLogin: true, // 是否是手机号登录
       isCodeBtnDisabled: false, // 验证码按钮是否禁用
+      rules: {
+        password: [{ validator: validatePassword, trigger: "blur" }],
+      },
+      newRules: {
+        password: [{ validator: validatePassword, trigger: "blur" }],
+        checkPassword: [
+          { validator: this.samePass, trigger: "blur" }
+        ],
+      },
       agree: false, // 是否同意用户协议
       codeBtnText: "发送验证码", // 验证码按钮的文本
+      pwdProp: "password",
       activeName: "phone",
-      paswdPlaceholder: "密码",
-      form: {
+      loginform: {
         phone: "",
         phoneCode: "",
         email: "",
         password: "",
+      },
+      paswdPlaceholder: "密码",
+      newpaswdPlaceholder: "新密码",
+      cpaswdPlaceholder: "确认密码",
+      checkProp: "checkPassword",
+      registorform: {
+        phone: "",
+        registerCode: "",
+        email: "",
+        password: "",
+      },
+      resetsform: {
+        email: "",
+        password: "",
+        confirmPassword: "",
+        verificationCode: "",
       },
     };
   },
   methods: {
     toggleLoginMethod() {
       this.isPhoneLogin = !this.isPhoneLogin;
+    },
+    samePass(rule, value, callback) {
+      if (value === "") {
+        return callback();
+      }
+      console.log(value, this.resetsform.password);
+      if (value !== this.resetsform.password) {
+        callback(new Error("两次输入密码不一致!"));
+      } else {
+        callback();
+      }
     },
     handleClick(tab, event) {
       this.toggleLoginMethod();
@@ -109,7 +230,10 @@ export default {
     },
     handleSubmit(type) {
       // 在这里添加表单提交的逻辑
-      console.log(this.form, type);
+      console.log(this.loginform, type);
+      if (type === "resetPassword") {
+        console.log(this.resetsform, type);
+      }
     },
   },
 };

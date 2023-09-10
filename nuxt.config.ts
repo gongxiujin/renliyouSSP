@@ -1,6 +1,14 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-	modules: ['@nuxtjs/tailwindcss','@element-plus/nuxt'],
+	modules: ['@nuxtjs/tailwindcss', '@element-plus/nuxt'],
+	build: {
+		hardSource: true,
+		extend(config, { isDev }) {
+			if (isDev) {
+				config.devtool = 'eval-source-map'; // 或者禁用它，设置为 false
+			}
+		},
+	},
 	app: {
 		head: {
 			charset: 'utf-8',
@@ -11,22 +19,23 @@ export default defineNuxtConfig({
 			]
 		}
 	},
+
 	tailwindcss: {
 		config: {
 			theme: {
 				screens: {
 					'sm': '640px',
 					// => @media (min-width: 640px) { ... }
-	
+
 					'md': '768px',
 					// => @media (min-width: 768px) { ... }
-	
+
 					'lg': '1024px',
 					// => @media (min-width: 1024px) { ... }
-	
+
 					'xl': '1280px',
 					// => @media (min-width: 1280px) { ... }
-	
+
 					'2xl': '1536px',
 					// => @media (min-width: 1536px) { ... }
 				},
