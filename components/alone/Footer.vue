@@ -199,6 +199,7 @@
 .footer-pc {
   position: relative;
   background: #0b0e12;
+  min-width: 1200px;
   .footer-container {
     padding: 40px 0;
     margin: 0 auto;

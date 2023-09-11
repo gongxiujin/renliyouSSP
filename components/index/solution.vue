@@ -148,7 +148,7 @@
               <swiper-slide key="0">
                 <img
                   class="banner-img"
-                  src="../../assets/images/index/solution-2.png"
+                  src="../../assets/images/index/solution-1.png"
                   alt=""
                 />
               </swiper-slide>
@@ -251,7 +251,7 @@
           </div>
         </div>
         <div class="m-swiper-main">
-          <swiper class="swiper" @swiper="onSwiperM">
+          <swiper class="swiper" @swiper="onSwiperM" @slideChange="handleSlideChange">
             <swiper-slide key="0">
               <img
                 class="banner-img"
@@ -338,6 +338,10 @@ function handleMouseOver(index) {
   swiperInstance.value?.slideTo(index);
   swiperInstanceM.value?.slideTo(index);
 }
+
+const handleSlideChange = (opt) => {
+  activeIndex.value = opt.activeIndex;
+};
 
 function onSwiperM(swiper) {
   swiperInstanceM.value = swiper;
@@ -495,7 +499,7 @@ function onSwiper(swiper) {
       .swiper {
         width: 100%;
         height: 100%;
-        // transform: skew(-8deg);
+        transform: skew(-8deg);
         .banner-img {
           width: 100%;
           height: 100%;
