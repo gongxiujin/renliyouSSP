@@ -201,7 +201,7 @@ function goToSlide(index) {
       width: 100%;
       height: 100%;
       background-color: #ff0017;
-      animation: progress 3.5s linear;
+      animation: progress 3.2s linear;
     }
   }
 }

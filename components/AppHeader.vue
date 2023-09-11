@@ -96,7 +96,7 @@ const navList = ref([
     children: [
       { name: "移动变现", link: "/products/app" },
       { name: "PC变现", link: "/products/pc" },
-      { name: "数据增长", link: "/products/app" }
+      { name: "数据增长", link: "/products/dataGrowth" }
     ],
   },
   { name: "解决方案", link: "/example" },

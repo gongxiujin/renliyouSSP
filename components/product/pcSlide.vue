@@ -406,7 +406,8 @@ function onSwiper(swiper) {
   .slide-bar {
     width: 1200px;
     text-align: center;
-    margin: 14px auto;
+    margin: 0 auto;
+    padding-bottom: 140px;
     .swiper {
       width: 100%;
       .slide-item {
