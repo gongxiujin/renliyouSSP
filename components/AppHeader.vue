@@ -99,7 +99,7 @@ const navList = ref([
       { name: "数据增长", link: "/products/dataGrowth" }
     ],
   },
-  { name: "解决方案", link: "/example" },
+  { name: "解决方案", link: "/solutions" },
   { name: "关于我们", link: "/news" },
   { name: "隐私政策", link: "/about" },
 ]);
