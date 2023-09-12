@@ -4,9 +4,12 @@
     <img class="background" alt="login" />
     <div class="index-form">
       <div>
-        <span v-if="formType === 'login'">用户登录</span>
-        <span v-if="formType === 'register'">用户注册</span>
-        <span v-if="formType === 'resetPassword'">密码重置</span>
+        <span class="title" v-if="formType === 'login'">用户登录</span>
+        <span class="title" v-if="formType === 'register'">用户注册</span>
+        <span class="title" v-if="formType === 'resetPassword'"
+          ><i @click="formType = 'login'" class="el-icon-arrow-left"></i
+          >密码重置</span
+        >
         <el-tabs
           v-if="formType !== 'resetPassword'"
           v-model="activeName"
@@ -33,30 +36,32 @@
             v-model:placeholder="paswdPlaceholder"
             v-model:prop="pwdProp"
           />
-          <el-checkbox v-model="loginform.agree"
-            >我已阅读并同意<el-link type="primary" href="/">用户协议</el-link
-            >和<el-link type="primary" href="/">隐私政策</el-link>
+          <el-checkbox v-model="agree"
+            >我已阅读并同意<el-link type="danger" href="/">用户协议</el-link
+            >和<el-link type="danger" href="/">隐私政策</el-link>
           </el-checkbox>
-          <el-form-item v-if="!isPhoneLogin">
-            <span class="forget-pwd" @click="formType = 'resetPassword'"
-              >忘记密码</span
+          <div class="other" style="justify-content: flex-start">
+            <el-link class="forget-pwd" @click="formType = 'resetPassword'"
+              >忘记密码</el-link
             >
-          </el-form-item>
-          <el-button class="login-btn"
-              type="primary"
-              @click="handleSubmit('login')"
-              :disabled="!loginform.agree"
-              >登录</el-button
-            >
-          <el-form-item
-            ><span @click="formType = 'register'"
-              >还没账号？注册</span
-            ></el-form-item
+          </div>
+          <el-button
+            class="login-btn"
+            type="danger"
+            @click="handleSubmit('login')"
+            :disabled="!agree"
+            >登录</el-button
           >
-
-          <el-form-item
-            ><span>其他方式<img src="" alt="wechat" /></span
-          ></el-form-item>
+          <div class="other" style="justify-content: flex-end">
+            <el-link @click="formType = 'register'">还没账号？注册</el-link>
+          </div>
+          <div class="other">
+            <span
+              >其他方式
+              <el-link
+                ><img src="~/assets/images/wechat.png" alt="wechat" /></el-link
+            ></span>
+          </div>
         </el-form>
         <!-- 注册表单 -->
         <el-form
@@ -88,19 +93,20 @@
             v-model:prop="pwdProp"
           />
           <el-form-item>
-            <el-checkbox v-model="loginform.agree"
-              >我已阅读并同意<el-link type="primary" href="/">用户协议</el-link
-              >和<el-link type="primary" href="/">隐私政策</el-link>
+            <el-checkbox v-model="agree"
+              >我已阅读并同意<el-link type="danger" href="/">用户协议</el-link
+              >和<el-link type="danger" href="/">隐私政策</el-link>
             </el-checkbox>
           </el-form-item>
-          <el-form-item>
-            <el-button type="primary" @click="handleSubmit('register')"
-              >注册</el-button
-            >
-          </el-form-item>
-          <el-form-item>
-            <el-button @click="formType = 'login'">已有账号去登录</el-button>
-          </el-form-item>
+          <el-button
+            class="login-btn"
+            type="danger"
+            @click="handleSubmit('register')"
+            >注册</el-button
+          >
+          <div class="other">
+            <el-link @click="formType = 'login'">已有账号,去登录</el-link>
+          </div>
         </el-form>
         <!-- 重置密码表单 -->
         <el-form
@@ -123,8 +129,15 @@
             v-model:prop="checkProp"
           />
           <RegistorCode v-model:phoneCode="resetsform.verificationCode" />
+          <el-checkbox v-model="agree"
+            >我已阅读并同意<el-link type="danger" href="/">用户协议</el-link
+            >和<el-link type="danger" href="/">隐私政策</el-link>
+          </el-checkbox>
           <el-form-item>
-            <el-button type="primary" @click="handleSubmit('resetPassword')"
+            <el-button
+              class="login-btn"
+              type="danger"
+              @click="handleSubmit('resetPassword')"
               >重置密码</el-button
             >
             <el-button @click="formType = 'login'">返回登录</el-button>
@@ -162,9 +175,7 @@ export default {
       },
       newRules: {
         password: [{ validator: validatePassword, trigger: "blur" }],
-        checkPassword: [
-          { validator: this.samePass, trigger: "blur" }
-        ],
+        checkPassword: [{ validator: this.samePass, trigger: "blur" }],
       },
       agree: false, // 是否同意用户协议
       codeBtnText: "发送验证码", // 验证码按钮的文本
@@ -270,10 +281,24 @@ export default {
     font-size: 14px;
   }
 }
+.el-checkbox__input.is-checked + .el-checkbox__label {
+  color: #000;
+}
 .el-tabs__nav-wrap::after {
   width: 0;
 }
+.other {
+  justify-content: center;
+  width: 100%;
+  display: flex;
+}
+.title {
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 22px;
 
+  color: #202020;
+}
 .logo {
   position: absolute;
   left: 46.75px;
@@ -288,5 +313,12 @@ export default {
   width: 100%;
   height: 100%;
   position: absolute;
+}
+.login-btn {
+  width: 310px;
+  height: 40px;
+  border-radius: 4px;
+
+  background: #e65e24;
 }
 </style>

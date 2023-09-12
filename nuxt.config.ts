@@ -1,14 +1,6 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
 	modules: ['@nuxtjs/tailwindcss', '@element-plus/nuxt'],
-	build: {
-		hardSource: true,
-		extend(config, { isDev }) {
-			if (isDev) {
-				config.devtool = 'eval-source-map'; // 或者禁用它，设置为 false
-			}
-		},
-	},
 	app: {
 		head: {
 			charset: 'utf-8',
