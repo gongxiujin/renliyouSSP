@@ -101,7 +101,6 @@ const navList = ref([
   },
   { name: "解决方案", link: "/solutions" },
   { name: "关于我们", link: "/aboutUs" },
-  { name: "隐私政策", link: "/about" },
 ]);
 
 const dropdownClick = (opt) => {
