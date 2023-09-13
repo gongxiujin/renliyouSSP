@@ -1,9 +1,9 @@
 <template>
   <header class="header">
-    <a href="/"
-      ><img class="h-8 w-24 mr-12" src="../assets/images/logo.png" alt=""
-    /></a>
     <div class="heard-left">
+      <a href="/" class="block flex items-center"
+        ><img class="h-8 w-24 mr-12" src="../assets/images/logo.png" alt=""
+      /></a>
       <AloneNavBar :data="navList" />
     </div>
     <div class="heard-right">
@@ -27,11 +27,10 @@
           </el-dropdown-menu>
         </template>
       </el-dropdown>
-      <a href="/login"><span class="header_sign_in" xt-marked="ok">登录</span></a>
-      <button
-        type="button"
-        class="ant-btn header-auth-btn btn-sign-up pangle-btn pangle-btn-size-middle pangle-btn-type-primary ant-btn-primary"
+      <a href="/login"
+        ><span class="header_sign_in" xt-marked="ok">登录</span></a
       >
+      <button type="button" class="btn-sign-up">
         <span class="pangle-btn-inner" xt-marked="ok">立即变现</span>
       </button>
     </div>
@@ -92,13 +91,17 @@ const isCollapse = ref(false);
 const navList = ref([
   { name: "首页", link: "/" },
   {
-    name: "解决方案",
+    name: "产品中心",
     link: "#",
-    children: [{ name: "银行解决方案", link: "/solution/bank" }],
+    children: [
+      { name: "移动变现", link: "/products/app" },
+      { name: "PC变现", link: "/products/pc" },
+      { name: "数据增长", link: "/products/dataGrowth" }
+    ],
   },
-  { name: "用户案例", link: "/example" },
-  { name: "新闻中心", link: "/news" },
-  { name: "关于我们", link: "/about" },
+  { name: "解决方案", link: "/solutions" },
+  { name: "关于我们", link: "/aboutUs" },
+  { name: "隐私政策", link: "/about" },
 ]);
 
 const dropdownClick = (opt) => {
@@ -111,34 +114,39 @@ const menuSelect = (opt) => {
 };
 </script>
 
-<style lang="scss">
-@media (max-width: 576px) {
+<style lang="scss" scoped>
+@media (max-width: $mobile-width) {
+  .header {
+    min-width: 100% !important;
+  }
   .heard-right {
     display: none !important;
   }
   .m-btnMenu {
     display: block !important;
+    margin-right: 4%;
   }
 }
 .header {
-  position: sticky;
-  padding: 0 0 0 32px;
-  top: var(--region-picker-height);
-  z-index: 10;
-  height: $header-height;
-  width: 100%;
-  min-width: 1366px;
-  background: #fff;
+  position: relative;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: flex-end;
+  background-color: #ffffff;
+  z-index: 999;
+  padding: 0 0 0 4%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $header-height;
+  min-width: 1366px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
   transition: background-color 0.6s ease-in-out, top 0.2s ease-in-out,
     box-shadow 0.6s ease-in-out;
   .heard-left {
     display: flex;
-    margin-left: 72px;
-    flex: 1;
+    align-items: center;
   }
   .heard-right {
     display: flex;
@@ -167,7 +175,10 @@ const menuSelect = (opt) => {
     }
   }
 }
-
+.header-white {
+  width: 100%;
+  height: $header-height;
+}
 .el-dropdown-link {
   color: #222222;
   font-size: 0.875rem;
@@ -212,5 +223,26 @@ const menuSelect = (opt) => {
 }
 .el-drawer__body {
   padding: 1rem !important;
+}
+.login-btn-bar {
+  position: fixed;
+  bottom: 0;
+  width: 70%;
+  height: 6rem;
+  border-top: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .login-btn {
+    border: 0.02rem solid #ff0017;
+    box-sizing: border-box;
+    border-radius: 0.4rem;
+    font-size: 1rem;
+    line-height: 3rem;
+    color: #ff0017;
+    width: 10rem;
+    height: 3rem;
+    text-align: center;
+  }
 }
 </style>

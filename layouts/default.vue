@@ -26,27 +26,35 @@
 
 <style lang="scss">
 .layer-parallax {
-  position: absolute;
-  top: -165px;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  pointer-events: none;
-  overflow: hidden;
-  .parallax-svg {
-    z-index: 2;
     position: absolute;
-    padding-top: 440px;
+    top: -165px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
     pointer-events: none;
-    &.parallax-svg-right {
-      right: 0;
+    overflow: hidden;
+    .parallax-svg {
+      z-index: 2;
+      position: absolute;
+      padding-top: 440px;
+      pointer-events: none;
+      &.parallax-svg-right {
+        right: 0;
+      }
     }
   }
+@media (max-width: $mobile-width) {
+  .layer-parallax {
+    display: none;
+  }
 }
+
 .main {
   background: #fff;
   width: 100%;
-  min-width: 1366px;
+  @media (min-width: $mobile-width) {
+    min-width: 1366px;
+  }
 }
 </style>
