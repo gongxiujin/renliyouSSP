@@ -19,10 +19,10 @@
             <div class="col">
               <div class="content">
                 <p class="title">其他</p>
-                <a href="" class="link">关于我们</a>
+                <a href="关于我们" class="link">关于我们</a>
                 <a href="" class="link">联系我们</a>
                 <a href="" class="link">用户协议</a>
-                <a href="" class="link">隐私政策</a>
+                <a href="/policy" class="link">隐私政策</a>
               </div>
             </div>
             <div class="col">
@@ -83,10 +83,10 @@
     </div>
     <div class="footer-terms">
       <div class="pangle-container-section">
-        <a href="" class="term-link">关于我们</a>
+        <a href="/aboutUs" class="term-link">关于我们</a>
         <a href="" class="term-link">联系我们</a>
         <a href="" class="term-link">用户协议</a>
-        <a href="" class="term-link">隐私政策</a>
+        <a href="/policy" class="term-link">隐私政策</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -107,19 +107,19 @@
             <div class="col">
               <div class="content">
                 <p class="title">热门推荐</p>
-                <a href="" class="link">移动变现</a>
-                <a href="" class="link">PC变现</a>
-                <a href="" class="link">数据增长</a>
-                <a href="" class="link">解决方案</a>
+                <a href="/products/app" class="link">移动变现</a>
+                <a href="/products/pc" class="link">PC变现</a>
+                <a href="/products/dataGrowth" class="link">数据增长</a>
+                <a href="/solutions" class="link">解决方案</a>
               </div>
             </div>
             <div class="col">
               <div class="content">
                 <p class="title">其他</p>
-                <a href="" class="link">关于我们</a>
+                <a href="/aboutUs" class="link">关于我们</a>
                 <a href="" class="link">联系我们</a>
                 <a href="" class="link">用户协议</a>
-                <a href="" class="link">隐私政策</a>
+                <a href="/policy" class="link">隐私政策</a>
               </div>
             </div>
             <div class="col">
@@ -169,10 +169,10 @@
     </div>
     <div class="footer-terms">
       <div class="pangle-container-section">
-        <a href="" class="term-link">关于我们</a>
+        <a href="/aboutUs" class="term-link">关于我们</a>
         <a href="" class="term-link">联系我们</a>
         <a href="" class="term-link">用户协议</a>
-        <a href="" class="term-link">隐私政策</a>
+        <a href="/policy" class="term-link">隐私政策</a>
       </div>
     </div>
     <div class="footer-bottom">
