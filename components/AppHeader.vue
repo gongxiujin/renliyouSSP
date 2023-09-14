@@ -7,31 +7,12 @@
       <AloneNavBar :data="navList" />
     </div>
     <div class="heard-right">
-      <el-dropdown trigger="click">
-        <span class="el-dropdown-link">
-          {{ Language }}
-          <el-icon class="el-icon--right"><arrow-down /></el-icon>
-        </span>
-        <template #dropdown>
-          <el-dropdown-menu>
-            <el-dropdown-item
-              class="dropdown-item"
-              @click="dropdownClick('中文')"
-              >中文</el-dropdown-item
-            >
-            <el-dropdown-item
-              class="dropdown-item"
-              @click="dropdownClick('English')"
-              >English</el-dropdown-item
-            >
-          </el-dropdown-menu>
-        </template>
-      </el-dropdown>
+      <LanguageSelector />
       <a href="/login"
-        ><span class="header_sign_in" xt-marked="ok">登录</span></a
+        ><span class="header_sign_in" xt-marked="ok" style="display: none;">登录</span></a
       >
       <button type="button" class="btn-sign-up">
-        <span class="pangle-btn-inner" xt-marked="ok">立即变现</span>
+        <span class="pangle-btn-inner" xt-marked="ok">{{ $t('justus') }}</span>
       </button>
     </div>
     <img
@@ -83,9 +64,7 @@
 </template>
 
 <script setup>
-import { ArrowDown } from "@element-plus/icons-vue";
 
-const Language = ref("中文");
 const navIndex = ref(0);
 const isCollapse = ref(false);
 const navList = ref([
@@ -96,17 +75,12 @@ const navList = ref([
     children: [
       { name: "移动变现", link: "/products/app" },
       { name: "PC变现", link: "/products/pc" },
-      { name: "数据增长", link: "/products/dataGrowth" }
+      { name: "数据增长", link: "/products/dataGrowth" },
     ],
   },
   { name: "解决方案", link: "/solutions" },
   { name: "关于我们", link: "/aboutUs" },
 ]);
-
-const dropdownClick = (opt) => {
-  console.log("opt", opt);
-  Language.value = opt;
-};
 
 const menuSelect = (opt) => {
   isCollapse.value = false;
@@ -178,26 +152,7 @@ const menuSelect = (opt) => {
   width: 100%;
   height: $header-height;
 }
-.el-dropdown-link {
-  color: #222222;
-  font-size: 0.875rem;
-  &:hover {
-    color: $primary-color;
-  }
-  &:focus {
-    outline: none;
-  }
-}
-.dropdown-item {
-  &:hover {
-    background-color: transparent !important;
-    color: $primary-color !important;
-  }
-  &:focus {
-    background-color: transparent !important;
-    color: $primary-color !important;
-  }
-}
+
 .btnColor {
   color: #ffffff;
   font-weight: 350;
@@ -217,9 +172,7 @@ const menuSelect = (opt) => {
   margin-top: $header-height;
   font-size: 0.9rem;
 }
-.el-menu-item {
-  font-size: 1rem !important;
-}
+
 .el-drawer__body {
   padding: 1rem !important;
 }

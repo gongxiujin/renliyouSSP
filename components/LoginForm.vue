@@ -1,0 +1,208 @@
+<template>
+  <span class="title" v-if="formType === 'login'">用户登录</span>
+  <span class="title" v-if="formType === 'register'">用户注册</span>
+  <el-tabs
+    v-if="formType !== 'resetPassword'"
+    v-model="activeName"
+    @tab-click="handleClick"
+  >
+    <el-tab-pane label="手机登录" name="phone"></el-tab-pane>
+    <el-tab-pane label="邮箱登录" name="email"></el-tab-pane>
+  </el-tabs>
+  <!-- 登录表单 -->
+  <el-form ref="form" :model="loginform" v-if="formType === 'login'">
+    <el-form-item v-if="isPhoneLogin">
+      <el-input v-model="loginform.phone" placeholder="手机号"></el-input>
+    </el-form-item>
+    <RegistorCode v-if="isPhoneLogin" v-model:phoneCode="loginform.phoneCode" />
+    <el-form-item v-if="!isPhoneLogin">
+      <el-input v-model="loginform.email" placeholder="邮箱"></el-input>
+    </el-form-item>
+    <PasswordInput
+      v-if="!isPhoneLogin"
+      v-model:password="loginform.password"
+      v-model:placeholder="paswdPlaceholder"
+      v-model:prop="pwdProp"
+    />
+    <el-checkbox v-model="agree" class="agree-check"
+      >我已阅读并同意<el-link type="danger" href="/">用户协议</el-link
+      >和<el-link type="danger" href="/">隐私政策</el-link>
+    </el-checkbox>
+    <el-button
+      class="login-btn"
+      type="danger"
+      @click="handleSubmit('login')"
+      >登录</el-button
+    >
+    <div class="other" style="justify-content: flex-end">
+      <el-link
+        v-if="!isPhoneLogin"
+        class="forget-pwd"
+        @click="formType = 'resetPassword'"
+        >忘记密码</el-link
+      >
+      <el-link v-if="isPhoneLogin" @click="formType = 'register'"
+        >还没账号？注册</el-link
+      >
+    </div>
+    <div class="other" style="margin-top: 0">
+      <span style="font-size:12px; line-height: 12px;"
+        >其他方式
+        <el-link><img src="~/assets/images/wechat.png" alt="wechat" /></el-link
+      ></span>
+    </div>
+  </el-form>
+  <!-- 注册表单 -->
+  <RegitsorForm
+    v-if="formType === 'register'"
+    v-model:formType="formType"
+    v-model:isPhoneLogin="isPhoneLogin" />
+  <!--忘记密码-->
+  <AuthForm
+    v-if="formType === 'resetPassword'"
+    v-model:formType="formType"
+    v-model:isPhoneLogin="isPhoneLogin" />
+</template>
+
+<script>
+import { validatePassword } from "~/assets/js/base.js";
+export default {
+  setup() {
+    const title = ref("登录");
+    useHead({
+      title: title.value,
+      meta: [{ name: "description", content: "注册登录页面" }],
+    });
+
+    return {
+      title,
+    };
+  },
+  data() {
+    return {
+      formType: "login", // form类型，可以是 'login', 'register' 或 'resetPassword'
+      isPhoneLogin: true, // 是否是手机号登录
+      agree: false, // 是否同意用户协议
+      codeBtnText: "发送验证码", // 验证码按钮的文本
+      paswdPlaceholder: "密码",
+      pwdProp: "password",
+      activeName: "phone",
+      loginform: {
+        phone: "",
+        phoneCode: "",
+        email: "",
+        password: "",
+      },
+
+    };
+  },
+  methods: {
+    toggleLoginMethod() {
+      this.isPhoneLogin = !this.isPhoneLogin;
+    },
+
+    handleClick(tab, event) {
+      this.toggleLoginMethod();
+    },
+    handleSubmit(type) {
+      // 在这里添加表单提交的逻辑
+      console.log(this.loginform, type);
+
+    },
+  },
+};
+</script>
+
+<style lang="scss">
+span {
+  color: #a1a1a1;
+}
+a.el-link {
+  --el-link-hover-text-color: none;
+}
+.el-tabs__active-bar{
+  height: 3px;
+}
+.el-tabs__nav {
+  margin-top: 30px;
+  height: 24px;
+  .el-tabs__item{
+    font-size: 16px;
+    line-height: 16px;
+    height: 16px;
+  }
+}
+.agree-check {
+  margin: 4px 0;
+  span.el-link__inner {
+    color: #e65e24;
+  }
+}
+.el-tabs__header {
+  margin: 0 0 19px;
+}
+.el-form-item {
+  margin-bottom: 22px;
+  &.is-error {
+    margin-bottom: 28px;
+  }
+}
+.el-tabs__active-bar {
+  background-color: #e65e24;
+}
+.el-tabs__item {
+  color: #999999;
+  &.is-active {
+    color: #202020;
+  }
+}
+span.title {
+  height: 23px;
+  opacity: 1;
+
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 22px;
+}
+.el-input .el-input__wrapper {
+  background-color: #f0f0f0;
+  .el-input__inner {
+    height: 40px;
+    font-size: 14px;
+  }
+}
+.login-btn span {
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 16px;
+  color: #ffffff;
+}
+.el-checkbox__input.is-checked + .el-checkbox__label {
+  color: #a1a1a1;
+}
+.el-tabs__nav-wrap::after {
+  width: 0;
+}
+.other {
+  margin-top: 8px;
+  justify-content: center;
+  width: 100%;
+  display: flex;
+}
+.title {
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 22px;
+
+  color: #202020;
+}
+.logo {
+  position: absolute;
+  left: 46.75px;
+  top: 40.29px;
+  width: 113.17px;
+  height: 40.18px;
+  content: url("~/assets/images/logo.png");
+  z-index: 2;
+}
+</style>

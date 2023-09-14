@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="position: relative; z-index: 3">
     <Head>
       <Title>{{ title }}</Title>
       <Meta name="description" :content="title" />

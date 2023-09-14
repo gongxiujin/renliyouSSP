@@ -5,4 +5,4 @@
 	  </NuxtLayout>
   </div>
 </template>
-``
+

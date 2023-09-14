@@ -1,6 +1,5 @@
 
 export function validatePassword(rule, value, callback) {
-    console.log(rule, value, callback);
     const lengthValid = value.length >= 8 && value.length <= 20;
     const patterns = [
       /[A-Z]/, // 大写字母
@@ -12,7 +11,6 @@ export function validatePassword(rule, value, callback) {
       (count, pattern) => count + pattern.test(value),
       0
     );
-    console.log(lengthValid, matchCount);
     if (lengthValid && matchCount >= 3) {
       callback();
     } else {

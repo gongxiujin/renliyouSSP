@@ -3,9 +3,9 @@
     <el-form-item :prop="prop">
       <el-input
         :placeholder="placeholder"
-        type="password"
         v-model="localPassword"
         @input="changePassword"
+        show-password
       ></el-input>
     </el-form-item>
   </div>

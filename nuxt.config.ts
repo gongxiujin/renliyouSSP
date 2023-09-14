@@ -1,6 +1,6 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-	modules: ['@nuxtjs/tailwindcss','@element-plus/nuxt','@pinia/nuxt'],
+	modules: ['@nuxtjs/tailwindcss', '@element-plus/nuxt', '@pinia/nuxt', '@nuxtjs/i18n'],
 	app: {
 		head: {
 			charset: 'utf-8',
@@ -11,7 +11,15 @@ export default defineNuxtConfig({
 			]
 		}
 	},
+	i18n: {
+		locales: [
+			{ code: 'en', iso: 'en-US', file: 'en-US.js', name: 'English' },
+			{ code: 'zh', iso: 'zh-CN', file: 'zh-CN.js', name: '中文' },
+		],
+		defaultLocale: 'zh',
+		langDir: 'locales/',
 
+	},
 	tailwindcss: {
 		config: {
 			theme: {

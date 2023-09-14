@@ -2,21 +2,6 @@
   <div class="solution-main">
     <!-- 专业的解决方案 -->
     <div class="pc">
-      <img
-        class="solutionEdge2"
-        src="../../assets/images/index/solutionEdge-2.png"
-        alt=""
-      />
-      <img
-        class="solutionEdge1"
-        src="../../assets/images/index/solutionEdge-1.png"
-        alt=""
-      />
-      <img
-        class="solutionEdge3"
-        src="../../assets/images/index/solutionEdge-3.png"
-        alt=""
-      />
       <div class="solution-bar">
         <div class="title-bar">
           <h2 class="solution-title">专业的解决方案</h2>
@@ -363,7 +348,6 @@ function onSwiper(swiper) {
 }
 .solution-main {
     width: 100%;
-    background: #ffffff;
 }
 .pc {
   position: relative;

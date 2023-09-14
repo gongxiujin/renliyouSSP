@@ -4,17 +4,14 @@
       v-model="localPhoneCode"
       placeholder="验证码"
       @input="changePhoneCode"
+    ></el-input>
+    <el-button
+      class="bind_code_gain"
+      :disabled="isCodeBtnDisabled"
+      @click="sendCode"
+      link
+      >{{ codeBtnText }}</el-button
     >
-      <template #append>
-        <el-button
-          type="primary"
-          :disabled="isCodeBtnDisabled"
-          @click="sendCode"
-          text
-          >{{ codeBtnText }}</el-button
-        >
-      </template>
-    </el-input>
   </el-form-item>
 </template>
 
@@ -59,3 +56,21 @@ export default {
   },
 };
 </script>
+<style lang="scss">
+.bind_code_gain {
+  position: absolute;
+  top: calc(50% - 9px);
+  right: 10px;
+  font-size: 14px;
+  font-family: MicrosoftYaHei;
+  color: #20aee5;
+  line-height: 18px;
+  cursor: pointer;
+  padding-left: 10px;
+  border-left: 1px solid #d8d8d8;
+  span {
+    line-height: 14px;
+    color: #999999;
+  }
+}
+</style>

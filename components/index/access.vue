@@ -245,7 +245,6 @@ function onSwiper(swiper) {
   width: 100%;
   height: 660px;
   padding-top: 84px;
-  background: #ffffff;
   .title-bar {
     min-width: 1200px;
     text-align: center;
