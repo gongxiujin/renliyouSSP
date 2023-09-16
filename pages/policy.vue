@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="position: relative;z-index: 3;">
     <div class="pc">
       <div class="title-bar">
         <a href="/">首页 / </a>

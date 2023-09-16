@@ -200,6 +200,7 @@
   position: relative;
   background: #0b0e12;
   min-width: 1200px;
+  z-index: 3;
   .footer-container {
     padding: 40px 0;
     margin: 0 auto;

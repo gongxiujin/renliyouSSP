@@ -158,11 +158,12 @@ onMounted(() => {
 		transition: 0.6s;
 
 		.dropdown-menu {
-			padding: 10px 8px 15px;
+			width: 113px;
+			padding: 10px 0px 15px;
 			color: #fff;
 			background-color: #fff;
 			border-radius: 4px;
-
+			box-shadow: 0px 0px 12px 0px rgba(102, 132, 179, 0.3);
 			.menuItem {
 				width: 100%;
 				height: 42px;
@@ -176,7 +177,7 @@ onMounted(() => {
 				border-radius: 4px;
 
 				&:hover {
-					// background-color: $primary-color;
+					background: #F4F4F4;
 					color: $primary-color;;
 				}
 			}

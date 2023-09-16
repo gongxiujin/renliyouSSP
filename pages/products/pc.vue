@@ -1,6 +1,6 @@
 <template>
-    <!-- 移动变现 -->
-    <div>
+    <!-- pc变现 -->
+    <div style="position: relative;z-index: 3;">
       <div class="banner-top">
         <div class="banner-main"></div>
         <ProductPcSlide></ProductPcSlide>

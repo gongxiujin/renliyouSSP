@@ -4,21 +4,6 @@
     <div class="banner-top"></div>
     <!-- 企业文化 -->
     <div class="pc">
-      <img
-        class="solutionEdge2"
-        src="../assets/images/index/solutionEdge-2.png"
-        alt=""
-      />
-      <img
-        class="solutionEdge1"
-        src="../assets/images/index/solutionEdge-1.png"
-        alt=""
-      />
-      <img
-        class="solutionEdge3"
-        src="../assets/images/index/solutionEdge-3.png"
-        alt=""
-      />
       <div class="solution-bar">
         <div class="title-bar">
           <h2 class="solution-title">企业文化</h2>
@@ -64,10 +49,12 @@
     <!-- 联系我们 -->
     <div class="join-us">
       <img class="bg-img" src="../assets/images/index/joinUsBg.png" alt="" />
-      <h2 class="title">联系我们</h2>
-      <p>云袭网络技术（河北）有限公司</p>
-      <p>地址：河北省石家庄市裕华区怀特商业广场D座5层</p>
-      <p>市场合作：17060666669</p>
+      <div class="title-content">
+        <h2 class="title">联系我们</h2>
+        <p>云袭网络技术（河北）有限公司</p>
+        <p>地址：河北省石家庄市裕华区怀特商业广场D座5层</p>
+        <p>市场合作：17060666669</p>
+      </div>
     </div>
     <div class="mobile">
       <div class="m-solution-bar">
@@ -156,27 +143,6 @@
   width: 100%;
   padding-bottom: 115px;
   background: #ffffff;
-  .solutionEdge2 {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 166.14px;
-    height: 173.55px;
-  }
-  .solutionEdge1 {
-    position: absolute;
-    left: 0;
-    top: 458px;
-    width: 58.05px;
-    height: 114.41px;
-  }
-  .solutionEdge3 {
-    position: absolute;
-    top: 268px;
-    right: 0;
-    width: 166.14px;
-    height: 173.55px;
-  }
   .solution-bar {
     width: 100%;
     height: 100%;
@@ -263,39 +229,43 @@
 }
 .join-us {
   position: relative;
+  z-index: 3;
   width: 100%;
   min-width: 1200px;
   height: 300px;
-  padding: 60px 0;
-  background: rgba(30, 26, 25, 0.85);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
   .bg-img {
+    width: 100%;
+    height: 100%;
+  }
+  .title-content {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    z-index: -2;
-  }
-  .title {
-    font-family: Source Han Sans CN;
-    font-size: 36px;
-    font-weight: 900;
-    line-height: 38px;
-    color: #ffffff;
-    margin-bottom: 10px;
-  }
-  p {
-    font-family: 思源黑体;
-    font-size: 16px;
-    font-weight: normal;
-    line-height: 10px;
-    text-align: center;
-    color: #FFFFFF;
-    letter-spacing: 0.1em;
+    padding: 60px 0;
+    background: rgba(30, 26, 25, 0.85);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    .title {
+      font-family: Source Han Sans CN;
+      font-size: 36px;
+      font-weight: 900;
+      line-height: 38px;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+    p {
+      font-family: 思源黑体;
+      font-size: 16px;
+      font-weight: normal;
+      line-height: 10px;
+      text-align: center;
+      color: #ffffff;
+      letter-spacing: 0.1em;
+    }
   }
 }
 .mobile {
@@ -420,7 +390,7 @@
     font-weight: normal;
     line-height: 10px;
     text-align: center;
-    color: #FFFFFF;
+    color: #ffffff;
   }
 }
 </style>
