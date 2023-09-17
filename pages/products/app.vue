@@ -1,6 +1,6 @@
 <template>
   <!-- 移动变现 -->
-  <div>
+  <div style="position: relative;z-index: 3;">
     <div class="banner-top"></div>
     <!-- 移动APP -->
     <ProductAppSlide></ProductAppSlide>

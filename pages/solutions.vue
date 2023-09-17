@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="position: relative;z-index: 3;">
     <!-- 优秀案例及解决方案 -->
     <div class="pc">
       <div class="access-bar">
