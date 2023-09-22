@@ -1,12 +1,12 @@
 <template>
   <el-link :underline="false" class="reset" @click="changeLogin">
     <el-icon class="el-icon--left" :size="22" color="#202020"><arrow-left /></el-icon>
-    密码重置
+    {{ $t('login.resetPassword') }}
   </el-link>
 
   <el-form ref="form" :model="resetsform" :rules="newRules">
     <el-form-item>
-      <el-input placeholder="邮箱" v-model="resetsform.email"></el-input>
+      <el-input :placeholder="$t('login.emailInput')" v-model="resetsform.email"></el-input>
     </el-form-item>
     <PasswordInput
       v-model:password="resetsform.password"
@@ -20,15 +20,15 @@
     />
     <RegistorCode v-model:phoneCode="resetsform.verificationCode" />
     <el-checkbox v-model="agree" class="agree-check"
-      >我已阅读并同意<el-link type="danger" href="/">用户协议</el-link
-      >和<el-link type="danger" href="/">隐私政策</el-link>
+      >{{ $t('login.aggreeText[0]') }}<el-link type="danger" href="/">{{ $t('login.aggreeText[1]') }}</el-link
+      >{{ $t('login.aggreeText[2]') }}<el-link type="danger" href="/">{{ $t('login.aggreeText[3]') }}</el-link>
     </el-checkbox>
     <el-form-item>
       <el-button
         class="login-btn"
         type="danger"
         @click="handleSubmit('resetPassword')"
-        >重置密码</el-button
+        >{{ $t('login.resetButton') }}</el-button
       >
     </el-form-item>
   </el-form>
@@ -51,9 +51,9 @@ export default {
         checkPassword: [{ validator: this.samePass, trigger: "blur" }],
       },
       agree: false,
-      newpaswdPlaceholder: "新密码",
+      newpaswdPlaceholder: this.$t('login.newPassword'),
       newProp: "password",
-      cpaswdPlaceholder: "确认密码",
+      cpaswdPlaceholder: this.$t('login.confirmPassword'),
       checkProp: "checkPassword",
     };
   },
@@ -69,7 +69,7 @@ export default {
       }
       console.log("+++++", this.resetsform.confirmPassword);
       if (this.resetsform.confirmPassword !== this.resetsform.password) {
-        callback(new Error("两次输入密码不一致!"));
+        callback(new Error(this.$t('login.differentPassword')));
       } else {
         callback();
       }

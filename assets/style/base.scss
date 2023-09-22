@@ -1,78 +1,136 @@
-.al-container{
+.al-container {
 	margin-left: auto;
 	margin-right: auto;
 	max-width: 100%;
 	padding: 15px;
 }
+
+.heavy-text {
+	font-family: SourceHans-heavy;
+}
+
+.normal-text {
+	font-family: SourceHans-normal;
+}
+
+.bold-text {
+	font-family: SourceHans-bold;
+}
+
+.regular-text {
+	font-family: SourceHans-regular;
+}
+
+.medium-text {
+	font-family: SourceHans-medium;
+}
+
 @media (min-width:576px) {
-	.al-container{
+	.al-container {
 		max-width: 540px;
 	}
 }
+
 @media (min-width:768px) {
-	.al-container{
+	.al-container {
 		max-width: 720px;
 	}
 }
 
 @media (min-width:992px) {
-	.al-container{
+	.al-container {
 		max-width: 960px;
 	}
 }
 
 @media (min-width:1200px) {
-	.al-container{
+	.al-container {
 		max-width: 1140px;
 	}
 }
 
 @media (min-width:1400px) {
-	.al-container{
+	.al-container {
 		max-width: 1320px;
 	}
 }
 
-body{
+body {
 	width: 100% !important;
 	background-color: $body-bg;
 }
 
 ::-webkit-scrollbar {
-  /*滚动条整体样式*/
-  width: 0; /*高宽分别对应横竖滚动条的尺寸*/
-  height: 0;
+	/*滚动条整体样式*/
+	width: 0;
+	/*高宽分别对应横竖滚动条的尺寸*/
+	height: 0;
 }
+
 ::-webkit-scrollbar-thumb {
-  /*滚动条里面小方块*/
-  border-radius: 0;
-  box-shadow: 0;
+	/*滚动条里面小方块*/
+	border-radius: 0;
+	box-shadow: 0;
 }
+
 ::-webkit-scrollbar-track {
-  /*滚动条里面轨道*/
-  box-shadow: unset;
-  border-radius: 0;
+	/*滚动条里面轨道*/
+	box-shadow: unset;
+	border-radius: 0;
 
 }
 
-.new-title{
+.new-title {
 	font-weight: bold;
 	font-size: 1.5rem;
 	color: #333;
 	overflow: hidden;
-	text-overflow:ellipsis;
+	text-overflow: ellipsis;
 	white-space: nowrap;
 	margin-bottom: 1rem;
 	cursor: pointer;
 }
-.new-title:hover{
+
+.new-title:hover {
 	color: $primary-color;
 }
 
-.section-title{
+.section-title {
 	text-align: center;
 	font-size: 32px;
 	font-weight: bold;
 	color: #12205B;
 	margin-bottom: 3rem;
+}
+
+@font-face {
+	font-family: 'YouSheBiaoTiHei';
+	src: url('/fonts/youshe.ttf');
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: SourceHans-heavy;
+	src: url('/fonts/SourceHanSansCN-Heavy.otf');
+	font-weight: normal;
+}
+@font-face {
+	font-family: SourceHans-normal;
+	src: url('/fonts/SourceHanSansCN-Normal.otf');
+	font-weight: normal;
+}
+@font-face {
+	font-family: SourceHans-bold;
+	src: url('/fonts/SourceHanSansCN-Bold.otf');
+	font-weight: normal;
+}
+@font-face {
+	font-family: SourceHans-medium;
+	src: url('/fonts/SourceHanSansCN-Medium.otf');
+	font-weight: normal;
+}
+@font-face {
+	font-family: SourceHans-regular;
+	src: url('/fonts/SourceHanSansCN-Regular.otf');
+	font-weight: normal;
 }

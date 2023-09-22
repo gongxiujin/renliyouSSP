@@ -7,7 +7,6 @@
       <div class="solution-bar">
         <div class="title-bar">
           <h2 class="solution-title">企业文化</h2>
-          <p class="solution-desc">开放共赢</p>
         </div>
         <div class="container">
           <div class="content-item">

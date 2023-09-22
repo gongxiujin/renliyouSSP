@@ -6,14 +6,14 @@
     :rules="rules"
   >
     <el-form-item v-if="isPhoneLogin">
-      <el-input placeholder="手机号" v-model="registorform.phone"></el-input>
+      <el-input :placeholder="$t('login.phoneInput')" v-model="registorform.phone"></el-input>
     </el-form-item>
     <RegistorCode
       v-if="isPhoneLogin"
       v-model:formType="registorform.registerCode"
     />
     <el-form-item v-if="!isPhoneLogin">
-      <el-input placeholder="邮箱" v-model="registorform.email"></el-input>
+      <el-input :placeholder="$t('login.emailInput')" v-model="registorform.email"></el-input>
     </el-form-item>
     <PasswordInput
       v-if="!isPhoneLogin"
@@ -22,14 +22,14 @@
       v-model:prop="pwdProp"
     />
     <el-checkbox v-model="agree" class="agree-check"
-        >我已阅读并同意<el-link type="danger" href="/">用户协议</el-link
-        >和<el-link type="danger" href="/">隐私政策</el-link>
-      </el-checkbox>
+      >{{ $t('login.aggreeText[0]') }}<el-link type="danger" href="/">{{ $t('login.aggreeText[1]') }}</el-link
+      >{{ $t('login.aggreeText[2]') }}<el-link type="danger" href="/">{{ $t('login.aggreeText[3]') }}</el-link>
+    </el-checkbox>
     <el-button class="login-btn" type="danger" @click="handleSubmit('register')"
-      >注册</el-button
+      >{{ $t('login.registorButon') }}</el-button
     >
     <div class="other" style="margin-top: 24px">
-      <el-link @click="changeFormType">已有账号,去登录</el-link>
+      <el-link @click="changeFormType">{{ $t('login.returnLogin') }}</el-link>
     </div>
   </el-form>
 </template>
@@ -49,7 +49,8 @@ export default {
         password: "",
       },
       agree: false, // 是否同意用户协议
-      paswdPlaceholder: "密码",
+      // paswdPlaceholder: "密码",
+      paswdPlaceholder: this.$t('login.password'),
       pwdProp: "password",
       rules: {
         password: [{ validator: validatePassword, trigger: "blur" }],

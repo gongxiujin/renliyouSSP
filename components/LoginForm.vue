@@ -1,22 +1,22 @@
 <template>
-  <span class="title" v-if="formType === 'login'">用户登录</span>
-  <span class="title" v-if="formType === 'register'">用户注册</span>
+  <span class="title" v-if="formType === 'login'">{{ $t('login.login') }}</span>
+  <span class="title" v-if="formType === 'register'">{{ $t('login.registor') }}</span>
   <el-tabs
     v-if="formType !== 'resetPassword'"
     v-model="activeName"
     @tab-click="handleClick"
   >
-    <el-tab-pane label="手机登录" name="phone"></el-tab-pane>
-    <el-tab-pane label="邮箱登录" name="email"></el-tab-pane>
+    <el-tab-pane :label="$t('login.loginByPhone')" name="phone"></el-tab-pane>
+    <el-tab-pane :label="$t('login.loginByEmail')" name="email"></el-tab-pane>
   </el-tabs>
   <!-- 登录表单 -->
   <el-form ref="form" :model="loginform" v-if="formType === 'login'">
     <el-form-item v-if="isPhoneLogin">
-      <el-input v-model="loginform.phone" placeholder="手机号"></el-input>
+      <el-input v-model="loginform.phone" :placeholder="$t('login.phoneInput')"></el-input>
     </el-form-item>
     <RegistorCode v-if="isPhoneLogin" v-model:phoneCode="loginform.phoneCode" />
     <el-form-item v-if="!isPhoneLogin">
-      <el-input v-model="loginform.email" placeholder="邮箱"></el-input>
+      <el-input v-model="loginform.email" :placeholder="$t('login.emailInput')"></el-input>
     </el-form-item>
     <PasswordInput
       v-if="!isPhoneLogin"
@@ -25,29 +25,29 @@
       v-model:prop="pwdProp"
     />
     <el-checkbox v-model="agree" class="agree-check"
-      >我已阅读并同意<el-link type="danger" href="/">用户协议</el-link
-      >和<el-link type="danger" href="/">隐私政策</el-link>
+      >{{ $t('login.aggreeText[0]') }}<el-link type="danger" href="/">{{ $t('login.aggreeText[1]') }}</el-link
+      >{{ $t('login.aggreeText[2]') }}<el-link type="danger" href="/">{{ $t('login.aggreeText[3]') }}</el-link>
     </el-checkbox>
     <el-button
       class="login-btn"
       type="danger"
       @click="handleSubmit('login')"
-      >登录</el-button
+      >{{ $t('login.loginButton') }}</el-button
     >
     <div class="other" style="justify-content: flex-end">
       <el-link
         v-if="!isPhoneLogin"
         class="forget-pwd"
         @click="formType = 'resetPassword'"
-        >忘记密码</el-link
+        >{{$t('login.forgetPassword')}}</el-link
       >
       <el-link v-if="isPhoneLogin" @click="formType = 'register'"
-        >还没账号？注册</el-link
+        >{{ $t('login.registorNow') }}</el-link
       >
     </div>
     <div class="other" style="margin-top: 0">
       <span style="font-size:12px; line-height: 12px;"
-        >其他方式
+        >{{ $t('login.otherWay') }}
         <el-link><img src="~/assets/images/wechat.png" alt="wechat" /></el-link
       ></span>
     </div>
@@ -66,9 +66,12 @@
 
 <script>
 import { validatePassword } from "~/assets/js/base.js";
+import { useI18n } from 'vue-i18n';
 export default {
   setup() {
-    const title = ref("登录");
+    const { t } = useI18n();
+    const title = ref(t('login.pageTitle'));
+    //
     useHead({
       title: title.value,
       meta: [{ name: "description", content: "注册登录页面" }],
@@ -83,8 +86,10 @@ export default {
       formType: "login", // form类型，可以是 'login', 'register' 或 'resetPassword'
       isPhoneLogin: true, // 是否是手机号登录
       agree: false, // 是否同意用户协议
-      codeBtnText: "发送验证码", // 验证码按钮的文本
-      paswdPlaceholder: "密码",
+      // codeBtnText: "发送验证码", // 验证码按钮的文本
+      // paswdPlaceholder: "密码",
+      codeBtnText: this.$t('login.sendCode'), // 验证码按钮的文本
+      paswdPlaceholder: this.$t('login.password'),
       pwdProp: "password",
       activeName: "phone",
       loginform: {

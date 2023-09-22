@@ -4,80 +4,33 @@
 		<div class="pc">
 			<div class="resource-bar">
 				<div class="title-bar">
-					<h2 class="resource-title">丰富的商业化资源</h2>
-					<p class="resource-desc">专业的技术服务支持</p>
+					<h2 class="resource-title heavy-text">{{ data.title.body.static }}</h2>
+					<p class="resource-desc normal-text">{{ data.text.body.static }}</p>
 				</div>
-				<div class="resource-block">
-					<div class="resource-item">
-						<img class="item-img" src="../../assets/images/index/resource-1.png" alt="">
+				<div class="resource-block" >
+					<div class="resource-item" v-for="(item, index) in data.content" :key="index">
+						<img class="item-img" :src="item.image.body.static" alt="">
 						<div class="item-text">
-							<p class="text-content">商业资源</p>
-							<p class="text-desc">覆盖100+行业预算，包括游戏、电商、健身、金融等行业。</p>
-						</div>
-					</div>
-					<div class="resource-item">
-						<img class="item-img" src="../../assets/images/index/resource-2.png" alt="">
-						<div class="item-text">
-							<p class="text-content">技术资源</p>
-							<p class="text-desc">技术团队核心成员均来自案例、腾讯、猎豹等大型互联网公
-司，一站式开发，算力保障，RTB高效竞价增收。</p>
-						</div>
-					</div>
-					<div class="resource-item">
-						<img class="item-img" src="../../assets/images/index/resource-3.png" alt="">
-						<div class="item-text">
-							<p class="text-content">数据监控</p>
-							<p class="text-desc">24小时数据自动监控与巡检，实时预警并高效解决，实现第
-三方数据打通，支持效果转化深度分析。</p>
-						</div>
-					</div>
-					<div class="resource-item">
-						<img class="item-img" src="../../assets/images/index/resource-4.png" alt="">
-						<div class="item-text">
-							<p class="text-content">技术支持</p>
-							<p class="text-desc">平台功能强大易用，7*16小时在线技术支持，为客户提供精
-细化贴心服务。</p>
+							<p class="text-content medium-text">{{item.title.body.static}}</p>
+							<p class="text-desc normal-text">{{ item.text.body.static }}</p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+
 		<div class="mobile">
 			<div class="m-resource-bar">
 				<div class="title-bar">
-					<h2 class="resource-title">丰富的商业化资源</h2>
-					<p class="resource-desc">专业的技术服务支持</p>
+					<h2 class="resource-title heavy-text">{{ data.title.body.static }}</h2>
+					<p class="resource-desc normal-text">{{ data.text.body.static }}</p>
 				</div>
-				<div class="resource-block">
-					<div class="resource-item">
-						<img class="item-img" src="../../assets/images/index/resource-1.png" alt="">
+				<div class="resource-block" >
+					<div class="resource-item" v-for="(item, index) in data.content" :key="index">
+						<img class="item-img" :src="item.image.body.static" alt="">
 						<div class="item-text">
-							<p class="text-content">商业资源</p>
-							<p class="text-desc">覆盖100+行业预算，包括游戏、电商、健身、金融等行业。</p>
-						</div>
-					</div>
-					<div class="resource-item">
-						<img class="item-img" src="../../assets/images/index/resource-2.png" alt="">
-						<div class="item-text">
-							<p class="text-content">技术资源</p>
-							<p class="text-desc">技术团队核心成员均来自案例、腾讯、猎豹等大型互联网公
-司，一站式开发，算力保障，RTB高效竞价增收。</p>
-						</div>
-					</div>
-					<div class="resource-item">
-						<img class="item-img" src="../../assets/images/index/resource-3.png" alt="">
-						<div class="item-text">
-							<p class="text-content">数据监控</p>
-							<p class="text-desc">24小时数据自动监控与巡检，实时预警并高效解决，实现第
-三方数据打通，支持效果转化深度分析。</p>
-						</div>
-					</div>
-					<div class="resource-item">
-						<img class="item-img" src="../../assets/images/index/resource-4.png" alt="">
-						<div class="item-text">
-							<p class="text-content">技术支持</p>
-							<p class="text-desc">平台功能强大易用，7*16小时在线技术支持，为客户提供精
-细化贴心服务。</p>
+							<p class="text-content medium-text">{{item.title.body.static}}</p>
+							<p class="text-desc normal-text">{{ item.text.body.static }}</p>
 						</div>
 					</div>
 				</div>
@@ -85,7 +38,11 @@
 		</div>
     </div>
 </template>
-
+<script setup>
+import { useI18n } from 'vue-i18n';
+const { tm } = useI18n();
+const data = ref(tm('home').resource);
+</script>
 <style lang="scss" scoped>
 	@media (max-width: $mobile-width) {
 		.pc {
@@ -108,7 +65,6 @@
 			min-width: 1200px;
 			text-align: center;
 			.resource-title {
-				font-family: Source Han Sans CN;
 				font-size: 36px;
 				font-weight: 900;
 				line-height: 38px;
@@ -143,9 +99,9 @@
 				.item-text {
 					padding: 16px 0 16px 8px;
 					.text-content {
-						font-weight: 700;
-						font-size: 24px;
-						line-height: 32px;
+						font-weight: 500;
+						font-size: 26px;
+						line-height: 26px;
 						color: #222;
 					}
 					.text-desc {
@@ -153,7 +109,7 @@
 						font-size: 16px;
 						line-height: 24px;
 						margin-top: 8px;
-						color: #666;
+						color: #777;
 						display: -webkit-box;
 						-webkit-line-clamp: 1;
 						-webkit-box-orient: vertical;
@@ -175,7 +131,6 @@
 			flex-direction: column;
 			align-items: center;
 			.resource-title {
-				font-family: Source Han Sans CN;
 				font-size: 24px;
 				font-weight: 900;
 				line-height: 16px;
@@ -183,7 +138,6 @@
 				color: #222222;
 			}
 			.resource-desc {
-				font-family: Source Han Sans CN;
 				font-size: 14px;
 				font-weight: normal;
 				line-height: 38px;
@@ -208,19 +162,19 @@
 					min-width: 86px;
 				}
 				.item-text {
-					
+					width: 164px;
 					text-align: center;
 					.text-content {
 						font-weight: 700;
 						font-size: 18px;
-						line-height: 32px;
+						line-height: 26px;
 						color: #222;
 					}
 					.text-desc {
 						font-weight: 400;
 						font-size: 13px;
-						line-height: 24px;
-						margin-top: 8px;
+						line-height: 20px;
+						margin-top: 4px;
 						color: #666;
 						text-align: left;
 						padding: 0 20px;

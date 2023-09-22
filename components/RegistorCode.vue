@@ -2,7 +2,7 @@
   <el-form-item>
     <el-input
       v-model="localPhoneCode"
-      placeholder="验证码"
+      :placeholder="$t('login.code')"
       @input="changePhoneCode"
     ></el-input>
     <el-button
@@ -15,7 +15,7 @@
   </el-form-item>
 </template>
 
-<script lang="ts">
+<script>
 export default {
   props: ["phoneCode"],
   emits: ["update:phoneCode"],
@@ -24,7 +24,7 @@ export default {
       localPhoneCode: this.phoneCode,
       isCodeBtnDisabled: false,
       codeBtnText: "",
-      defaultCodeBtnText: "发送验证码",
+      defaultCodeBtnText: this.$t('login.sendCode'),
     };
   },
   created() {
