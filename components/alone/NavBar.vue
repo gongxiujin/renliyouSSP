@@ -1,18 +1,18 @@
 <template>
 	<nav class="nav-bar">
 		<ul class="nav">
-			<li v-for="(nav, index) in data" :key="index">
+			<li v-for="(nav, index) in navList" :key="index">
 				<div class="nav-item">
 					<div class="nav-item-title">
 						<nuxt-link :class="{ 'active': routePath == nav.link }" :to="nav.link">
-							{{ nav.name }}</nuxt-link>
+							{{ $t('navList.'+nav.key) }}</nuxt-link>
 					</div>
 					<!-- 下拉菜单 -->
 					<div v-if="nav.children" class="dropdown-content">
 						<div class="dropdown-menu">
 							<div v-for="(navChildren, navChildrenIndex) in nav.children" class="menuItem"
 								:key="navChildrenIndex">
-								<nuxt-link :to="navChildren.link">{{ navChildren.name }}</nuxt-link>
+								<nuxt-link :to="navChildren.link">{{ $t('navList.'+navChildren.key) }}</nuxt-link>
 							</div>
 						</div>
 					</div>
@@ -35,6 +35,22 @@ const route = useRoute()
 const {
 	data
 } = defineProps(['data'])
+const navList = ref([
+  { name: "首页", link: "/", key: "home" },
+  {
+    name: "产品中心",
+    link: "#",
+    key: "proCenter",
+    children: [
+      { name: "移动变现", link: "/products/app", key: "app" },
+      { name: "PC变现", link: "/products/pc", key: "pc" },
+      { name: "数据增长", link: "/products/dataGrowth", key: "dataGrowth" },
+    ],
+  },
+  { name: "解决方案", link: "/solutions", key: "solutions" },
+  { name: "关于我们", link: "/aboutUs", key:  "aboutUs"},
+]);
+
 const routePath = ref('')
 watch(() => route.path, (path) => {
 	routePath.value = path
