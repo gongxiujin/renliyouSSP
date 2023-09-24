@@ -4,33 +4,16 @@
     <div class="pc">
       <div class="access-bar">
         <div class="title-bar">
-          <h2 class="access-title">全生命周期提供数据服务</h2>
+          <h2 class="access-title">{{ data.title.body.static }}</h2>
         </div>
         <div class="menu-bar">
           <div class="menu">
             <div
-              @mouseover="setIndex(0)"
-              :class="['menu-item', activeIndex == 0 ? 'active' : '']"
+              v-for="(item, index) in data.content" :key="index"
+              @mouseover="setIndex(index)"
+              :class="['menu-item', activeIndex == index ? 'active' : '']"
             >
-              数据收集和监测
-            </div>
-            <div
-              @mouseover="setIndex(1)"
-              :class="['menu-item', activeIndex == 1 ? 'active' : '']"
-            >
-              数据分析和挖掘
-            </div>
-            <div
-              @mouseover="setIndex(2)"
-              :class="['menu-item', activeIndex == 2 ? 'active' : '']"
-            >
-              优化策略输出
-            </div>
-            <div
-              @mouseover="setIndex(3)"
-              :class="['menu-item', activeIndex == 3 ? 'active' : '']"
-            >
-              监测和评估
+              {{ item.title.body.static }}
             </div>
           </div>
         </div>
@@ -40,62 +23,17 @@
             @swiper="onSwiper"
             @slideChange="handleSlideChange"
           >
-            <swiper-slide key="0">
+            <swiper-slide v-for="(item, index) in data.content" :key="index">
               <div class="slide-item">
                 <div class="slide-text">
-                  <p class="text-title">数据收集和监测</p>
+                  <p class="text-title">{{ item.title.body.static }}</p>
                   <p class="text-desc">
-                    收集各类广告投放的数据，监测用户的行为、收集竞争者的数据。
+                    {{ item.text.body.static }}
                   </p>
                 </div>
                 <img
                   class="banner-img"
-                  src="../../assets/images/product/dataService1-1.png"
-                  alt=""
-                />
-              </div>
-            </swiper-slide>
-            <swiper-slide key="1">
-              <div class="slide-item">
-                <div class="slide-text">
-                  <p class="text-title">数据分析和挖掘</p>
-                  <p class="text-desc">
-                    用最先进的算法对广告投放过程中的数据进行分析和挖掘，寻找其中的规律与趋势，为决策提供科学的依据。
-                  </p>
-                </div>
-                <img
-                  class="banner-img"
-                  src="../../assets/images/product/dataService1-2.png"
-                  alt=""
-                />
-              </div>
-            </swiper-slide>
-            <swiper-slide key="2">
-              <div class="slide-item">
-                <div class="slide-text">
-                  <p class="text-title">优化策略输出</p>
-                  <p class="text-desc">
-                    通过对数据分析的结果，输出一系列针对性的优化策略，如降本增效、改进目标受众等。
-                  </p>
-                </div>
-                <img
-                  class="banner-img"
-                  src="../../assets/images/product/dataService1-3.png"
-                  alt=""
-                />
-              </div>
-            </swiper-slide>
-            <swiper-slide key="3">
-              <div class="slide-item">
-                <div class="slide-text">
-                  <p class="text-title">监测和评估</p>
-                  <p class="text-desc">
-                    对投放效果进行监测和评估，了解并分析优化策略的实施效果。
-                  </p>
-                </div>
-                <img
-                  class="banner-img"
-                  src="../../assets/images/product/dataService1-4.png"
+                  :src="item.image.body.static"
                   alt=""
                 />
               </div>
@@ -107,74 +45,19 @@
     <div class="mobile">
       <div class="m-access-bar">
         <div class="title-bar">
-          <h2 class="access-title">全生命周期提供数据服务</h2>
+          <h2 class="access-title">{{ data.title.body.static }}</h2>
         </div>
-        <!-- <div class="menu-bar">
-          <div class="menu">
-            <div @click="setIndex(0)" class="menu-item">
-              <p :class="{ active: activeIndex == 0 }">数据收集和监测</p>
-            </div>
-            <div @click="setIndex(1)" class="menu-item">
-              <p :class="{ active: activeIndex == 1 }">数据分析和挖掘</p>
-            </div>
-            <div @click="setIndex(2)" class="menu-item">
-              <p :class="{ active: activeIndex == 2 }">优化策略输出</p>
-            </div>
-            <div @click="setIndex(3)" class="menu-item">
-              <p :class="{ active: activeIndex == 3 }">监测和评估</p>
-            </div>
-          </div>
-        </div> -->
         <div class="slide-bar">
-          <div class="slide-item">
+          <div class="slide-item" v-for="(item, index) in data.content" :key="index">
             <img
               class="banner-img"
-              src="../../assets/images/product/dataService1-1.png"
-              alt=""
+              :src="item.image.body.static"
+              :alt="data.title.body.static"
             />
             <div class="slide-text">
-              <p class="text-title">数据收集和监测</p>
+              <p class="text-title">{{ item.title.body.static }}</p>
               <p class="text-desc">
-                收集各类广告投放的数据，监测用户的行为、收集竞争者的数据。
-              </p>
-            </div>
-          </div>
-          <div class="slide-item">
-            <img
-              class="banner-img"
-              src="../../assets/images/product/dataService1-2.png"
-              alt=""
-            />
-            <div class="slide-text">
-              <p class="text-title">数据分析和挖掘</p>
-              <p class="text-desc">
-                用最先进的算法对广告投放过程中的数据进行分析和挖掘，寻找其中的规律与趋势，为决策提供科学的依据。
-              </p>
-            </div>
-          </div>
-          <div class="slide-item">
-            <img
-              class="banner-img"
-              src="../../assets/images/product/dataService1-3.png"
-              alt=""
-            />
-            <div class="slide-text">
-              <p class="text-title">优化策略输出</p>
-              <p class="text-desc">
-                通过对数据分析的结果，输出一系列针对性的优化策略，如降本增效、改进目标受众等。
-              </p>
-            </div>
-          </div>
-          <div class="slide-item">
-            <img
-              class="banner-img"
-              src="../../assets/images/product/dataService1-4.png"
-              alt=""
-            />
-            <div class="slide-text">
-              <p class="text-title">监测和评估</p>
-              <p class="text-desc">
-                对投放效果进行监测和评估，了解并分析优化策略的实施效果。
+                {{ item.text.body.static }}
               </p>
             </div>
           </div>
@@ -189,6 +72,9 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { useI18n } from 'vue-i18n';
+const { tm } = useI18n();
+const data = ref(tm('dataGrowth').dataService);
 
 const activeIndex = ref(0);
 const swiperInstance = ref();
@@ -225,13 +111,13 @@ function onSwiper(swiper) {
 }
 .access-bar {
   width: 100%;
-  padding-top: 84px;
+  padding-top: 38px;
   background: #ffffff;
   .title-bar {
     min-width: 1200px;
     text-align: center;
     .access-title {
-      font-family: Source Han Sans CN;
+
       font-size: 36px;
       font-weight: 900;
       line-height: 38px;
@@ -245,7 +131,7 @@ function onSwiper(swiper) {
     justify-content: center;
     position: relative;
     border-bottom: 1px solid #d8d8d8;
-    margin: 16px auto 0;
+    margin: 10px auto 0;
     .menu {
       width: 800px;
       display: flex;
@@ -267,7 +153,7 @@ function onSwiper(swiper) {
         border-radius: 2px;
         opacity: 1;
         font-weight: 600;
-        font-family: Source Han Sans CN;
+
         font-size: 18px;
         font-weight: bold;
         color: #222222;
@@ -287,7 +173,7 @@ function onSwiper(swiper) {
   .slide-bar {
     width: 1200px;
     text-align: center;
-    margin: 14px auto 0;
+    margin: 51px auto 0;
     padding-bottom: 100px;
     .swiper {
       width: 100%;
@@ -301,7 +187,7 @@ function onSwiper(swiper) {
           width: 400px;
           padding-left: 50px;
           .text-title {
-            font-family: Source Han Sans CN;
+
             font-size: 26px;
             font-weight: bold;
             line-height: 26px;
@@ -309,13 +195,13 @@ function onSwiper(swiper) {
             text-align: left;
           }
           .text-desc {
-            font-family: 思源黑体;
+
             font-size: 16px;
             font-weight: normal;
             line-height: 24px;
             color: #666666;
             text-align: left;
-            margin-top: 14px;
+            margin-top: 31px;
           }
         }
         .banner-img {
@@ -328,6 +214,7 @@ function onSwiper(swiper) {
 }
 .mobile {
   display: none;
+  height: 1575px;
   padding-top: 47px;
   background: #141f29;
   .m-access-bar {
@@ -336,7 +223,7 @@ function onSwiper(swiper) {
       width: 100%;
       text-align: center;
       .access-title {
-        font-family: Source Han Sans CN;
+
         font-size: 24px;
         font-weight: 900;
         line-height: 38px;
@@ -387,23 +274,28 @@ function onSwiper(swiper) {
     }
     .slide-bar {
       width: 100%;
+      height: 1400px;
       text-align: center;
-      margin: 20px auto;
-      padding-bottom: 60px;
+      margin-top: 25px;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: space-between;
+      justify-content: center;
       .slide-item {
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 343px;
+        height: 338px;
         justify-content: center;
         background: #ffffff;
         border-radius: 4px;
-        margin: 0 16px 16px;
         padding: 17px 0;
         .slide-text {
-          width: 100%;
-          padding: 0 33px;
+          width: 300px;
+          margin: 0 auto;
           .text-title {
-            font-family: Source Han Sans CN;
+
             font-size: 18px;
             font-weight: bold;
             line-height: 26px;
@@ -411,13 +303,13 @@ function onSwiper(swiper) {
             text-align: left;
           }
           .text-desc {
-            font-family: 思源黑体;
+
             font-size: 14px;
             font-weight: normal;
-            line-height: 24px;
+            line-height: 20px;
             color: #666666;
             text-align: left;
-            margin-top: 14px;
+            margin-top: 7px;
           }
         }
         .banner-img {

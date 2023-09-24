@@ -4,139 +4,56 @@
     <div class="pc">
       <div class="solution-bar">
         <div class="title-bar">
-          <h2 class="solution-title">移动APP</h2>
-          <p class="solution-desc">丰富的广告样式，满足不同场景需求</p>
+          <h2 class="solution-title">{{ data.title.body.static }}</h2>
+          <p class="solution-desc" :style="data.textStyle.body.static">
+            {{ data.text.body.static }}
+          </p>
         </div>
         <div class="container">
           <div class="tabs">
             <div
-              :class="['tabs-item', activeIndex == 0 ? 'active' : '']"
-              @mouseover="handleMouseOver(0)"
+              v-for="(item, index) in data.content"
+              :key="index"
+              :class="['tabs-item', activeIndex == index ? 'active' : '']"
+              @mouseover="handleMouseOver(index)"
             >
               <img
-                v-if="activeIndex == 0"
-                src="../../assets/images/product/appTabs1Act.png"
-                alt=""
+                v-if="activeIndex == index"
+                :src="item.iconActive.body.static"
+                :alt="item.title.body.static"
               />
               <img
                 v-else
-                src="../../assets/images/product/appTabs1.png"
-                alt=""
+                :src="item.icon.body.static"
+                :alt="item.title.body.static"
               />
-              <span>开屏广告</span>
-            </div>
-            <div
-              :class="['tabs-item', activeIndex == 1 ? 'active' : '']"
-              @mouseover="handleMouseOver(1)"
-            >
-              <img
-                v-if="activeIndex == 1"
-                src="../../assets/images/product/appTabs2Act.png"
-                alt=""
-              />
-              <img
-                v-else
-                src="../../assets/images/product/appTabs2.png"
-                alt=""
-              />
-              <span>信息流广告</span>
-            </div>
-            <div
-              :class="['tabs-item', activeIndex == 2 ? 'active' : '']"
-              @mouseover="handleMouseOver(2)"
-            >
-              <img
-                v-if="activeIndex == 2"
-                src="../../assets/images/product/appTabs3Act.png"
-                alt=""
-              />
-              <img
-                v-else
-                src="../../assets/images/product/appTabs3.png"
-                alt=""
-              />
-              <span>Banner</span>
-            </div>
-            <div
-              :class="['tabs-item', activeIndex == 3 ? 'active' : '']"
-              @mouseover="handleMouseOver(3)"
-            >
-              <img
-                v-if="activeIndex == 3"
-                src="../../assets/images/product/appTabs4Act.png"
-                alt=""
-              />
-              <img
-                v-else
-                src="../../assets/images/product/appTabs4.png"
-                alt=""
-              />
-              <span>插屏广告</span>
-            </div>
-            <div
-              :class="['tabs-item', activeIndex == 4 ? 'active' : '']"
-              @mouseover="handleMouseOver(4)"
-            >
-              <img
-                v-if="activeIndex == 4"
-                src="../../assets/images/product/appTabs5Act.png"
-                alt=""
-              />
-              <img
-                v-else
-                src="../../assets/images/product/appTabs5.png"
-                alt=""
-              />
-              <span>激励视频</span>
+              <span>{{ item.title.body.static }}</span>
             </div>
           </div>
           <div class="content">
-            <div class="content-item" v-if="activeIndex == 0">
-              <img src="../../assets/images/product/appPhone1.png" alt="" />
-              <div class="content-text">
-                <p class="text-1">开屏广告</p>
-                <p class="text-2">
-                  启动页广告，出现在APP启动加载时，
-                  将广告图片或视频展示固定时间（一般为5s-15s），展示完毕后自动关闭并进入APP主页面。抢占应用开启的“黄金5秒”，用户关注度较高。
-                </p>
+            <div class="content-item">
+              <div class="content-phone">
+                <img
+                  :src="image.body.static"
+                  alt=""
+                  v-for="(image, idx) in data.content[activeIndex].image"
+                  :class="`images-${idx}`"
+                  :key="idx"
+                />
+                <img src="/images/product/cross.jpg" alt="" class="cross up" />
+                <img
+                  src="/images/product/cross.jpg"
+                  alt=""
+                  class="cross down"
+                />
               </div>
-            </div>
-            <div class="content-item" v-else-if="activeIndex == 1">
-              <img src="../../assets/images/product/appPhone1.png" alt="" />
+
               <div class="content-text">
-                <p class="text-1">信息流广告</p>
-                <p class="text-2">
-                  在用户浏览阅读APP的推荐列表页、文章详情页、视频详情页中的原生图文及视频广告
+                <p class="text-1 bold-text">
+                  {{ data.content[activeIndex].title.body.static }}
                 </p>
-              </div>
-            </div>
-            <div class="content-item" v-else-if="activeIndex == 2">
-              <img src="../../assets/images/product/appPhone1.png" alt="" />
-              <div class="content-text">
-                <p class="text-1">Banner</p>
-                <p class="text-2">
-                  固定于app顶部、中部、底部、或其他位置,横向贯穿整个app页面，高曝光率，目标受众广泛，易于操作，效果可持续优化。
-                </p>
-              </div>
-            </div>
-            <div class="content-item" v-else-if="activeIndex == 3">
-              <img src="../../assets/images/product/appPhone1.png" alt="" />
-              <div class="content-text">
-                <p class="text-1">插屏广告</p>
-                <p class="text-2">
-                  触发式广告，在用户做出相应的操作（如开启、暂停、过
-                  关、跳转、退出）后，弹出的以图片、视频等为表现形式
-                  的半屏或全屏广告。曝光度高，视觉冲击力强。
-                </p>
-              </div>
-            </div>
-            <div class="content-item" v-else>
-              <img src="../../assets/images/product/appPhone1.png" alt="" />
-              <div class="content-text">
-                <p class="text-1">激励视频</p>
-                <p class="text-2">
-                  深度适配流量APP原生模式的15-30秒全屏视频广告
-                  用户可以选择观看视频广告来换区游戏或应用内奖励。
+                <p class="text-2 normal-text">
+                  {{ data.content[activeIndex].text.body.static }}
                 </p>
               </div>
             </div>
@@ -147,79 +64,40 @@
     <div class="mobile">
       <div class="m-solution-bar">
         <div class="title-bar">
-          <h2 class="solution-title">专业的解决方案</h2>
-          <p class="solution-desc">行业深耕多年，适配不同行业的业务痛点</p>
+          <h2 class="solution-title">{{ data.title.body.static }}</h2>
+          <p class="solution-desc" :style="data.textStyle.body.static">
+            {{ data.text.body.static }}
+          </p>
         </div>
         <div class="m-swiper-main">
           <swiper
             class="swiper"
+            :centeredSlides="true"
+            :modules="modules"
+            :spaceBetween="23"
+            :slidesPerView="1.6"
             @swiper="onSwiperM"
             @slideChange="slideChange"
-            :centered-slides="true"
-            :slides-per-view="1.3"
-            :space-between="0"
+
           >
-            <swiper-slide key="0">
-                <img
-                    class="banner-img"
-                    src="../../assets/images/product/appPhone1.png"
-                    alt=""
-                />
-            </swiper-slide>
-            <swiper-slide key="1">
+            <swiper-slide v-for="(item, index) in data.content" :key="index">
               <img
                 class="banner-img"
-                src="../../assets/images/product/appPhone1.png"
-                alt=""
-              />
-            </swiper-slide>
-            <swiper-slide key="2">
-              <img
-                class="banner-img"
-                src="../../assets/images/product/appPhone1.png"
-                alt=""
-              />
-            </swiper-slide>
-            <swiper-slide key="3">
-              <img
-                class="banner-img"
-                src="../../assets/images/product/appPhone1.png"
-                alt=""
-              />
-            </swiper-slide>
-            <swiper-slide key="4">
-              <img
-                class="banner-img"
-                src="../../assets/images/product/appPhone1.png"
-                alt=""
+                :src="item.image[0].body.static"
+                :alt="item.title.body.static"
               />
             </swiper-slide>
           </swiper>
         </div>
         <div class="bottom-content">
-            <div class="content-item" v-if="activeIndex==0">
-                <p class="text-1">开屏广告</p>
-                <p class="text-2">
-                    启动页广告，出现在APP启动加载时， 将广告图片或视频展示固定时间（一般为5s-15s），
-                    展示完毕后自动关闭并进入APP主页面。抢占应用开启的“黄金5秒”，用户关注度较高。
-                </p>
-              </div>
-              <div class="content-item" v-else-if="activeIndex==1">
-                <p class="text-1">信息流广告</p>
-                <p class="text-2">在用户浏览阅读APP的推荐列表页、文章详情页、视频详情页中的原生图文及视频广告。</p>
-              </div>
-              <div class="content-item" v-else-if="activeIndex==2">
-                <p class="text-1">Banner</p>
-                <p class="text-2">在用户浏览阅读APP的推荐列表页、文章详情页、视频详情页中的原生图文及视频广告。</p>
-              </div>
-              <div class="content-item" v-else-if="activeIndex==3">
-                <p class="text-1">插屏广告</p>
-                <p class="text-2">触发式广告，在用户做出相应的操作（如开启、暂停、过关、跳转、退出）后，弹出的以图片、视频等为表现形式的半屏或全屏广告。曝光度高，视觉冲击力强。</p>
-              </div>
-              <div class="content-item" v-else-if="activeIndex==4">
-                <p class="text-1">激励视频</p>
-                <p class="text-2">深度适配流量APP原生模式的15-30秒全屏视频广告，用户可以选择观看视频广告来换取应用或游戏内的奖励。</p>
-              </div>
+          <div class="content-item">
+            <p class="text-1 bold-text">
+              {{ data.content[activeIndex].title.body.static }}
+            </p>
+            <p class="text-2 normal-text">
+              {{ data.content[activeIndex].text.body.static }}
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -240,33 +118,33 @@ function handleMouseOver(index) {
   activeIndex.value = index;
   swiperInstance.value?.slideTo(index);
 }
+const props = defineProps(["data"]);
 
 function slideChange(swiper) {
-    // 获取当前活动Slide的索引
-    const index = swiper.activeIndex;
-    const length = swiper.slides.length
-    activeIndex.value = index
-    swiper.slides[index].style.transform = "scale(1)";
-    // 根据索引判断是否为中间Slide
-    if (index > 0) {
-        if (length - 1 > index) {
-            swiper.slides[index-1].style.transform = "scale(0.9)";
-            swiper.slides[index+1].style.transform = "scale(0.9)";
-        } else {
-            swiper.slides[index-1].style.transform = "scale(0.9)";
-        }
-
-    } else {
-        swiper.slides[index+1].style.transform = "scale(0.9)";
-    }
+  // 获取当前活动Slide的索引
+  const index = swiper.activeIndex;
+  const length = swiper.slides.length;
+  activeIndex.value = index;
+  swiper.slides[index].style.transform = "scale(1)";
+  // 根据索引判断是否为中间Slide
+  // if (index > 0) {
+  //   if (length - 1 > index) {
+  //     swiper.slides[index - 1].style.transform = "scale(0.9)";
+  //     swiper.slides[index + 1].style.transform = "scale(0.9)";
+  //   } else {
+  //     swiper.slides[index - 1].style.transform = "scale(0.9)";
+  //   }
+  // } else {
+  //   swiper.slides[index + 1].style.transform = "scale(0.9)";
+  // }
 }
 
 function onSwiperM(swiper) {
   swiperInstanceM.value = swiper;
   const index = swiper.activeIndex;
-  if (swiper.slides[index]) {
-    swiper.slides[index].style.transform = "scale(1)";
-  }
+  // if (swiper.slides[index]) {
+  //   swiper.slides[index].style.transform = "scale(1)";
+  // }
 }
 
 function onSwiper(swiper) {
@@ -301,7 +179,6 @@ function onSwiper(swiper) {
     min-width: 1200px;
     text-align: center;
     .solution-title {
-      font-family: Source Han Sans CN;
       font-size: 36px;
       font-weight: 900;
       line-height: 38px;
@@ -309,11 +186,11 @@ function onSwiper(swiper) {
       color: #222222;
     }
     .solution-desc {
-      margin-top: 14px;
-      font-family: Source Han Sans CN;
+      margin: 14px auto 0;
+      width: 600px;
       font-size: 16px;
       font-weight: normal;
-      line-height: 38px;
+      line-height: 24px;
       color: #777777;
     }
   }
@@ -334,7 +211,7 @@ function onSwiper(swiper) {
       margin: 0 auto;
       .tabs-item {
         width: 100%;
-        height: 123px;
+        flex: 1;
         padding: 0 27px;
         display: flex;
         align-items: center;
@@ -362,19 +239,51 @@ function onSwiper(swiper) {
       align-items: center;
       justify-content: center;
       .content-item {
+        position: relative;
         width: 100%;
-        padding: 0 110px;
+        padding: 0 70px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        img {
-          width: 233px;
-          height: 467px;
+        .content-phone {
+          position: relative;
+          width: 331px;
+          display: flex;
+          justify-content: center;
+          img.images-0 {
+            border: 8px solid #222;
+            border-radius: 32px;
+            width: 233px;
+            height: 467px;
+            z-index: 4;
+            position: relative;
+          }
+          img.images-1 {
+            position: absolute;
+            width: 100%;
+            margin: 50% 0;
+            z-index: 5;
+          }
+          img.cross {
+            position: absolute;
+            width: 185px;
+            height: 156x;
+            z-index: 3;
+            &.up {
+              top: 39px;
+              left: 38px;
+            }
+            &.down {
+              bottom: 36px;
+              right: 38px;
+              transform: rotate(180deg);
+            }
+          }
         }
+
         .content-text {
           width: 400px;
           .text-1 {
-            font-family: Source Han Sans CN;
             font-size: 26px;
             font-weight: bold;
             line-height: 25.99px;
@@ -382,7 +291,6 @@ function onSwiper(swiper) {
             margin-bottom: 29px;
           }
           .text-2 {
-            font-family: 思源黑体;
             font-size: 16px;
             font-weight: normal;
             color: #666666;
@@ -403,7 +311,7 @@ function onSwiper(swiper) {
         .banner-img {
           width: 100%;
           height: 100%;
-        //   object-fit: cover;
+          //   object-fit: cover;
         }
       }
     }
@@ -417,72 +325,79 @@ function onSwiper(swiper) {
   .m-solution-bar {
     width: 100%;
     height: 100%;
-    padding: 0 15px;
+    p, h2{
+      width: 300px;
+    }
     .title-bar {
       width: 100%;
       text-align: center;
+      justify-content: center;
+      display: flex;
+      flex-wrap: wrap;
       .solution-title {
-        font-family: Source Han Sans CN;
-        font-size: 24px;
+        font-size: 28px;
         font-weight: 900;
         line-height: 38px;
         text-align: center;
         color: #222222;
       }
       .solution-desc {
-        margin-top: 14px;
-        font-family: Source Han Sans CN;
-        font-size: 16px;
+        margin-top: 8px;
+
+        font-size: 14px;
         font-weight: normal;
-        line-height: 24px;
+        line-height: 16px;
         color: #777777;
       }
     }
+
     .m-swiper-main {
       width: 100%;
-      margin: 25px auto 40px;
+      margin: 21px 0;
       .swiper {
         width: 100%;
         display: flex;
         flex-direction: column;
         background: #f8f8f8;
-        .banner-img {
-          width: 18rem;
-          height: 467px;
-        //   object-fit: contain;
+
+        .swiper-slide {
+          justify-content: center;
+          display: flex;
+          .banner-img {
+            border-radius: 35px;
+            border: 12px solid #222;
+          }
         }
       }
     }
     .bottom-content {
-        width: 100%;
-        .content-item {
-          padding: 14px 17px 21px;
-          .text-1 {
-            font-family: Source Han Sans CN;
-            font-size: 18px;
-            font-weight: bold;
-            line-height: 25.99px;
-            color: #222222;
-            margin-bottom: 10px;
-          }
-          .text-2 {
-            font-family: 思源黑体;
-            font-size: 14px;
-            font-weight: normal;
-            color: #666666;
-            margin-bottom: 13px;
-          }
-          .text-3 {
-            font-family: 思源黑体;
-            font-size: 14px;
-            font-weight: normal;
-            color: #222222;
-          }
+      justify-content: center;
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      .content-item {
+        padding: 14px 17px 21px;
+        .text-1 {
+          font-size: 20px;
+          font-weight: bold;
+          line-height: 25.99px;
+          color: #222222;
+          margin-bottom: 10px;
         }
+        .text-2 {
+          font-size: 14px;
+          font-weight: normal;
+          color: #666666;
+          margin-bottom: 13px;
+        }
+        .text-3 {
+          font-size: 14px;
+          font-weight: normal;
+          color: #222222;
+        }
+      }
     }
   }
 }
-.swiper-slide {
-    transform: scale(0.9);
-}
+
 </style>

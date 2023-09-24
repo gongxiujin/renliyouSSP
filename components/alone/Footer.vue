@@ -2,65 +2,50 @@
   <footer class="footer-pc">
     <div class="footer-container">
       <div class="footer-head">
-        <img src="../../assets/images/logo01.png" alt="" />
+        <img src="/images/logo01.png" alt="" />
       </div>
       <div class="footer-main">
         <div class="pangle-footer-links">
           <div class="footerContainer">
-            <div class="col">
+            <div class="col" v-for="(item, index) in data.up" :key="index">
               <div class="content">
-                <p class="title">热门推荐</p>
-                <a href="" class="link">移动变现</a>
-                <a href="" class="link">PC变现</a>
-                <a href="" class="link">数据增长</a>
-                <a href="" class="link">解决方案</a>
+                <p class="title">{{ item.title.body.static }}</p>
+                <a
+                v-for="(text, idx) in item.row" :key="idx"
+                :href="text.link.body.static" class="link"
+                >{{ text.text.body.static }}</a>
               </div>
             </div>
             <div class="col">
               <div class="content">
-                <p class="title">其他</p>
-                <a href="关于我们" class="link">关于我们</a>
-                <a href="" class="link">联系我们</a>
-                <a href="" class="link">用户协议</a>
-                <a href="/policy" class="link">隐私政策</a>
-              </div>
-            </div>
-            <div class="col">
-              <div class="content">
-                <p class="title">友情链接</p>
-                <a href="" class="link">云袭广告投放平台</a>
-              </div>
-            </div>
-            <div class="col">
-              <div class="content">
-                <p class="title">关注我们</p>
+                <p class="title">{{ $t('footer.followUs') }}</p>
                 <div class="content-item mb-6">
                   <el-tooltip placement="left" effect="light">
                     <template #content>
                       <img
                         class="code-img"
-                        src="../../assets/images/index/code.png"
+                        src="/images/index/code.png"
                         alt=""
                       />
                     </template>
                     <div class="wechat">
                       <img
                         class="wechat-img"
-                        src="../../assets/images/index/WeChat.png"
+                        src="/images/index/WeChat.png"
                         alt=""
                       />
                     </div>
                   </el-tooltip>
-                  <div class="wechat-text">微信服务号</div>
+                  <div class="wechat-text">{{ $t('footer.weChat') }}</div>
                 </div>
                 <div class="content-item mb-2">
                   <div class="phone">
                     <img
                       class="phone-img"
-                      src="../../assets/images/index/phone.png"
+                      src="/images/index/phone.png"
                       alt=""
                     />
-                    <div>24小时服务热线</div>
+                    <div>{{ $t('footer.hotLine') }}</div>
                   </div>
                 </div>
                 <p class="phone-num mb-6">17060666669</p>
@@ -68,10 +53,10 @@
                   <div class="phone">
                     <img
                       class="phone-img"
-                      src="../../assets/images/index/email.png"
+                      src="/images/index/email.png"
                       alt=""
                     />
-                    <div>邮箱</div>
+                    <div>{{ $t('footer.email') }}</div>
                   </div>
                 </div>
                 <p class="phone-num">yunxiwangluo@yunxi.cn</p>
@@ -83,10 +68,10 @@
     </div>
     <div class="footer-terms">
       <div class="pangle-container-section">
-        <a href="/aboutUs" class="term-link">关于我们</a>
-        <a href="" class="term-link">联系我们</a>
-        <a href="" class="term-link">用户协议</a>
-        <a href="/policy" class="term-link">隐私政策</a>
+        <a
+        v-for="(text, idx) in data.up[1].row" :key="idx"
+        :href="text.link.body.static" class="term-link"
+        >{{ text.text.body.static }}</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -99,54 +84,39 @@
   <footer class="footer-mobile">
     <div class="footer-container-mobile">
       <div class="footer-head">
-        <img src="../../assets/images/logo01.png" alt="" />
+        <img src="/images/logo01.png" alt="" />
       </div>
       <div class="footer-main">
         <div class="pangle-footer-links">
           <div class="footerContainer">
-            <div class="col">
+            <div class="col" v-for="(item, index) in data.up" :key="index">
               <div class="content">
-                <p class="title">热门推荐</p>
-                <a href="/products/app" class="link">移动变现</a>
-                <a href="/products/pc" class="link">PC变现</a>
-                <a href="/products/dataGrowth" class="link">数据增长</a>
-                <a href="/solutions" class="link">解决方案</a>
+                <p class="title">{{ item.title.body.static }}</p>
+                <a
+                v-for="(text, idx) in item.row" :key="idx"
+                :href="text.link.body.static" class="link"
+                >{{ text.text.body.static }}</a>
               </div>
             </div>
             <div class="col">
               <div class="content">
-                <p class="title">其他</p>
-                <a href="/aboutUs" class="link">关于我们</a>
-                <a href="" class="link">联系我们</a>
-                <a href="" class="link">用户协议</a>
-                <a href="/policy" class="link">隐私政策</a>
-              </div>
-            </div>
-            <div class="col">
-              <div class="content">
-                <p class="title">友情链接</p>
-                <a href="" class="link">云袭广告投放平台</a>
-              </div>
-            </div>
-            <div class="col">
-              <div class="content">
-                <p class="title">关注我们</p>
+                <p class="title">{{ $t('footer.followUs') }}</p>
                 <div class="content-item mb-6 flex-col" style="align-items: flex-start;">
                   <img
                     class="code-img"
-                    src="../../assets/images/index/code.png"
+                    src="/images/index/code.png"
                     alt=""
                   />
-                  <div class="wechat-text">微信服务号</div>
+                  <div class="wechat-text">{{ $t('footer.weChat') }}</div>
                 </div>
                 <div class="content-item mb-2">
                   <div class="phone">
                     <img
                       class="phone-img"
-                      src="../../assets/images/index/phone.png"
+                      src="/images/index/phone.png"
                       alt=""
                     />
-                    <div>24小时服务热线</div>
+                    <div>{{ $t('footer.hotLine') }}</div>
                   </div>
                 </div>
                 <p class="phone-num mb-6">17060666669</p>
@@ -154,10 +124,10 @@
                   <div class="phone">
                     <img
                       class="phone-img"
-                      src="../../assets/images/index/email.png"
+                      src="/images/index/email.png"
                       alt=""
                     />
-                    <div>邮箱</div>
+                    <div>{{ $t('footer.email') }}</div>
                   </div>
                 </div>
                 <p class="phone-num">yunxiwangluo@yunxi.cn</p>
@@ -184,7 +154,11 @@
   </footer>
 </template>
 
-<script setup></script>
+<script setup>
+import { useI18n } from 'vue-i18n';
+const { tm } = useI18n();
+const data = ref(tm('footer'));
+</script>
 
 <style lang="scss" scoped>
 @media (max-width: $mobile-width) {

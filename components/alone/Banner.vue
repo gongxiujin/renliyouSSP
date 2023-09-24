@@ -8,35 +8,29 @@
         :autoplay="{ delay: 3000 }"
         :modules="modules"
       >
-        <!-- <swiper-slide v-for="(banner,index) in data" :key="index">
-				<img :src="banner.image" :title="banner.title" alt="">
-			</swiper-slide> -->
-        <swiper-slide key="0">
+        <swiper-slide v-for="(item, index) in data.content" :key="index">
           <img
             class="banner-img"
-            src="../../assets/images/index-banner.png"
-            alt=""
+            :src="item.image.body.static"
+            :alt="item.title.body.static"
           />
-        </swiper-slide>
-        <swiper-slide key="1">
-          <img
-            class="banner-img"
-            src="../../assets/images/index-banner.png"
-            alt=""
-          />
+          <div class="banner-title">
+            <h2 class="title" :style="{ whiteSpace: 'pre-line' }">
+              {{ item.title.body.static }}
+            </h2>
+            <p class="text normal-text">
+              {{ item.text.body.static }}
+            </p>
+          </div>
         </swiper-slide>
       </swiper>
       <div class="banner-progress-bar">
         <div
-          @click="goToSlide(0)"
+          v-for="(item, index) in data.content"
+          :key="index"
+          @click="goToSlide(index)"
           :class="[
-            activeIndex == 0 ? 'banner-progress-active' : 'banner-progress',
-          ]"
-        ></div>
-        <div
-          @click="goToSlide(1)"
-          :class="[
-            activeIndex == 1 ? 'banner-progress-active' : 'banner-progress',
+            activeIndex == index ? 'banner-progress-active' : 'banner-progress',
           ]"
         ></div>
       </div>
@@ -65,12 +59,20 @@
         <swiper-slide key="0">
           <img
             class="banner-img"
-            src="../../assets/images/index-banner.png"
+            src="/images/index/indexbanner-mini.png"
             alt=""
           />
+          <div class="banner-title">
+            <h2 class="title" :style="{ whiteSpace: 'pre-line' }">
+              {{ data.content[0].title.body.static }}
+            </h2>
+            <p class="text normal-text">
+              {{ data.content[0].text.body.static }}
+            </p>
+          </div>
         </swiper-slide>
       </swiper>
-      <a class="banner-btn" sr="/">立即变现</a>
+      <a class="banner-btn" sr="/">{{ $t("justNow") }}</a>
     </div>
   </div>
 </template>
@@ -137,6 +139,48 @@ function goToSlide(index) {
   display: flex;
   justify-content: center;
   align-items: center;
+  .banner-title {
+    position: absolute;
+    top: 121px;
+    left: 18.8%;
+    text-align: left;
+    .title {
+      font-size: 60px;
+      line-height: 70px;
+      font-weight: normal;
+      color: #212121;
+    }
+    .text {
+      margin-top: 33px;
+      font-size: 16px;
+      font-weight: normal;
+      line-height: 16px;
+      color: #222222;
+    }
+  }
+  @media (max-width: $mobile-width) {
+    .banner-title {
+      position: absolute;
+      top: 429px;
+      left: auto;
+      width: 280px;
+      text-align: left;
+      .title {
+        font-size: 32px;
+        line-height: 36px;
+        font-weight: normal;
+        text-align: center;
+        color: #000;
+      }
+      .text {
+        margin-top: 8px;
+        font-size: 12px;
+        font-weight: normal;
+        line-height: 24px;
+        color: #222222;
+      }
+    }
+  }
   .banner-img {
     display: block;
     width: 100%;
@@ -150,7 +194,7 @@ function goToSlide(index) {
   width: 100%;
   min-width: 1200px;
   height: 112px;
-  background: hsla(0, 0%, 100%, 0.5);
+  background: #e9eaf2;
   backdrop-filter: blur(20px);
   z-index: 1;
   display: flex;

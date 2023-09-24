@@ -9,9 +9,15 @@
       <ProductDataCase></ProductDataCase>
     </div>
   </template>
-  
-  <script></script>
-  
+
+<script setup>
+import { useI18n } from 'vue-i18n';
+const { t } = useI18n();
+useHead({
+        title: t('dataGrowth.pageTitle')
+    })
+</script>
+
   <style lang="scss" scoped>
   @media (max-width: $mobile-width) {
     .banner-top {
@@ -27,4 +33,3 @@
     position: relative;
   }
   </style>
-  

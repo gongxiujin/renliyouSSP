@@ -24,6 +24,37 @@
 .medium-text {
 	font-family: SourceHans-medium;
 }
+.harmony-text {
+	font-family: HarmonyOS_Sans_SC;
+}
+
+.title-bar {
+	h2 {
+		font-family: SourceHans-heavy;
+	}
+
+	p {
+		font-family: SourceHans-normal;
+	}
+}
+
+.banner-title {
+	h2 {
+		font-family: YouSheBiaoTiHei;
+	}
+}
+
+div.menu-item {
+	font-family: SourceHans-normal;
+}
+
+p.text-title {
+	font-family: SourceHans-blod;
+}
+
+p.text-desc {
+	font-family: SourceHans-normal;
+}
 
 @media (min-width:576px) {
 	.al-container {
@@ -114,23 +145,33 @@ body {
 	src: url('/fonts/SourceHanSansCN-Heavy.otf');
 	font-weight: normal;
 }
+
 @font-face {
 	font-family: SourceHans-normal;
 	src: url('/fonts/SourceHanSansCN-Normal.otf');
 	font-weight: normal;
 }
+
 @font-face {
 	font-family: SourceHans-bold;
 	src: url('/fonts/SourceHanSansCN-Bold.otf');
 	font-weight: normal;
 }
+
 @font-face {
 	font-family: SourceHans-medium;
 	src: url('/fonts/SourceHanSansCN-Medium.otf');
 	font-weight: normal;
 }
+
 @font-face {
 	font-family: SourceHans-regular;
 	src: url('/fonts/SourceHanSansCN-Regular.otf');
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: HarmonyOS_Sans_SC;
+	src: url('/fonts/HarmonyOS_Sans_Medium.ttf');
 	font-weight: normal;
 }

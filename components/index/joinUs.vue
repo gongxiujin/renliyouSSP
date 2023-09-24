@@ -2,15 +2,15 @@
 <template>
     <div class="pc">
         <img class="bg-img" src="../../assets/images/index/joinUsBg.png" alt="">
-        <h2 class="title">立即加入我们，助力你获得收益</h2>
+        <h2 class="title">{{ $t('joinUs.title') }}</h2>
         <div class="btn-bar">
-            <a class="register" href="/">立即注册</a>
-            <a class="link" href="/">联系我们</a>
+            <a class="register" href="/">{{ $t('registorNow') }}</a>
+            <a class="link" href="/">{{ $t('contactUs') }}</a>
         </div>
     </div>
     <div class="mobile" v-if="isShowMobileBlock">
-        <a class="register" href="">注册</a>
-        <a class="login" href="">登录</a>
+        <a class="register" href="">{{ $t('login.registorButon') }}</a>
+        <a class="login" href="">{{ $t('login.loginButton') }}</a>
     </div>
 </template>
 

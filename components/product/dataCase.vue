@@ -4,7 +4,7 @@
     <div class="pc">
       <div class="access-bar">
         <div class="title-bar">
-          <h2 class="access-title">优秀案例分享</h2>
+          <h2 class="access-title">{{ data.title.body.static }}</h2>
         </div>
         <div class="slide-bar">
           <swiper
@@ -14,53 +14,28 @@
             :autoplay="{ delay: 3000 }"
             @slideChange="handleSlideChange"
           >
-            <swiper-slide key="0">
+            <swiper-slide v-for="(item, index) in data.content" :key="index">
               <div class="slide-item">
                 <img
                   class="banner-img"
-                  src="../../assets/images/product/dataCase1.png"
-                  alt=""
+                  :src="item.image.body.static"
+                  :alt="item.title.body.static"
                 />
                 <div class="right-content">
                   <img
                     class="content-icon"
-                    src="../../assets/images/product/dataCase3.png"
-                    alt=""
+                    :src="item.icon.body.static"
+                    :alt="item.title.body.static"
                   />
-                  <p class="content-title">掌阅</p>
-                  <p class="content-desc">
-                    掌阅专注于数字阅读，是全球领先的数字阅读平台之一。
+                  <p class="content-title bold-text">{{ item.title.body.static }}</p>
+                  <p class="content-desc normal-text">
+                    {{ item.text.body.static }}
                   </p>
                   <p class="content-num">
-                    <span class="num">1.6</span>
-                    <span class="unit">亿+</span>
+                    <span class="num">{{ item.num.body.static }}</span>
+                    <span class="unit">{{ item.numunit.body.static }}</span>
                   </p>
-                  <p class="content-tips">月活</p>
-                </div>
-              </div>
-            </swiper-slide>
-            <swiper-slide key="1">
-              <div class="slide-item">
-                <img
-                  class="banner-img"
-                  src="../../assets/images/product/dataCase2.png"
-                  alt=""
-                />
-                <div class="right-content">
-                  <img
-                    class="content-icon"
-                    src="../../assets/images/product/dataCase4.png"
-                    alt=""
-                  />
-                  <p class="content-title">游民星空</p>
-                  <p class="content-desc">
-                    游民星空是国内专注单机游戏的综合性娱乐媒体，是大型游戏领域头部游戏社区。
-                  </p>
-                  <p class="content-num">
-                    <span class="num">3000</span>
-                    <span class="unit">w+</span>
-                  </p>
-                  <p class="content-tips">用户</p>
+                  <p class="content-tips normal-text">{{ item.numtext.body.static }}</p>
                 </div>
               </div>
             </swiper-slide>
@@ -68,24 +43,20 @@
         </div>
         <div class="banner-progress-bar">
           <div
-            @click="setIndex(0)"
+            v-for="(item, index) in data.content" :key="index"
+            @click="setIndex(index)"
             :class="[
-              activeIndex == 0 ? 'banner-progress-active' : 'banner-progress',
+              activeIndex == index ? 'banner-progress-active' : 'banner-progress',
             ]"
           ></div>
-          <div
-            @click="setIndex(1)"
-            :class="[
-              activeIndex == 1 ? 'banner-progress-active' : 'banner-progress',
-            ]"
-          ></div>
+
         </div>
       </div>
     </div>
     <div class="mobile">
       <div class="m-access-bar">
         <div class="title-bar">
-          <h2 class="access-title">优秀案例分享</h2>
+          <h2 class="access-title">{{ data.title.body.static }}</h2>
         </div>
         <div class="slide-bar">
           <swiper
@@ -95,53 +66,28 @@
             :autoplay="{ delay: 3000 }"
             @slideChange="handleSlideChange"
           >
-            <swiper-slide key="0">
+            <swiper-slide v-for="(item, index) in data.content" :key="index">
               <div class="slide-item">
                 <img
                   class="banner-img"
-                  src="../../assets/images/product/dataCaseM1.png"
-                  alt=""
+                  :src="item.mbImage.body.static"
+                  :alt="item.title.body.static"
                 />
                 <div class="right-content">
                   <img
                     class="content-icon"
-                    src="../../assets/images/product/dataCase3.png"
+                    :src="item.icon.body.static"
                     alt=""
                   />
-                  <p class="content-title">掌阅</p>
+                  <p class="content-title">{{ item.title.body.static }}</p>
                   <p class="content-desc">
-                    掌阅专注于数字阅读，是全球领先的数字阅读平台之一。
+                    {{ item.text.body.static }}
                   </p>
                   <p class="content-num">
-                    <span class="num">1.6</span>
-                    <span class="unit">亿+</span>
+                    <span class="num">{{ item.num.body.static }}</span>
+                    <span class="unit">{{ item.numunit.body.static }}</span>
                   </p>
-                  <p class="content-tips">月活</p>
-                </div>
-              </div>
-            </swiper-slide>
-            <swiper-slide key="1">
-              <div class="slide-item">
-                <img
-                  class="banner-img"
-                  src="../../assets/images/product/dataCaseM2.png"
-                  alt=""
-                />
-                <div class="right-content">
-                  <img
-                    class="content-icon"
-                    src="../../assets/images/product/dataCase4.png"
-                    alt=""
-                  />
-                  <p class="content-title">游民星空</p>
-                  <p class="content-desc">
-                    游民星空是国内专注单机游戏的综合性娱乐媒体，是大型游戏领域头部游戏社区。
-                  </p>
-                  <p class="content-num">
-                    <span class="num">3000</span>
-                    <span class="unit">w+</span>
-                  </p>
-                  <p class="content-tips">用户</p>
+                  <p class="content-tips normal-text">{{ item.numtext.body.static }}</p>
                 </div>
               </div>
             </swiper-slide>
@@ -172,7 +118,9 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination } from "swiper";
-
+import { useI18n } from 'vue-i18n';
+const { tm } = useI18n();
+const data = ref(tm('dataGrowth').dataCase);
 const modules = ref([Autoplay, Pagination]);
 
 const activeIndex = ref(0);
@@ -225,7 +173,7 @@ function onSwiper(swiper) {
     min-width: 1200px;
     text-align: center;
     .access-title {
-      font-family: Source Han Sans CN;
+
       font-size: 36px;
       font-weight: 900;
       line-height: 38px;
@@ -237,15 +185,14 @@ function onSwiper(swiper) {
     width: 1200px;
     text-align: center;
     margin: 14px auto 0;
-    padding-bottom: 100px;
+    padding-bottom: 78px;
     .swiper {
       width: 100%;
       .slide-item {
         display: flex;
-        margin: 0 auto;
+        margin: 90px auto 30px;
         width: 800px;
         height: 360px;
-        margin-top: 90px;
         border-radius: 10px;
         background: #ffffff;
         box-shadow: 1.5px 2.6px 30px 0px rgba(0, 0, 0, 0.12);
@@ -265,7 +212,7 @@ function onSwiper(swiper) {
             margin-bottom: 16px;
           }
           .content-title {
-            font-family: Source Han Sans CN;
+
             font-size: 20px;
             font-weight: bold;
             line-height: 26px;
@@ -274,7 +221,7 @@ function onSwiper(swiper) {
             margin-bottom: 20px;
           }
           .content-desc {
-            font-family: 思源黑体;
+
             font-size: 14px;
             font-weight: normal;
             line-height: 20px;
@@ -286,7 +233,8 @@ function onSwiper(swiper) {
             font-weight: 500;
             text-align: left;
             color: #e65e24;
-            font-family: HarmonyOS Sans SC;
+            font-family: HarmonyOS_Sans_SC;
+
             .num {
               font-size: 32px;
             }
@@ -296,7 +244,7 @@ function onSwiper(swiper) {
           }
           .content-tips {
             text-align: left;
-            font-family: 思源黑体;
+
             font-size: 12px;
             font-weight: normal;
             line-height: 20px;
@@ -356,7 +304,7 @@ function onSwiper(swiper) {
       width: 100%;
       text-align: center;
       .access-title {
-        font-family: Source Han Sans CN;
+
         font-size: 24px;
         font-weight: 900;
         line-height: 38px;
@@ -375,7 +323,7 @@ function onSwiper(swiper) {
           display: flex;
           flex-direction: column;
           align-items: center;
-          justify-content: center;
+          justify-content: flex-start;
           margin: 0 auto;
           width: 292px;
           height: 420px;
@@ -395,33 +343,34 @@ function onSwiper(swiper) {
             .content-icon {
               position: absolute;
               left: 24px;
-              top: 110px;
+              top: 125px;
               width: 56px;
               height: 56px;
             }
             .content-title {
-              font-family: Source Han Sans CN;
+
               font-size: 20px;
               font-weight: bold;
               line-height: 26px;
               text-align: left;
               color: #222222;
-              margin-bottom: 20px;
+              margin-bottom: 8px;
             }
             .content-desc {
-              font-family: 思源黑体;
+
               font-size: 14px;
               font-weight: normal;
               line-height: 20px;
               text-align: left;
               color: #666666;
-              margin-bottom: 57px;
+              margin-bottom: 50px;
             }
             .content-num {
+              font-family: HarmonyOS_Sans_SC;
               font-weight: 500;
               text-align: left;
               color: #e65e24;
-              font-family: HarmonyOS Sans SC;
+
               .num {
                 font-size: 32px;
               }
@@ -431,7 +380,7 @@ function onSwiper(swiper) {
             }
             .content-tips {
               text-align: left;
-              font-family: 思源黑体;
+
               font-size: 12px;
               font-weight: normal;
               line-height: 20px;
@@ -456,7 +405,7 @@ function onSwiper(swiper) {
         background: #c1c1c1;
         opacity: 1;
         border-radius: 0;
-        transform: skew(-45deg);
+
       }
       .banner-progress-active {
         width: 56px;
@@ -465,7 +414,7 @@ function onSwiper(swiper) {
         background: #c1c1c1;
         opacity: 1;
         border-radius: 0;
-        transform: skew(-45deg);
+        transform: skew(0);
         cursor: pointer;
         &::after {
           content: "";

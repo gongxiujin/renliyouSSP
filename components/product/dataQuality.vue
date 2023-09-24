@@ -4,27 +4,16 @@
     <div class="pc">
       <div class="access-bar">
         <div class="title-bar">
-          <h2 class="access-title">全方位保证服务质量</h2>
+          <h2 class="access-title">{{ data.title.body.static }}</h2>
         </div>
         <div class="menu-bar">
           <div class="menu">
             <div
-              @mouseover="setIndex(0)"
-              :class="['menu-item', activeIndex == 0 ? 'active' : '']"
+              v-for="(item, index) in data.content" :key="index"
+              @mouseover="setIndex(index)"
+              :class="['menu-item', activeIndex == index ? 'active' : '']"
             >
-              科技领先
-            </div>
-            <div
-              @mouseover="setIndex(1)"
-              :class="['menu-item', activeIndex == 1 ? 'active' : '']"
-            >
-              个性化
-            </div>
-            <div
-              @mouseover="setIndex(2)"
-              :class="['menu-item', activeIndex == 2 ? 'active' : '']"
-            >
-              安全可靠
+              {{ item.title.body.static }}
             </div>
           </div>
         </div>
@@ -34,45 +23,17 @@
             @swiper="onSwiper"
             @slideChange="handleSlideChange"
           >
-            <swiper-slide key="0">
+            <swiper-slide v-for="(item, index) in data.content" :key="index">
               <div class="slide-item">
                 <div class="item-left">
                   <img
                     class="banner-img"
-                    src="../../assets/images/product/dataService2-1.png"
-                    alt=""
+                    :src="item.image.body.static"
+                    :alt="item.title.body.static"
                   />
                 </div>
-                <div class="item-text">
-                  我们采用最先进的技术手段和最新的算法，确保数据收集和分析的准确性和精度。
-                </div>
-              </div>
-            </swiper-slide>
-            <swiper-slide key="1">
-              <div class="slide-item">
-                <div class="item-left">
-                  <img
-                    class="banner-img"
-                    src="../../assets/images/product/dataService2-2.png"
-                    alt=""
-                  />
-                </div>
-                <div class="item-text">
-                  我们的系统可以根据不同企业的需求和特点进行个性化的定制，提供更加精细化的服务。
-                </div>
-              </div>
-            </swiper-slide>
-            <swiper-slide key="2">
-              <div class="slide-item">
-                <div class="item-left">
-                  <img
-                    class="banner-img"
-                    src="../../assets/images/product/dataService2-3.png"
-                    alt=""
-                  />
-                </div>
-                <div class="item-text">
-                  我们的系统非常注重数据安全，采取严格的措施保护客户的数据隐私。
+                <div class="item-text normal-text">
+                  {{ item.text.body.static }}
                 </div>
               </div>
             </swiper-slide>
@@ -83,18 +44,14 @@
     <div class="mobile">
       <div class="m-access-bar">
         <div class="title-bar">
-          <h2 class="access-title">全方位保证服务质量</h2>
+          <h2 class="access-title">{{ data.title.body.static }}</h2>
         </div>
         <div class="menu-bar">
           <div class="menu">
-            <div @click="setIndex(0)" class="menu-item">
-              <p :class="{ active: activeIndex == 0 }">科技领先</p>
-            </div>
-            <div @click="setIndex(1)" class="menu-item">
-              <p :class="{ active: activeIndex == 1 }">个性化</p>
-            </div>
-            <div @click="setIndex(2)" class="menu-item">
-              <p :class="{ active: activeIndex == 2 }">安全可靠</p>
+            <div
+            v-for="(item, index) in data.content" :key="index"
+             @click="setIndex(index)" class="menu-item">
+              <p :class="{ active: activeIndex == index }">{{ item.title.body.static }}</p>
             </div>
           </div>
         </div>
@@ -104,65 +61,18 @@
             @swiper="onSwiperM"
             @slideChange="handleSlideChange"
           >
-            <swiper-slide key="0">
+            <swiper-slide v-for="(item, index) in data.content" :key="index">
               <div class="slide-item">
                 <div class="img-bar">
                   <img
                     class="banner-img"
-                    src="../../assets/images/product/dataService2-1.png"
-                    alt=""
+                    :src="item.image.body.static"
+                    :alt="item.title.body.static"
                   />
                 </div>
                 <div class="slide-text">
                   <p class="text-desc">
-                    收集各类广告投放的数据，监测用户的行为、收集竞争者的数据。
-                  </p>
-                </div>
-              </div>
-            </swiper-slide>
-            <swiper-slide key="1">
-              <div class="slide-item">
-                <div class="img-bar">
-                  <img
-                    class="banner-img"
-                    src="../../assets/images/product/dataService2-2.png"
-                    alt=""
-                  />
-                </div>
-                <div class="slide-text">
-                  <p class="text-desc">
-                    用最先进的算法对广告投放过程中的数据进行分析和挖掘，寻找其中的规律与趋势，为决策提供科学的依据。
-                  </p>
-                </div>
-              </div>
-            </swiper-slide>
-            <swiper-slide key="2">
-              <div class="slide-item">
-                <div class="img-bar">
-                  <img
-                    class="banner-img"
-                    src="../../assets/images/product/dataService1-3.png"
-                    alt=""
-                  />
-                </div>
-                <div class="slide-text">
-                  <p class="text-desc">
-                    通过对数据分析的结果，输出一系列针对性的优化策略，如降本增效、改进目标受众等。
-                  </p>
-                </div>
-              </div>
-            </swiper-slide>
-            <swiper-slide key="3">
-              <div class="slide-item">
-                <img
-                  class="banner-img"
-                  src="../../assets/images/product/dataService2-3.png"
-                  alt=""
-                />
-                <div class="slide-text">
-                  <p class="text-title">监测和评估</p>
-                  <p class="text-desc">
-                    对投放效果进行监测和评估，了解并分析优化策略的实施效果。
+                    {{ item.text.body.static }}
                   </p>
                 </div>
               </div>
@@ -179,6 +89,9 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { useI18n } from 'vue-i18n';
+const { tm } = useI18n();
+const data = ref(tm('dataGrowth').dataQuality);
 
 const activeIndex = ref(0);
 const swiperInstance = ref();
@@ -215,13 +128,13 @@ function onSwiper(swiper) {
 }
 .access-bar {
   width: 100%;
-  padding-top: 84px;
+  padding-top: 79px;
   background: #f8f8f8;
   .title-bar {
     min-width: 1200px;
     text-align: center;
     .access-title {
-      font-family: Source Han Sans CN;
+
       font-size: 36px;
       font-weight: 900;
       line-height: 38px;
@@ -235,18 +148,18 @@ function onSwiper(swiper) {
     justify-content: center;
     position: relative;
     border-bottom: 1px solid #d8d8d8;
-    margin: 16px auto 0;
+    margin: 0 auto;
     .menu {
       width: 800px;
       display: flex;
       justify-content: space-between;
-      margin-top: 16px;
+      margin-top: 51px;
       .menu-item {
         color: #666666;
-        height: 56px;
-        line-height: 56px;
+        height: 38px;
+        line-height: 38px;
         font-weight: 400;
-        font-size: 16px;
+        font-size: 18px;
         display: flex;
         justify-content: center;
         align-content: center;
@@ -254,23 +167,13 @@ function onSwiper(swiper) {
         cursor: pointer;
       }
       .active {
-        border-radius: 2px;
+        font-family: SourceHans-bold;
         opacity: 1;
         font-weight: 600;
-        font-family: Source Han Sans CN;
         font-size: 18px;
         font-weight: bold;
         color: #222222;
-        &::after {
-          content: "";
-          position: absolute;
-          bottom: 0px;
-          display: block;
-          z-index: 1;
-          width: 40px;
-          height: 3px;
-          background: #e65e24;
-        }
+        border-bottom: 3px solid #e65e24;
       }
     }
   }
@@ -282,6 +185,8 @@ function onSwiper(swiper) {
     padding-bottom: 100px;
     .swiper {
       width: 100%;
+      border-radius: 10px;
+      box-shadow: 0px 0px 90px 0px rgba(208, 208, 208, 0.5);
       .slide-item {
         width: 100%;
         height: 360px;
@@ -290,13 +195,12 @@ function onSwiper(swiper) {
         justify-content: space-between;
         border-radius: 10px;
         background: #ffffff;
-        box-shadow: 0px 0px 90px 0px rgba(208, 208, 208, 0.5);
         border-bottom-left-radius: 15px;
         .item-left {
           position: relative;
-          width: 574px;
+          width: 561px;
           height: 100%;
-          border-bottom: 8px solid #fa4b00;
+          border-bottom: 10px solid #fa4b00;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -332,7 +236,7 @@ function onSwiper(swiper) {
         .item-text {
           width: 320px;
           margin: 0 auto;
-          font-family: 思源黑体;
+          list-style: 24px;
           font-size: 16px;
           color: #777777;
           text-align: left;
@@ -344,7 +248,7 @@ function onSwiper(swiper) {
 .mobile {
   display: none;
   height: 548px;
-  padding-top: 47px;
+  padding-top: 52px;
   background: #f8f8f8;
   .m-access-bar {
     width: 100%;
@@ -352,7 +256,7 @@ function onSwiper(swiper) {
       width: 100%;
       text-align: center;
       .access-title {
-        font-family: Source Han Sans CN;
+
         font-size: 24px;
         font-weight: 900;
         line-height: 38px;
@@ -367,47 +271,44 @@ function onSwiper(swiper) {
       position: relative;
       margin: 0 auto;
       .menu {
-        width: 100%;
-        margin: 16px 20px 0;
+        width: 315px;
+        margin: 16px auto 0;
         display: flex;
         justify-content: space-between;
         .menu-item {
           position: relative;
           width: 5rem;
+          height: 48px;
+          align-items: center;
+          display: flex;
           color: #666666;
-          line-height: 1.5rem;
           text-align: center;
           font-weight: 400;
-          font-size: 14px;
+          font-size: 16px;
+          line-height: 16px;
           cursor: pointer;
+          justify-content: center;
         }
         .active {
+          font-family: SourceHans-bold;
           color: #222222;
           border-radius: 2px;
           opacity: 1;
+          height: 100%;
+          line-height: 48px;
+          font-size: 18px;
           font-weight: 600;
-          &::after {
-            content: "";
-            position: absolute;
-            bottom: -6px;
-            display: block;
-            z-index: 1;
-            width: 32px;
-            height: 3px;
-            left: 50%;
-            background: #e65e24;
-            transform: translateX(-50%);
-          }
+          border-bottom: 3px solid #e65e24;
         }
       }
     }
     .slide-bar {
       width: 100%;
       text-align: center;
-      margin: 20px auto;
-      padding: 0 30px;
+      margin: 17px auto;
       .swiper {
-        width: 100%;
+        width: 300px;
+        margin: 0 auto;
         .slide-item {
           display: flex;
           flex-direction: column;
@@ -415,12 +316,12 @@ function onSwiper(swiper) {
           justify-content: center;
           background: #ffffff;
           border-radius: 4px;
-          margin: 0 16px;
+
           .slide-text {
             width: 100%;
             padding: 0 33px 30px;
             .text-desc {
-              font-family: 思源黑体;
+
               font-size: 14px;
               font-weight: normal;
               line-height: 24px;

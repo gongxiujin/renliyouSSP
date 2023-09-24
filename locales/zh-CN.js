@@ -1,6 +1,6 @@
 export default {
   language: "中文",
-  justus: "立即变现",
+  justNow: "立即变现",
   login: {
     pageTitle: "登录注册",
     login: "用户登录",
@@ -32,14 +32,21 @@ export default {
     pc: "PC变现",
     dataGrowth: "数据增长",
     solutions: "解决方案",
-    aboutUs: "关于我们"
+    aboutUs: "关于我们",
   },
   home: {
     pageTitle: "首页",
     banner: {
       content: [
         {
-          title: "任礼游 让流量变现更容易",
+          title: "任礼游\n让流量变现更容易",
+          image: "/images/index/banner1.png",
+          mbImage: "/images/index/indexbanner-mini.png",
+          text: "依托专业的广告技术和产品能力，为您的媒体变现和增收提供一体化服务。",
+        },
+        {
+          title: "任礼游\n让流量变现更容易",
+          image: "/images/index/banner2.png",
           text: "依托专业的广告技术和产品能力，为您的媒体变现和增收提供一体化服务。",
         },
       ],
@@ -138,33 +145,41 @@ export default {
       text: "行业深耕多年，适配不同行业的业务痛点",
       content: [
         {
-          image: "/images/index/solutionMBg1.png",
+          image: "/images/index/solution-1.png",
+          mbimage: "/images/index/solutionMBg1.png",
           iconActive: "/images/index/solutionTabs1Act.png",
           icon: "/images/index/solutionTabs1.png",
+          iconBg: "/images/index/solutionBg1.png",
           title: "电商类",
           text: "在云袭电商场景下全方位为商家提供生意服务，提升用户活跃、下单、购买商品等行为。",
           light: "【品牌推广】【商品推广】【搜索广告】【定向投放】",
         },
         {
-          image: "/images/index/solutionMBg2.png",
+          image: "/images/index/solution-2.png",
+          mbimage: "/images/index/solutionMBg2.png",
           iconActive: "/images/index/solutionTabs2Act.png",
           icon: "/images/index/solutionTabs2.png",
+          iconBg: "/images/index/solutionBg2.png",
           title: "APP应用&游戏",
           text: "满足客户激活下载转化类的营销需求。",
           light: "【社交媒体】【应用商店】【精准投放】【数据分析】",
         },
         {
-          image: "/images/index/solutionMBg3.png",
+          image: "/images/index/solution-3.png",
+          mbimage: "/images/index/solutionMBg3.png",
           iconActive: "/images/index/solutionTabs3Act.png",
           icon: "/images/index/solutionTabs3.png",
+          iconBg: "/images/index/solutionBg3.png",
           title: "金融",
           text: "帮助金融机构拓展新客户，扩大市场规模。",
           light: "【线索留资】【品牌建设】【精准营销】",
         },
         {
-          image: "/images/index/solutionMBg1.png",
+          image: "/images/index/solution-4.png",
+          mbimage: "/images/index/solutionMBg4.png",
           iconActive: "/images/index/solutionTabs4Act.png",
           icon: "/images/index/solutionTabs4.png",
+          iconBg: "/images/index/solutionBg4.png",
           title: "运动健康",
           text: "旗下产品“月野兔”有丰富的场馆资源和C端用户，可以为健身运动行业客户提供全方位解决方案。",
           light: "【全方位服务】【线上线下一体化】",
@@ -178,45 +193,59 @@ export default {
   app: {
     pageTitle: "移动变现",
     banner: {
+      image: "/images/product/appbanner.png",
       title: "移动变现",
       text: "多平台资源实时投放，利用人工智能算法，分析全行业流量数据，优先展示高单价流量，同步深入优化素材，筛选最适合的客户素材进行精准投放，智能提升变现效率",
     },
     appSlide: {
       title: "移动APP",
       text: "丰富的广告样式，满足不同场景需求",
+      textStyle: "",
       content: [
         {
           icon: "/images/product/appTabs1.png",
           iconActive: "/images/product/appTabs1Act.png",
-          image: "/images/product/appPhone1.png",
+          image: [
+            "/images/product/appPhone1.png"
+          ],
           title: "开屏广告",
           text: "启动页广告，出现在APP启动加载时， 将广告图片或视频展示固定时间（一般为5s-15s），展示完毕后自动关闭并进入APP主页面。抢占应用开启的“黄金5秒”，用户关注度较高。",
         },
         {
           icon: "/images/product/appTabs2.png",
           iconActive: "/images/product/appTabs2Act.png",
-          image: "/images/product/appPhone2.png",
+          image: [
+            "/images/product/appPhone2.png"
+          ],
           title: "信息流广告",
           text: "在用户浏览阅读APP的推荐列表页、文章详情页、视频详情页中的原生图文及视频广告。",
         },
         {
           icon: "/images/product/appTabs3.png",
           iconActive: "/images/product/appTabs3Act.png",
-          image: "/images/product/appPhone3.png",
+          image: [
+            "/images/product/appPhone3.png",
+            "/images/product/appPhone3-2.png"
+          ],
           title: "Banner",
           text: "固定于app顶部、中部、底部、或其他位置,横向贯穿整个app页面，高曝光率，目标受众广泛，易于操作，效果可持续优化。",
         },
         {
           icon: "/images/product/appTabs4.png",
           iconActive: "/images/product/appTabs4Act.png",
-          image: "/images/product/appPhone4.png",
+          image: [
+            "/images/product/appPhone4.png",
+            "/images/product/appPhone4-2.png"
+          ],
           title: "插屏广告",
           text: "触发式广告，在用户做出相应的操作（如开启、暂停、过关、跳转、退出）后，弹出的以图片、视频等为表现形式的半屏或全屏广告。曝光度高，视觉冲击力强。",
         },
         {
           icon: "/images/product/appTabs5.png",
           iconActive: "/images/product/appTabs5Act.png",
-          image: "/images/product/appPhone5.png",
+          image: [
+            "/images/product/appPhone5.png"
+          ],
           title: "激励视频",
           text: "深度适配流量APP原生模式的15-30秒全屏视频广告，用户可以选择观看视频广告来换取应用或游戏内的奖励。",
         },
@@ -225,46 +254,33 @@ export default {
     appWap: {
       title: "移动WAP站",
       text: "移动端WAP站广告投放为您量身定制推广方案，助您低成本-高效率的获取意向客户，为企业提供整体解决方案，1000+行业成功案例鉴证!",
+      textStyle: "text-align: left;",
       content: [
         {
           iconActive: "/images/product/appTabs1Act.png",
           icon: "/images/product/appTabs1.png",
-          image: "/images/product/appPhone1.png",
-          title: "开屏广告",
-          text: "启动页广告，出现在APP启动加载时， 将广告图片或视频展示固定时间（一般为5s-15s），展示完毕后自动关闭并进入APP主页面。抢占应用开启的“黄金5秒”，用户关注度较高。",
+          image: [
+            "/images/product/appWAP1.png",
+            "/images/product/appWAP1-2.png"
+          ],
+          title: "信息流广告",
+          text: "一种在形式或内容上与下文保持一致的广告位，良好的用户体验，更高的植入性带来更好的点击率和转化率",
         },
         {
           iconActive: "/images/product/appTabs2Act.png",
           icon: "/images/product/appTabs2.png",
-          image: "/images/product/appPhone2.png",
-          title: "信息流广告",
-          text: "在用户浏览阅读APP的推荐列表页、文章详情页、视频详情页中的原生图文及视频广告。",
-        },
-        {
-          iconActive: "/images/product/appTabs3Act.png",
-          icon: "/images/product/appTabs3.png",
-          image: "/images/product/appPhone3.png",
-          title: "Banner",
-          text: "固定于app顶部、中部、底部、或其他位置,横向贯穿整个app页面，高曝光率，目标受众广泛，易于操作，效果可持续优化。",
-        },
-        {
-          iconActive: "/images/product/appTabs4Act.png",
-          icon: "/images/product/appTabs4.png",
-          image: "/images/product/appPhone4.png",
-          title: "插屏广告",
-          text: "触发式广告，在用户做出相应的操作（如开启、暂停、过关、跳转、退出）后，弹出的以图片、视频等为表现形式的半屏或全屏广告。曝光度高，视觉冲击力强。",
-        },
-        {
-          iconActive: "/images/product/appTabs5Act.png",
-          icon: "/images/product/appTabs5.png",
-          image: "/images/product/appPhone5.png",
-          title: "激励视频",
-          text: "深度适配流量APP原生模式的15-30秒全屏视频广告，用户可以选择观看视频广告来换取应用或游戏内的奖励。",
-        },
+          image: [
+            "/images/product/appWAP2.png",
+            "/images/product/appWAP2-2.png"
+          ],
+          title: "横幅广告位",
+          text: "在APP界面顶部、中部或底部出现的静态图、GIF图、文字链，或多帧广告图片滚动的广告形式，灵活性更好，样式美观，点击率更高，预算收益提升",
+        }
       ],
     },
     appSystem: {
       title: "安全高效的生态体系，免除后顾之忧",
+      mbTitle: "安全高效的生态体系\n免除后顾之忧",
       content: [
         {
           image: "/images/product/system1.png",
@@ -306,6 +322,7 @@ export default {
       text: "PC流量变现的流量营销专家，专注于pc流量媒体、WAP站长媒体等全渠道合作，利用多元化的变现业务，创造高收益、稳定价值体系",
     },
     pcSlide: {
+      title: "移动APP",
       content: [
         {
           image: "/images/product/pcSlide1.png",
@@ -327,7 +344,7 @@ export default {
         },
         {
           image: "/images/product/pcSlide4.png",
-          icon: "/images/product/pcSlide4-1.png",
+
           title: "广告弹窗",
           text: "用户打开网站后会自动弹出的广告，无论点击还是不点击都会出现在用户的面前，具有高曝光性",
         },
@@ -349,22 +366,17 @@ export default {
         },
         {
           image: "/images/product/PC-2.png",
-          title: "信业务多元，优化整合",
+          title: "业务多元，优化整合",
           text: "合理开发网吧资源，多元化业务接入资源整合，力求增值收益最大化",
         },
         {
           image: "/images/product/PC-3.png",
-          title: "业务多元，优化整合",
+          title: "数据精准，及时透明",
           text: "诚信为本，坚决抵制数据作假。精准数据统计，支付及时不拖欠",
         },
         {
           image: "/images/product/PC-4.png",
-          title: "数据精准，及时透明",
-          text: "触发式广告，在用户做出相应的操作（如开启、暂停、过关、跳转、退出）后，弹出的以图片、视频等为表现形式的半屏或全屏广告。曝光度高，视觉冲击力强。",
-        },
-        {
-          image: "/images/product/PC-5.png",
-          title: "激励视频",
+          title: "操作便捷，高效服务",
           text: "自主研发管理系统，操作更简单7x24小时服务，随时解决问题",
         },
       ],
@@ -426,94 +438,109 @@ export default {
       content: [
         {
           image: "/images/product/dataCase1.png",
+          mbImage: "/images/product/dataCase1-mini.png",
           icon: "/images/product/dataCase3.png",
           title: "掌阅",
           text: "掌阅专注于数字阅读，是全球领先的数字阅读平台之一。",
-          num: "1.6亿+",
+          num: "1.6",
+          numunit: "亿+",
           numtext: "月活",
         },
         {
           image: "/images/product/dataCase2.png",
+          mbImage: "/images/product/dataCase2-mini.png",
           icon: "/images/product/dataCase4.png",
           title: "游民星空",
           text: "游民星空是国内专注单机游戏的综合性娱乐媒体，是大型游戏领域头部游戏社区。",
-          num: "3000w+",
+          num: "3000",
+          numunit: "w+",
           numtext: "用户",
         },
       ],
     },
   },
   solutions: {
-    pageTitle: "优秀案例及解决方案",
+    pageTitle: "解决方案",
     access: {
+      title: "优秀案例及解决方案",
       content: [
         {
           slide: {
-            image: "/images/solution/solution1.png",
             title: "体育",
             text: "将游戏发行与商业化一站式打通，提供发行、买量、变现的全生命周期解决方案。",
           },
           content: {
             icon: "/images/solution/solutionIcon1.png",
+            image: "/images/solution/solution1.png",
+            mbimage: "/images/solution/solution1-mini.png",
             title: "懂球帝",
             text: "懂球帝提供英超、西甲、意甲、中超等足球赛事专业的资讯、战术分析、直播、集锦、积分赛程等，是足球迷手机上必备的神器。",
-            num: "300w+",
+            num: "300",
+            numUnit: "w+",
             numtext: "月活",
           },
         },
         {
           slide: {
-            image: "/images/solution/solution2.png",
             title: "大型游戏类",
             text: "拥抱混合变现新风口，通过激励视频突破收益天花板，精准买量、精细运营，兼顾用户体验与转化。",
           },
           content: {
             icon: "/images/solution/solutionIcon2.png",
+            image: "/images/solution/solution2.png",
+            mbimage: "/images/solution/solution2-mini.png",
             title: "游民星空",
             text: "游民星空是国内专注单机游戏的综合性娱乐媒体，是大型游戏领域头部游戏社区。",
-            num: "3000w+",
+            num: "3000",
+            numUnit: "w+",
             numtext: "用户",
           },
         },
         {
           slide: {
-            image: "/images/solution/solution3.png",
             title: "工具类",
             text: "独家内容资源帮助提升用户留存，打破“即用即走”魔咒，更多细分行业定制场景助力适配提收。",
           },
           content: {
             icon: "/images/solution/solutionIcon3.png",
+            image: "/images/solution/solution3.png",
+            mbimage: "/images/solution/solution3-mini.png",
             title: "91桌面",
             text: "91桌面是下一款智能手机桌面美化手机管理软件，是智能机时代管理手机的必备工具。",
-            num: "30亿+",
+            num: "30",
+            numUnit: "亿+",
             numtext: "用户",
           },
         },
         {
           slide: {
-            image: "/images/solution/solution4.png",
             title: "阅读",
             text: "抖音电商预算红利，强适配于视频内容场景；多样式组合，全面兼收留存与收益。",
           },
           content: {
             icon: "/images/solution/solutionIcon4.png",
+            image: "/images/solution/solution4.png",
+            mbimage: "/images/solution/solution4-mini.png",
             title: "掌阅",
             text: "掌阅专注于数字阅读，是全球领先的数字阅读平台之一。",
-            num: "1.6亿+",
+            num: "1.6",
+            numUnit: "亿+",
             numtext: "月活",
           },
         },
         {
           slide: {
-            image: "/images/solution/solution5.png",
             title: "社交",
             text: "独家内容资源帮助提升用户留存，打破“即用即走”魔咒，更多细分行业定制场景助力适配提收。",
           },
           content: {
             icon: "/images/solution/solutionIcon5.png",
+            image: "/images/solution/solution5.png",
+            mbimage: "/images/solution/solution5-mini.png",
             title: "Soul",
             text: "Soul是基于兴趣图谱和游戏化玩法的产品设计，属于新一代年轻人的虚拟社交网络。",
-            num: "3000w+",
+            num: "3000",
+            numUnit: "w+",
             numtext: "用户",
           },
         },
@@ -528,6 +555,7 @@ export default {
     },
     solution: {
       title: "企业文化",
+      text: "开放共赢",
       content: [
         {
           image: "/images/aboutUs/aboutUs1-1.png",
@@ -547,6 +575,21 @@ export default {
       ],
     },
   },
+  policy:{
+    pageTitle: "用户协议",
+    content: [{
+      currentTitle: "用户协议",
+      image: "/images/policy/001.png",
+      title: "任礼游用户协议",
+      text: "为使用任礼游平台（以下简称为“本平台”）提供的服务，您应当阅读并遵守《任礼游用户协议》（以下简称为“本协议”），请您充分理解并接受本协议后再注册使用本平台。本协议是您就注册、登录、使用任礼游平台及其他涉及的全部行为所订立的权利义务规范。您在注册过程中勾选“同意”等按钮、注册后登录和使用等行为，均表明您已完全充分理解、同意并接受本协议，愿意遵守本协议及任礼游平台公示的各项规则、规范的全部内容，若您不同意本协议或其中任何条款约定，您应立即停止注册、登录或使用任礼游平台。\n请您务必审慎阅读、充分理解各条款内容，特别是限制或免除责任的条款，以及开通或使用某项服务的单独协议、规则。限制或免责条款可能以加粗或加下划线的形式提示您重点注意。\n如果您代表您的公司或其他实体同意接受本协议的约束，则表示您声明并保证，您具有充分的合法授权，可使您的公司或此类实体受本协议的约束。您只有在且仅在获得必需的授权后，才可以代表您的公司或其他实体接受本协议及注册使用任礼游平台。\n为了使您更便捷地使用本平台的服务，您知悉并同意在注册本平台账户过程中，确认同意《隐私政策》。\n1、定义\n如无特别说明，下列术语在本协议中的含义为：\n1.1 任礼游平台/任礼游：任礼游是一个全球开发者成长平台，为广告主和流量主提供智能、精准、高效的移动流量解决方案。\n1.2 您/媒体/开发者：指在任礼游平台成功注册账户，具备使用任礼游平台提供服务所要求的相应资质和能力，拥有和/或运营移动应用、网站等产品的法人或其他组织。\n1.3 开发者产品/媒体产品：指您合法拥有和/或经营的和/或运营的移动应用、网站、网页、小程序等。\n1.4 最终用户：指为自身用途而非为转分发、转售之目的使用开发者产品的用户。\n1.5 任礼游平台服务/任礼游服务/本服务 ：指任礼游通过本网站、任礼游平台根据本协议或与特定的任礼游服务相关的协议或补充条款向您提供的产品和服务，包括但不限于广告投放、赋能合作等。\n1.6 任礼游协议：指在您使用任礼游服务时，您与任礼游所达成的本协议、签署的纸质或电子合同、使用某一特定服务时单独的服务协议、其他协议和平台规则等，统称为任礼游协议。\n2、协议主体\n本协议由通过登录本网站及其他方式使用本服务的用户与云袭网络技术河北有限公司（以下简称“我们”）共同签订。\n3、协议范围\n3.1 本网站是由我们及我们关联公司提供的互联网产品和服务。\n3.2 本用户协议是您与我们之间关于使用本网站服务所订立的协议，本协议条款的效力及于本网站所提供的一切产品和服务，用户在享受本网站任何单项服务时，应当受本协议的约束。\n3.3 本协议项下的产品和服务是指由本网站发布的包括但不限于流量变现、用户增长、个性化配置等互联网产品和服务。\n3.4 本协议内容同时包括《隐私政策》及所有本网站已经发布或未来可能发布的各类规则、公告或通知，且您在使用本网站某一特定产品或服务时，可能会",
+    },{
+      currentTitle: "隐私政策",
+      image: "/images/policy/002.png",
+      title: "隐私政策",
+      text: "任礼游平台及服务提供者云袭网络技术河北有限公司（以下称“我们”）非常重视用户的隐私和个人信息安全保护，我们将按照法律法规要求，采取相应安全保护措施，尽力保护您的个人信息安全可控。\n我们希望通过《隐私政策》（以下简称“本政策”）向您说明本网站如何收集、使用、处理与您有关的个人信息，以及您可以如何行使您的用户权利。\n特别提示：请您在使用本网站前，认真阅读并充分理解本《隐私政策》的全部内容，使用本网站提供的服务以您接受本政策为前提条件，如您在阅读过程中如您对本政策内容有任何疑问、意见或建议，请联系我们。\n需要特别说明的是，本政策不适用于第三方依托本网站向您提供的产品或服务，也不适用于本网站中已独立设置隐私政策的产品或服务。\n\n本隐私政策将帮助您了解：\n本隐私政策将帮助您了解以下内容：\n1.我们如何收集和使用个人信息。\n2.我们如何使用Cookie和同类技术。\n3.我们如何存储个人信息。\n4.我们如何共享、转移、公开披露个人信息。\n5.我们如何保护个人信息。\n6.未成年人使用条款。\n7.用户权利\n8.本隐私政策如何更新和通知。\n9.如何联系我们。\n我们深知个人信息对您的重要性，也深知为您的信息提供有效保护是我们业务健康可持续发展的基石。感谢您对我们的信任！我们致力于维持您对我们的信任，恪守适用法律和我们对您的承诺，尽全力保证您的个人信息安全和合理使用。同时，我们郑重承诺，我们将按业界成熟的安全标准，采取相应的安全保护措施来保护您的个人信息。\n1.我们如何收集和使用个人信息\n个人信息是指以电子或者其他方式记录的能够单独或者与其他信息结合识别特定自然人/法人身份或者反映特定自然人/法人活动情况的各种信息。\n1.1我们提供服务时，可能会收集、储存和使用下列信息：\n1.1.1您在使用我们服务时主动提供的信息\n（1）您在注册账户或使用我们的服务时，向我们提供的可用于识别用户的个人身份的信息，例如姓名、电子邮件地址、电话号码、银行卡号、身份证号",
+    }
+  ]
+  },
   registorNow: "立即注册",
   contactUs: "联系我们",
   image: "/images/index/joinUsBg.png",
@@ -557,29 +600,32 @@ export default {
       {
         title: "热门推荐",
         row: [
-          { text: "移动变现", link: "/app" },
-          { text: "商业PC变现", link: "/pc" },
-          { text: "数据增长", link: "/dataGrowth" },
+          { text: "移动变现", link: "/products/app" },
+          { text: "商业PC变现", link: "/products/pc" },
+          { text: "数据增长", link: "/products/dataGrowth" },
           { text: "解决方案", link: "/solutions" },
         ],
       },
       {
         title: "其他",
         row: [
-          { text: "关于我们", "link:": "/aboutUs" },
-          { text: "联系我们", "link:": "/conectUs" },
-          { text: "用户协议", "link:": "/privacyPolicy" },
-          { text: "隐私政策", "link:": "/privacyPolicy" },
+          { text: "关于我们", link: "/aboutUs" },
+          { text: "联系我们", link: "/conectUs" },
+          { text: "用户协议", link: "/policy" },
+          { text: "隐私政策", link: "/policy" },
         ],
       },
       {
         title: "友情链接",
         row: [
-          { text: "云袭广告投放平台", "link:": "http://www.ireader.com.cn/" },
+          { text: "云袭广告投放平台", link: "http://www.ireader.com.cn/" },
         ],
       },
     ],
-    down: ["关于我们", "联系我们", "用户协议", "隐私政策"],
+    followUs: "关注我们",
+    hotLine: "24小时服务热线",
+    email: "邮箱",
+    weChat: "微信服务号",
   },
   copyright: [
     { text: "© 2023 云袭网络 冀ICP备14015686号-14", link: "/" },

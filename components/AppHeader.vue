@@ -2,7 +2,7 @@
   <header class="header">
     <div class="heard-left">
       <a href="/" class="block flex items-center"
-        ><img class="h-8 w-24 mr-12" src="../assets/images/logo.png" alt=""
+        ><img class="h-8 w-24 mr-12" src="/images/logo.png" alt=""
       /></a>
       <AloneNavBar :data="navList" />
     </div>
@@ -12,13 +12,13 @@
         ><span class="header_sign_in" xt-marked="ok" style="display: none;">登录</span></a
       >
       <button type="button" class="btn-sign-up">
-        <span class="pangle-btn-inner" xt-marked="ok">{{ $t('justus') }}</span>
+        <span class="pangle-btn-inner" xt-marked="ok">{{ $t('justNow') }}</span>
       </button>
     </div>
     <img
       class="m-btnMenu w-4 h-3"
       @click="isCollapse ? (isCollapse = false) : (isCollapse = true)"
-      src="../assets/images/menu.png"
+      src="/images/menu.png"
       alt=""
     />
   </header>
@@ -43,8 +43,9 @@
             </template>
             <el-menu-item-group>
               <el-menu-item
-                v-for="(ite, inde) in item.children"
+                v-for="(ite, index) in item.children"
                 :index="ite.link"
+                :key="index"
               >
                 <nuxt-link :to="ite.link">{{ ite.name }}</nuxt-link>
               </el-menu-item>

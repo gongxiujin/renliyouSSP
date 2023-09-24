@@ -4,161 +4,43 @@
     <div class="pc">
       <div class="ability-bar">
         <div class="title-bar">
-          <h2 class="ability-title">强大的产品能力</h2>
+          <h2 class="ability-title">{{ data.title.body.static }}</h2>
         </div>
         <div class="menu-bar">
           <div class="menu">
             <div
-              @click="setIndex(0)"
-              :class="['menu-item', activeIndex == 0 ? 'active' : '']"
+              v-for="(item, index) in data.content"
+              :key="index"
+              @click="setIndex(index)"
+              :class="['menu-item', activeIndex == index ? 'active' : '']"
             >
-              移动变现
-            </div>
-            <div
-              @click="setIndex(1)"
-              :class="['menu-item', activeIndex == 1 ? 'active' : '']"
-            >
-              PC变现
-            </div>
-            <div
-              @click="setIndex(2)"
-              :class="['menu-item', activeIndex == 2 ? 'active' : '']"
-            >
-              数据增长
+              {{ item.title.body.static }}
             </div>
           </div>
         </div>
         <div class="slide-bar">
           <swiper class="swiper" @swiper="onSwiper" @slideChange="handleSlideChange">
-            <swiper-slide key="0">
+            <swiper-slide v-for="(item, index) in data.content" :key="index">
               <div class="slide-item">
                 <div class="slide-text">
-                  <p class="text-title">移动变现</p>
-                  <div class="text-desc">
+                  <p class="text-title">{{ item.title.body.static }}</p>
+                  <div class="text-desc" v-for="(text, index) in item.text" :key="index">
                     <div class="desc-icon">
                       <img
                         class="icon-img"
-                        src="../../assets/images/index/tick.png"
+                        src="/images/index/tick.png"
                         alt=""
                       />
                     </div>
                     <div class="desc-text">
-                      丰富的广告产品（信息流、开屏、Banner、激励视频等）
+                      {{ text.body.static }}
                     </div>
-                  </div>
-                  <div class="text-desc">
-                    <div class="desc-icon">
-                      <img
-                        class="icon-img"
-                        src="../../assets/images/index/tick.png"
-                        alt=""
-                      />
-                    </div>
-                    <div class="desc-text">高效的接入方式（SDK/API/JS）</div>
-                  </div>
-                  <div class="text-desc">
-                    <div class="desc-icon">
-                      <img
-                        class="icon-img"
-                        src="../../assets/images/index/tick.png"
-                        alt=""
-                      />
-                    </div>
-                    <div class="desc-text">严格的风控体系</div>
                   </div>
                 </div>
                 <img
                   class="banner-img"
-                  src="../../assets/images/index/ability-1.png"
-                  alt=""
-                />
-              </div>
-            </swiper-slide>
-            <swiper-slide key="1">
-              <div class="slide-item">
-                <div class="slide-text">
-                  <p class="text-title">PC变现</p>
-                  <div class="text-desc">
-                    <div class="desc-icon">
-                      <img
-                        class="icon-img"
-                        src="../../assets/images/index/tick.png"
-                        alt=""
-                      />
-                    </div>
-                    <div class="desc-text">
-                      丰富的广告形式（Banner、弹窗广告、对联广告等）
-                    </div>
-                  </div>
-                  <div class="text-desc">
-                    <div class="desc-icon">
-                      <img
-                        class="icon-img"
-                        src="../../assets/images/index/tick.png"
-                        alt=""
-                      />
-                    </div>
-                    <div class="desc-text">
-                      海量的广告资源（游戏、健身、电商、金融等行业）
-                    </div>
-                  </div>
-                  <div class="text-desc">
-                    <div class="desc-icon">
-                      <img
-                        class="icon-img"
-                        src="../../assets/images/index/tick.png"
-                        alt=""
-                      />
-                    </div>
-                    <div class="desc-text">高效的数据分析</div>
-                  </div>
-                </div>
-                <img
-                  class="banner-img"
-                  src="../../assets/images/index/ability-2.png"
-                  alt=""
-                />
-              </div>
-            </swiper-slide>
-            <swiper-slide key="2">
-              <div class="slide-item">
-                <div class="slide-text">
-                  <p class="text-title">数据增长</p>
-                  <div class="text-desc">
-                    <div class="desc-icon">
-                      <img
-                        class="icon-img"
-                        src="../../assets/images/index/tick.png"
-                        alt=""
-                      />
-                    </div>
-                    <div class="desc-text">实时监控预估收益</div>
-                  </div>
-                  <div class="text-desc">
-                    <div class="desc-icon">
-                      <img
-                        class="icon-img"
-                        src="../../assets/images/index/tick.png"
-                        alt=""
-                      />
-                    </div>
-                    <div class="desc-text">全渠道数据分析</div>
-                  </div>
-                  <div class="text-desc">
-                    <div class="desc-icon">
-                      <img
-                        class="icon-img"
-                        src="../../assets/images/index/tick.png"
-                        alt=""
-                      />
-                    </div>
-                    <div class="desc-text">以ROI为核心，提供分析洞察及指导</div>
-                  </div>
-                </div>
-                <img
-                  class="banner-img"
-                  src="../../assets/images/index/ability-3.png"
-                  alt=""
+                  :src="item.image.body.static"
+                  :alt="item.title.body.static"
                 />
               </div>
             </swiper-slide>
@@ -169,162 +51,44 @@
     <div class="mobile">
       <div class="m-ability-bar">
         <div class="title-bar">
-          <h2 class="ability-title">多样化的接入方式</h2>
+          <h2 class="ability-title">{{ data.title.body.static }}</h2>
         </div>
         <div class="menu-bar">
           <div class="menu">
             <div
-              @click="setIndex(0)"
-              :class="['menu-item', activeIndex == 0 ? 'active' : '']"
+              v-for="(item, index) in data.content"
+              :key="index"
+              @click="setIndex(index)"
+              :class="['menu-item', activeIndex == index ? 'active' : '']"
             >
-              移动变现
-            </div>
-            <div
-              @click="setIndex(1)"
-              :class="['menu-item', activeIndex == 1 ? 'active' : '']"
-            >
-              PC变现
-            </div>
-            <div
-              @click="setIndex(2)"
-              :class="['menu-item', activeIndex == 2 ? 'active' : '']"
-            >
-              数据增长
+              {{ item.title.body.static }}
             </div>
           </div>
         </div>
         <div class="slide-bar">
-          <swiper class="swiper" @swiper="onSwiperM" @slideChange="handleSlideChange" :centered-slides="true" :slides-per-view="1.2" :space-between="15">
-            <swiper-slide key="0">
+          <swiper class="swiper" @swiper="onSwiper" @slideChange="handleSlideChange">
+            <swiper-slide v-for="(item, index) in data.content" :key="index">
               <div class="slide-item">
-                <img
-                  class="banner-img"
-                  src="../../assets/images/index/ability-1.png"
-                  alt=""
-                />
                 <div class="slide-text">
-                  <p class="text-title">移动变现</p>
-                  <div class="text-desc">
+                  <p class="text-title">{{ item.title.body.static }}</p>
+                  <div class="text-desc" v-for="(text, index) in item.text" :key="index">
                     <div class="desc-icon">
                       <img
                         class="icon-img"
-                        src="../../assets/images/index/tick.png"
+                        src="/images/index/tick.png"
                         alt=""
                       />
                     </div>
                     <div class="desc-text">
-                      丰富的广告产品（信息流、开屏、Banner、激励视频等）
+                      {{ text.body.static }}
                     </div>
-                  </div>
-                  <div class="text-desc">
-                    <div class="desc-icon">
-                      <img
-                        class="icon-img"
-                        src="../../assets/images/index/tick.png"
-                        alt=""
-                      />
-                    </div>
-                    <div class="desc-text">高效的接入方式（SDK/API/JS）</div>
-                  </div>
-                  <div class="text-desc">
-                    <div class="desc-icon">
-                      <img
-                        class="icon-img"
-                        src="../../assets/images/index/tick.png"
-                        alt=""
-                      />
-                    </div>
-                    <div class="desc-text">严格的风控体系</div>
                   </div>
                 </div>
-              </div>
-            </swiper-slide>
-            <swiper-slide key="1">
-              <div class="slide-item">
                 <img
                   class="banner-img"
-                  src="../../assets/images/index/ability-2.png"
-                  alt=""
+                  :src="item.image.body.static"
+                  :alt="item.title.body.static"
                 />
-                <div class="slide-text">
-                  <p class="text-title">PC变现</p>
-                  <div class="text-desc">
-                    <div class="desc-icon">
-                      <img
-                        class="icon-img"
-                        src="../../assets/images/index/tick.png"
-                        alt=""
-                      />
-                    </div>
-                    <div class="desc-text">
-                      丰富的广告形式（Banner、弹窗广告、对联广告等）
-                    </div>
-                  </div>
-                  <div class="text-desc">
-                    <div class="desc-icon">
-                      <img
-                        class="icon-img"
-                        src="../../assets/images/index/tick.png"
-                        alt=""
-                      />
-                    </div>
-                    <div class="desc-text">
-                      海量的广告资源（游戏、健身、电商、金融等行业）
-                    </div>
-                  </div>
-                  <div class="text-desc">
-                    <div class="desc-icon">
-                      <img
-                        class="icon-img"
-                        src="../../assets/images/index/tick.png"
-                        alt=""
-                      />
-                    </div>
-                    <div class="desc-text">高效的数据分析</div>
-                  </div>
-                </div>
-              </div>
-            </swiper-slide>
-            <swiper-slide key="2">
-              <div class="slide-item">
-                <img
-                  class="banner-img"
-                  src="../../assets/images/index/ability-3.png"
-                  alt=""
-                />
-                <div class="slide-text">
-                  <p class="text-title">数据增长</p>
-                  <div class="text-desc">
-                    <div class="desc-icon">
-                      <img
-                        class="icon-img"
-                        src="../../assets/images/index/tick.png"
-                        alt=""
-                      />
-                    </div>
-                    <div class="desc-text">实时监控预估收益</div>
-                  </div>
-                  <div class="text-desc">
-                    <div class="desc-icon">
-                      <img
-                        class="icon-img"
-                        src="../../assets/images/index/tick.png"
-                        alt=""
-                      />
-                    </div>
-                    <div class="desc-text">全渠道数据分析</div>
-                  </div>
-                  <div class="text-desc">
-                    <div class="desc-icon">
-                      <img
-                        class="icon-img"
-                        src="../../assets/images/index/tick.png"
-                        alt=""
-                      />
-                    </div>
-                    <div class="desc-text">以ROI为核心，提供分析洞察及指导</div>
-                  </div>
-                </div>
               </div>
             </swiper-slide>
           </swiper>
@@ -339,6 +103,10 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+
+import { useI18n } from 'vue-i18n';
+const { tm } = useI18n();
+const data = ref(tm('home').ability);
 
 const activeIndex = ref(0);
 const swiperInstance = ref();
@@ -382,7 +150,6 @@ function onSwiper(swiper) {
     min-width: 1200px;
     text-align: center;
     .ability-title {
-      font-family: Source Han Sans CN;
       font-size: 36px;
       font-weight: 900;
       line-height: 38px;
@@ -455,7 +222,6 @@ function onSwiper(swiper) {
           margin: 0 auto;
           margin-left: 10%;
           .text-title {
-            font-family: Source Han Sans CN;
             font-size: 26px;
             font-weight: bold;
             line-height: 26px;
@@ -465,7 +231,6 @@ function onSwiper(swiper) {
           }
           .text-desc {
             display: flex;
-            font-family: 思源黑体;
             font-size: 16px;
             font-weight: normal;
             line-height: 24px;
@@ -510,7 +275,6 @@ function onSwiper(swiper) {
       width: 100%;
       text-align: center;
       .ability-title {
-        font-family: Source Han Sans CN;
         font-size: 24px;
         font-weight: 900;
         line-height: 38px;
@@ -582,7 +346,6 @@ function onSwiper(swiper) {
             width: 100%;
             padding: 15px 30px 0;
             .text-title {
-              font-family: Source Han Sans CN;
               font-size: 18px;
               font-weight: bold;
               line-height: 26px;
@@ -590,7 +353,6 @@ function onSwiper(swiper) {
               text-align: left;
             }
             .text-desc {
-              font-family: 思源黑体;
               font-size: 14px;
               font-weight: normal;
               line-height: 24px;

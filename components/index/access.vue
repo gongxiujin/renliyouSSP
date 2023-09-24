@@ -4,95 +4,32 @@
     <div class="pc">
       <div class="access-bar">
         <div class="title-bar">
-          <h2 class="access-title">多样化的接入方式</h2>
+          <h2 class="access-title">{{ data.title.body.static }}</h2>
         </div>
         <div class="menu-bar">
           <div class="menu">
-            <div
-              @click="setIndex(0)"
-              :class="['menu-item', activeIndex == 0 ? 'active' : '']"
+            <div v-for="(item, index) in data.content" :key="index"
+              @click="setIndex(index)"
+              :class="['menu-item', activeIndex == index ? 'active' : '']"
             >
-              SDK
-            </div>
-            <div
-              @click="setIndex(1)"
-              :class="['menu-item', activeIndex == 1 ? 'active' : '']"
-            >
-              API
-            </div>
-            <div
-              @click="setIndex(2)"
-              :class="['menu-item', activeIndex == 2 ? 'active' : '']"
-            >
-              JS
-            </div>
-            <div
-              @click="setIndex(3)"
-              :class="['menu-item', activeIndex == 3 ? 'active' : '']"
-            >
-              程序下发
+            {{item.title.body.static}}
             </div>
           </div>
         </div>
         <div class="slide-bar">
           <swiper class="swiper" @swiper="onSwiper" @slideChange="handleSlideChange">
-            <swiper-slide key="0">
+            <swiper-slide v-for="(item, index) in data.content" :key="index">
               <div class="slide-item">
                 <div class="slide-text">
-                  <p class="text-title">SDK</p>
+                  <p class="text-title">{{item.title.body.static}}</p>
                   <p class="text-desc">
-                    开发者按照开发文档，在自己的应用内嵌入任礼游SSP的SDK，实现广告的最终投放。
+                    {{ item.text.body.static }}
                   </p>
                 </div>
                 <img
                   class="banner-img"
-                  src="../../assets/images/index/access-1.png"
-                  alt=""
-                />
-              </div>
-            </swiper-slide>
-            <swiper-slide key="1">
-              <div class="slide-item">
-                <div class="slide-text">
-                  <p class="text-title">API</p>
-                  <p class="text-desc">
-                    在媒体广告位确认情况下，技术人员按照任礼游SSP提供的API对接文档，实现广告的最终投放。
-                  </p>
-                </div>
-                <img
-                  class="banner-img"
-                  src="../../assets/images/index/access-2.png"
-                  alt=""
-                />
-              </div>
-            </swiper-slide>
-            <swiper-slide key="2">
-              <div class="slide-item">
-                <div class="slide-text">
-                  <p class="text-title">JS</p>
-                  <p class="text-desc">
-                    技术人员将任礼游SSP提供的对应业务代码埋在H5页面，实现广告的最终投放。
-                  </p>
-                </div>
-                <img
-                  class="banner-img"
-                  src="../../assets/images/index/access-3.png"
-                  alt=""
-                />
-              </div>
-            </swiper-slide>
-            <swiper-slide key="3">
-              <div class="slide-item">
-                <div class="slide-text">
-                  <p class="text-title">程序下发</p>
-                  <p class="text-desc">
-                    将任礼游SSP提供的客户端程序自动下发至商业PC上，保持每次开启即启动客户端程序，实现广告的最终投放。
-                  </p>
-                </div>
-                <img
-                  class="banner-img"
-                  src="../../assets/images/index/access-4.png"
-                  alt=""
+                  :src="item.image.body.static"
+                  :alt="item.title.body.static"
                 />
               </div>
             </swiper-slide>
@@ -103,96 +40,33 @@
     <div class="mobile">
       <div class="m-access-bar">
         <div class="title-bar">
-          <h2 class="access-title">多样化的接入方式</h2>
+          <h2 class="access-title">{{ data.title.body.static }}</h2>
         </div>
         <div class="menu-bar">
           <div class="menu">
-            <div
-              @click="setIndex(0)"
-              :class="['menu-item', activeIndex == 0 ? 'active' : '']"
+            <div v-for="(item, index) in data.content" :key="index"
+              @click="setIndex(index)"
+              :class="['menu-item', activeIndex == index ? 'active' : '']"
             >
-              SDK
-            </div>
-            <div
-              @click="setIndex(1)"
-              :class="['menu-item', activeIndex == 1 ? 'active' : '']"
-            >
-              API
-            </div>
-            <div
-              @click="setIndex(2)"
-              :class="['menu-item', activeIndex == 2 ? 'active' : '']"
-            >
-              JS
-            </div>
-            <div
-              @click="setIndex(3)"
-              :class="['menu-item', activeIndex == 3 ? 'active' : '']"
-            >
-              程序下发
+            {{item.title.body.static}}
             </div>
           </div>
         </div>
         <div class="slide-bar">
-          <swiper class="swiper" @swiper="onSwiperM" @slideChange="handleSlideChange">
-            <swiper-slide key="0">
+          <swiper class="swiper" @swiper="onSwiper" @slideChange="handleSlideChange">
+            <swiper-slide v-for="(item, index) in data.content" :key="index">
               <div class="slide-item">
-                <img
-                  class="banner-img"
-                  src="../../assets/images/index/access-1.png"
-                  alt=""
-                />
                 <div class="slide-text">
-                  <p class="text-title">SDK</p>
+                  <p class="text-title">{{item.title.body.static}}</p>
                   <p class="text-desc">
-                    开发者按照开发文档，在自己的应用内嵌入任礼游SSP的SDK，实现广告的最终投放。
+                    {{ item.text.body.static }}
                   </p>
                 </div>
-              </div>
-            </swiper-slide>
-            <swiper-slide key="1">
-              <div class="slide-item">
                 <img
                   class="banner-img"
-                  src="../../assets/images/index/access-2.png"
-                  alt=""
+                  :src="item.image.body.static"
+                  :alt="item.title.body.static"
                 />
-                <div class="slide-text">
-                  <p class="text-title">API</p>
-                  <p class="text-desc">
-                    在媒体广告位确认情况下，技术人员按照任礼游SSP提供的API对接文档，实现广告的最终投放。
-                  </p>
-                </div>
-              </div>
-            </swiper-slide>
-            <swiper-slide key="2">
-              <div class="slide-item">
-                <img
-                  class="banner-img"
-                  src="../../assets/images/index/access-3.png"
-                  alt=""
-                />
-                <div class="slide-text">
-                  <p class="text-title">JS</p>
-                  <p class="text-desc">
-                    技术人员将任礼游SSP提供的对应业务代码埋在H5页面，实现广告的最终投放。
-                  </p>
-                </div>
-              </div>
-            </swiper-slide>
-            <swiper-slide key="3">
-              <div class="slide-item">
-                <img
-                  class="banner-img"
-                  src="../../assets/images/index/access-4.png"
-                  alt=""
-                />
-                <div class="slide-text">
-                  <p class="text-title">程序下发</p>
-                  <p class="text-desc">
-                    将任礼游SSP提供的客户端程序自动下发至商业PC上，保持每次开启即启动客户端程序，实现广告的最终投放。
-                  </p>
-                </div>
               </div>
             </swiper-slide>
           </swiper>
@@ -207,6 +81,9 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { useI18n } from 'vue-i18n';
+const { tm } = useI18n();
+const data = ref(tm('home').access);
 
 const activeIndex = ref(0);
 const swiperInstance = ref();
@@ -249,7 +126,7 @@ function onSwiper(swiper) {
     min-width: 1200px;
     text-align: center;
     .access-title {
-      font-family: Source Han Sans CN;
+
       font-size: 36px;
       font-weight: 900;
       line-height: 38px;
@@ -318,7 +195,6 @@ function onSwiper(swiper) {
           width: 400px;
           padding-left: 50px;
           .text-title {
-            font-family: Source Han Sans CN;
             font-size: 26px;
             font-weight: bold;
             line-height: 26px;
@@ -326,7 +202,6 @@ function onSwiper(swiper) {
             text-align: left;
           }
           .text-desc {
-            font-family: 思源黑体;
             font-size: 16px;
             font-weight: normal;
             line-height: 24px;
@@ -354,7 +229,7 @@ function onSwiper(swiper) {
       width: 100%;
       text-align: center;
       .access-title {
-        font-family: Source Han Sans CN;
+
         font-size: 24px;
         font-weight: 900;
         line-height: 38px;
@@ -419,7 +294,7 @@ function onSwiper(swiper) {
             width: 100%;
             padding: 0 33px;
             .text-title {
-              font-family: Source Han Sans CN;
+
               font-size: 18px;
               font-weight: bold;
               line-height: 26px;
@@ -427,7 +302,7 @@ function onSwiper(swiper) {
               text-align: left;
             }
             .text-desc {
-              font-family: 思源黑体;
+
               font-size: 14px;
               font-weight: normal;
               line-height: 24px;

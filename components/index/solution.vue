@@ -4,111 +4,44 @@
     <div class="pc">
       <div class="solution-bar">
         <div class="title-bar">
-          <h2 class="solution-title">专业的解决方案</h2>
-          <p class="solution-desc">行业深耕多年，适配不同行业的业务痛点</p>
+          <h2 class="solution-title">{{ data.title.body.static }}</h2>
+          <p class="solution-desc">{{ data.text.body.static }}</p>
         </div>
         <div class="container">
           <div class="tabs">
             <img
-              v-if="activeIndex == 0"
               class="bgImg"
-              src="../../assets/images/index/solutionBg1.png"
-              alt=""
+              :src="data.content[activeIndex].iconBg.body.static"
+              :alt="data.content[activeIndex].title.body.static"
             />
-            <img
-              v-else-if="activeIndex == 1"
-              class="bgImg"
-              src="../../assets/images/index/solutionBg2.png"
-              alt=""
-            />
-            <img
-              v-else-if="activeIndex == 2"
-              class="bgImg"
-              src="../../assets/images/index/solutionBg1.png"
-              alt=""
-            />
-            <img
-              v-else="activeIndex == 3"
-              class="bgImg"
-              src="../../assets/images/index/solutionBg4.png"
-              alt=""
-            />
-            <div
-              :class="['tabs-item', activeIndex == 0 ? 'active' : '']"
-              @mouseover="handleMouseOver(0)"
+            <div v-for="(item, index) in data.content" :key="index"
+              :class="['tabs-item', activeIndex == index ? 'active' : '']"
+              @mouseover="handleMouseOver(index)"
             >
               <img
-                v-if="activeIndex == 0"
-                src="../../assets/images/index/solutionTabs1Act.png"
-                alt=""
+                v-if="activeIndex == index"
+                :src="item.iconActive.body.static"
+                :alt="item.title.body.static"
               />
               <img
                 v-else
-                src="../../assets/images/index/solutionTabs1.png"
-                alt=""
+                :src="item.icon.body.static"
+                :alt="item.title.body.static"
               />
-              <span>电商类</span>
-            </div>
-            <div
-              :class="['tabs-item', activeIndex == 1 ? 'active' : '']"
-              @mouseover="handleMouseOver(1)"
-            >
-              <img
-                v-if="activeIndex == 1"
-                src="../../assets/images/index/solutionTabs2Act.png"
-                alt=""
-              />
-              <img
-                v-else
-                src="../../assets/images/index/solutionTabs2.png"
-                alt=""
-              />
-              <span>APP应用&游戏</span>
-            </div>
-            <div
-              :class="['tabs-item', activeIndex == 2 ? 'active' : '']"
-              @mouseover="handleMouseOver(2)"
-            >
-              <img
-                v-if="activeIndex == 2"
-                src="../../assets/images/index/solutionTabs3Act.png"
-                alt=""
-              />
-              <img
-                v-else
-                src="../../assets/images/index/solutionTabs3.png"
-                alt=""
-              />
-              <span>金融</span>
-            </div>
-            <div
-              :class="['tabs-item', activeIndex == 3 ? 'active' : '']"
-              @mouseover="handleMouseOver(3)"
-            >
-              <img
-                v-if="activeIndex == 3"
-                src="../../assets/images/index/solutionTabs4Act.png"
-                alt=""
-              />
-              <img
-                v-else
-                src="../../assets/images/index/solutionTabs4.png"
-                alt=""
-              />
-              <span>运动健康</span>
+              <span class="tab-title">{{ item.title.body.static }}</span>
             </div>
           </div>
           <div class="content">
-            <div class="content-item" v-if="activeIndex == 0">
-              <p class="text-1">电商类</p>
+            <div class="content-item" >
+              <p class="text-1">{{data.content[activeIndex].title.body.static}}</p>
               <p class="text-2">
-                在云袭电商场景下全方位为商家提供生意服务，提升用户活跃、下单、购买商品等行为。
+                {{data.content[activeIndex].text.body.static}}
               </p>
               <p class="text-3">
-                【品牌推广】【商品推广】【搜索广告】【定向投放】
+                {{ data.content[activeIndex].light.body.static }}
               </p>
             </div>
-            <div class="content-item" v-else-if="activeIndex == 1">
+            <!-- <div class="content-item" v-else-if="activeIndex == 1">
               <p class="text-1">APP应用&游戏</p>
               <p class="text-2">满足客户激活下载转化类的营销需求。</p>
               <p class="text-3">
@@ -126,36 +59,15 @@
                 旗下产品“月野兔”有丰富的场馆资源和C端用户，可以为健身运动行业客户提供全方位解决方案。
               </p>
               <p class="text-3">【全方位服务】【线上线下一体化】</p>
-            </div>
+            </div> -->
           </div>
           <div class="swiper-main">
             <swiper class="swiper" @swiper="onSwiper">
-              <swiper-slide key="0">
+              <swiper-slide v-for="(item, index) in data.content" :key="index">
                 <img
                   class="banner-img"
-                  src="../../assets/images/index/solution-1.png"
-                  alt=""
-                />
-              </swiper-slide>
-              <swiper-slide key="1">
-                <img
-                  class="banner-img"
-                  src="../../assets/images/index/solution-2.png"
-                  alt=""
-                />
-              </swiper-slide>
-              <swiper-slide key="2">
-                <img
-                  class="banner-img"
-                  src="../../assets/images/index/solution-3.png"
-                  alt=""
-                />
-              </swiper-slide>
-              <swiper-slide key="3">
-                <img
-                  class="banner-img"
-                  src="../../assets/images/index/solution-4.png"
-                  alt=""
+                  :src="item.image.body.static"
+                  :alt="item.title.body.static"
                 />
               </swiper-slide>
             </swiper>
@@ -166,141 +78,46 @@
     <div class="mobile">
       <div class="m-solution-bar">
         <div class="title-bar">
-          <h2 class="solution-title">专业的解决方案</h2>
-          <p class="solution-desc">行业深耕多年，适配不同行业的业务痛点</p>
+          <h2 class="solution-title">{{ data.title.body.static }}</h2>
+          <p class="solution-desc">{{ data.text.body.static }}</p>
         </div>
         <div class="tabs-row">
-          <div
-            :class="['tabs-item', activeIndex == 0 ? 'active' : '']"
-            @click="handleMouseOver(0)"
+          <div v-for="(item, index) in data.content" :key="index"
+            :class="['tabs-item', activeIndex == index ? 'active' : '']"
+            @click="handleMouseOver(index)"
           >
             <img
-              v-if="activeIndex == 0"
-              src="../../assets/images/index/solutionTabs1Act.png"
+              v-if="activeIndex == index"
+              :src="data.content[index].iconActive.body.static"
               alt=""
             />
             <img
               v-else
-              src="../../assets/images/index/solutionTabs1.png"
+              :src="data.content[index].icon.body.static"
               alt=""
             />
-            <span>电商类</span>
-          </div>
-          <div
-            :class="['tabs-item', activeIndex == 1 ? 'active' : '']"
-            @click="handleMouseOver(1)"
-          >
-            <img
-              v-if="activeIndex == 1"
-              src="../../assets/images/index/solutionTabs2Act.png"
-              alt=""
-            />
-            <img
-              v-else
-              src="../../assets/images/index/solutionTabs2.png"
-              alt=""
-            />
-            <span>APP应用&游戏</span>
-          </div>
-          <div
-            :class="['tabs-item', activeIndex == 2 ? 'active' : '']"
-            @click="handleMouseOver(2)"
-          >
-            <img
-              v-if="activeIndex == 2"
-              src="../../assets/images/index/solutionTabs3Act.png"
-              alt=""
-            />
-            <img
-              v-else
-              src="../../assets/images/index/solutionTabs3.png"
-              alt=""
-            />
-            <span>金融</span>
-          </div>
-          <div
-            :class="['tabs-item', activeIndex == 3 ? 'active' : '']"
-            @click="handleMouseOver(3)"
-          >
-            <img
-              v-if="activeIndex == 3"
-              src="../../assets/images/index/solutionTabs4Act.png"
-              alt=""
-            />
-            <img
-              v-else
-              src="../../assets/images/index/solutionTabs4.png"
-              alt=""
-            />
-            <span>运动健康</span>
+            <span class="tab-title normal-text">{{ item.title.body.static }}</span>
           </div>
         </div>
         <div class="m-swiper-main">
           <swiper class="swiper" @swiper="onSwiperM" @slideChange="handleSlideChange">
-            <swiper-slide key="0">
+            <swiper-slide v-for="(item, index) in data.content" :key="index">
               <img
                 class="banner-img"
-                src="../../assets/images/index/solutionMBg1.png"
+                :src="item.mbimage.body.static"
                 alt=""
               />
               <div class="content-item">
-                <p class="text-1">电商类</p>
-                <p class="text-2">
-                  在云袭电商场景下全方位为商家提供生意服务，提升用户活跃、下单、购买商品等行为。
+                <p class="text-1 bold-text">{{ item.title.body.static }}</p>
+                <p class="text-2 normal-text">
+                  {{ item.text.body.static }}
                 </p>
-                <p class="text-3">
-                  【品牌推广】【商品推广】【搜索广告】【定向投放】
-                </p>
-              </div>
-            </swiper-slide>
-            <swiper-slide key="1">
-              <img
-                class="banner-img"
-                src="../../assets/images/index/solutionMBg2.png"
-                alt=""
-              />
-              <div class="content-item">
-                <p class="text-1">APP应用&游戏</p>
-                <p class="text-2">
-                    满足客户激活下载转化类的营销需求。
-                </p>
-                <p class="text-3">
-                    【社交媒体】【应用商店】【精准投放】【数据分析】
+                <p class="text-3 normal-text">
+                  {{ item.light.body.static }}
                 </p>
               </div>
             </swiper-slide>
-            <swiper-slide key="2">
-              <img
-                class="banner-img"
-                src="../../assets/images/index/solutionMBg3.png"
-                alt=""
-              />
-              <div class="content-item">
-                <p class="text-1">金融</p>
-                <p class="text-2">
-                    帮助金融机构拓展新客户，扩大市场规模。
-                </p>
-                <p class="text-3">
-                    【线索留资】【品牌建设】【精准营销】
-                </p>
-              </div>
-            </swiper-slide>
-            <swiper-slide key="3">
-              <img
-                class="banner-img"
-                src="../../assets/images/index/solutionMBg4.png"
-                alt=""
-              />
-              <div class="content-item">
-                <p class="text-1">运动健康</p>
-                <p class="text-2">
-                    旗下产品“月野兔”有丰富的场馆资源和C端用户，可以为健身运动行业客户提供全方位解决方案。
-                </p>
-                <p class="text-3">
-                    【全方位服务】【线上线下一体化】
-                </p>
-              </div>
-            </swiper-slide>
+
           </swiper>
         </div>
       </div>
@@ -313,6 +130,9 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { useI18n } from 'vue-i18n';
+const { tm } = useI18n();
+const data = ref(tm('home').solution);
 
 const activeIndex = ref(0);
 const swiperInstance = ref();
@@ -383,7 +203,6 @@ function onSwiper(swiper) {
     min-width: 1200px;
     text-align: center;
     .solution-title {
-      font-family: Source Han Sans CN;
       font-size: 36px;
       font-weight: 900;
       line-height: 38px;
@@ -391,11 +210,11 @@ function onSwiper(swiper) {
       color: #222222;
     }
     .solution-desc {
-      margin-top: 14px;
-      font-family: Source Han Sans CN;
+      margin-top: 18px;
+
       font-size: 16px;
       font-weight: normal;
-      line-height: 38px;
+      line-height: 24px;
       color: #777777;
     }
   }
@@ -436,6 +255,10 @@ function onSwiper(swiper) {
           width: 61px;
           height: 62px;
         }
+        .tab-title{
+          font-family: SourceHans-normal;
+          font-size: 16px;
+        }
       }
       .active {
         color: #e65e24;
@@ -452,7 +275,7 @@ function onSwiper(swiper) {
       .content-item {
         padding-top: 60px;
         .text-1 {
-          font-family: Source Han Sans CN;
+
           font-size: 26px;
           font-weight: bold;
           line-height: 25.99px;
@@ -460,14 +283,14 @@ function onSwiper(swiper) {
           margin-bottom: 29px;
         }
         .text-2 {
-          font-family: 思源黑体;
+
           font-size: 16px;
           font-weight: normal;
           color: #666666;
           margin-bottom: 13px;
         }
         .text-3 {
-          font-family: 思源黑体;
+
           font-size: 16px;
           font-weight: normal;
           color: #222222;
@@ -476,7 +299,7 @@ function onSwiper(swiper) {
     }
     .swiper-main {
       position: absolute;
-      bottom: -16px;
+      bottom: 0px;
       right: -50px;
       height: 516px;
       width: 292px;
@@ -507,7 +330,7 @@ function onSwiper(swiper) {
       width: 100%;
       text-align: center;
       .solution-title {
-        font-family: Source Han Sans CN;
+
         font-size: 24px;
         font-weight: 900;
         line-height: 38px;
@@ -516,7 +339,7 @@ function onSwiper(swiper) {
       }
       .solution-desc {
         margin-top: 14px;
-        font-family: Source Han Sans CN;
+
         font-size: 16px;
         font-weight: normal;
         line-height: 24px;
@@ -541,6 +364,10 @@ function onSwiper(swiper) {
           width: 45px;
           height: 45px;
         }
+        .tab-title {
+          font-size: 14px;
+          line-height: 16px;
+        }
       }
       .active {
         color: #e65e24;
@@ -560,7 +387,7 @@ function onSwiper(swiper) {
           padding: 14px 17px 21px;
           background: #FFFFFF;
           .text-1 {
-            font-family: Source Han Sans CN;
+
             font-size: 18px;
             font-weight: bold;
             line-height: 25.99px;
@@ -568,14 +395,14 @@ function onSwiper(swiper) {
             margin-bottom: 10px;
           }
           .text-2 {
-            font-family: 思源黑体;
+
             font-size: 14px;
             font-weight: normal;
             color: #666666;
             margin-bottom: 13px;
           }
           .text-3 {
-            font-family: 思源黑体;
+
             font-size: 14px;
             font-weight: normal;
             color: #222222;

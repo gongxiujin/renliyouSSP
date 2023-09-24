@@ -6,53 +6,30 @@
     <div class="pc">
       <div class="solution-bar">
         <div class="title-bar">
-          <h2 class="solution-title">企业文化</h2>
+          <h2 class="solution-title">{{ data.title.body.static }}</h2>
+          <p class="solution-desc bold-text">{{ data.text.body.static }}</p>
         </div>
         <div class="container">
-          <div class="content-item">
+          <div class="content-item" v-for="(item, index) in data.content" :key="index">
             <div class="content-round">
               <img
                 class="round-img"
-                src="../assets/images/aboutUs/aboutUs1-1.png"
-                alt=""
+                :src="item.image.body.static"
+                :alt="item.title.body.static"
               />
             </div>
-            <p class="title">改革</p>
-            <p class="desc">开放创新，给予他人，成就自我</p>
-          </div>
-          <div class="content-item">
-            <div class="content-round">
-              <img
-                class="round-img"
-                src="../assets/images/aboutUs/aboutUs1-2.png"
-                alt=""
-              />
-            </div>
-            <p class="title">做事</p>
-            <p class="desc">思路出彩，过程出色，结果出众</p>
-          </div>
-          <div class="content-item">
-            <div class="content-round">
-              <img
-                class="round-img"
-                src="../assets/images/aboutUs/aboutUs1-3.png"
-                alt=""
-              />
-            </div>
-            <p class="title">心态</p>
-            <p class="desc">终身成长，持续奋斗，舍我其谁</p>
+            <p class="title bold-text">{{ item.title.body.static }}</p>
+            <p class="desc normal-text">{{ item.text.body.static }}</p>
           </div>
         </div>
       </div>
     </div>
     <!-- 联系我们 -->
     <div class="join-us">
-      <img class="bg-img" src="../assets/images/index/joinUsBg.png" alt="" />
+      <img class="bg-img" src="/images/index/joinUsBg.png" alt="" />
       <div class="title-content">
-        <h2 class="title">联系我们</h2>
-        <p>云袭网络技术（河北）有限公司</p>
-        <p>地址：河北省石家庄市裕华区怀特商业广场D座5层</p>
-        <p>市场合作：17060666669</p>
+        <h2 class="title">{{ $t('contactUs') }}</h2>
+        <p :style="{ whiteSpace: 'pre-line' }">{{ $t("address") }}</p>
       </div>
     </div>
     <div class="mobile">
@@ -109,7 +86,11 @@
   </div>
 </template>
 
-<script></script>
+<script setup>
+import { useI18n } from 'vue-i18n';
+const { tm } = useI18n();
+const data = ref(tm('aboutUs').solution);
+</script>
 
 <style lang="scss" scoped>
 @media (max-width: $mobile-width) {
@@ -133,7 +114,7 @@
   width: 100%;
   min-width: 1200px;
   height: 434px;
-  background-image: url("../assets/images/aboutUs/aboutUsBanner.png");
+  background-image: url("/images/aboutUs/aboutUsBanner.png");
   background-size: 100% 100%;
   position: relative;
 }
@@ -141,16 +122,15 @@
   position: relative;
   width: 100%;
   padding-bottom: 115px;
-  background: #ffffff;
   .solution-bar {
     width: 100%;
     height: 100%;
-    padding-top: 84px;
+    padding-top: 80px;
     .title-bar {
       min-width: 1200px;
       text-align: center;
       .solution-title {
-        font-family: Source Han Sans CN;
+
         font-size: 36px;
         font-weight: 900;
         line-height: 38px;
@@ -159,9 +139,8 @@
       }
       .solution-desc {
         margin-top: 14px;
-        font-family: Source Han Sans CN;
         font-size: 16px;
-        font-weight: normal;
+        font-weight: 500;
         line-height: 38px;
         color: #777777;
       }
@@ -206,7 +185,7 @@
         .title {
           width: 100%;
           text-align: left;
-          font-family: Source Han Sans CN;
+
           font-size: 30px;
           font-weight: bold;
           line-height: 24px;
@@ -216,7 +195,7 @@
         .desc {
           width: 100%;
           text-align: left;
-          font-family: 思源黑体;
+
           font-size: 18px;
           font-weight: normal;
           line-height: 18px;
@@ -249,7 +228,7 @@
     align-items: center;
     justify-content: space-around;
     .title {
-      font-family: Source Han Sans CN;
+
       font-size: 36px;
       font-weight: 900;
       line-height: 38px;
@@ -257,10 +236,10 @@
       margin-bottom: 10px;
     }
     p {
-      font-family: 思源黑体;
+
       font-size: 16px;
       font-weight: normal;
-      line-height: 10px;
+      line-height: 40px;
       text-align: center;
       color: #ffffff;
       letter-spacing: 0.1em;
@@ -281,7 +260,7 @@
       width: 100%;
       text-align: center;
       .solution-title {
-        font-family: Source Han Sans CN;
+
         font-size: 24px;
         font-weight: 900;
         line-height: 38px;
@@ -290,7 +269,7 @@
       }
       .solution-desc {
         margin-top: 14px;
-        font-family: Source Han Sans CN;
+
         font-size: 16px;
         font-weight: normal;
         line-height: 24px;
@@ -337,7 +316,7 @@
         .title {
           width: 100%;
           text-align: left;
-          font-family: Source Han Sans CN;
+
           font-size: 24px;
           font-weight: bold;
           line-height: 24px;
@@ -347,7 +326,7 @@
         .desc {
           width: 100%;
           text-align: left;
-          font-family: 思源黑体;
+
           font-size: 14px;
           font-weight: normal;
           line-height: 18px;
@@ -376,7 +355,7 @@
     z-index: -2;
   }
   .title {
-    font-family: Source Han Sans CN;
+
     font-size: 24px;
     font-weight: 900;
     line-height: 38px;
@@ -384,7 +363,7 @@
     margin-bottom: 6px;
   }
   p {
-    font-family: 思源黑体;
+
     font-size: 14px;
     font-weight: normal;
     line-height: 10px;

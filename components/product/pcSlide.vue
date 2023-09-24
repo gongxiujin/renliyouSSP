@@ -4,35 +4,11 @@
       <div class="access-bar">
         <div class="menu-bar">
           <div class="menu">
-            <div
-              @mouseover="setIndex(0)"
-              :class="['menu-item', activeIndex == 0 ? 'active' : '']"
+            <div v-for="(item, index) in data.content" :key="index"
+              @mouseover="setIndex(index)"
+              :class="['menu-item normal-text', activeIndex == index ? 'active' : '']"
             >
-              网址导航
-            </div>
-            <div
-              @mouseover="setIndex(1)"
-              :class="['menu-item', activeIndex == 1 ? 'active' : '']"
-            >
-              桌面图标
-            </div>
-            <div
-              @mouseover="setIndex(2)"
-              :class="['menu-item', activeIndex == 2 ? 'active' : '']"
-            >
-              游戏退弹
-            </div>
-            <div
-              @mouseover="setIndex(3)"
-              :class="['menu-item', activeIndex == 3 ? 'active' : '']"
-            >
-              广告弹窗
-            </div>
-            <div
-              @mouseover="setIndex(4)"
-              :class="['menu-item', activeIndex == 4 ? 'active' : '']"
-            >
-              右下角升窗
+            {{ item.title.body.static }}
             </div>
           </div>
         </div>
@@ -42,107 +18,24 @@
             @swiper="onSwiper"
             @slideChange="handleSlideChange"
           >
-            <swiper-slide key="0">
+            <swiper-slide v-for="(item, index) in data.content" :key="index">
               <div class="slide-item">
                 <div class="img-bar">
                   <img
                     class="bg-img"
-                    src="../../assets/images/product/pcSlide1.png"
+                    :src="item.image.body.static"
                     alt=""
                   />
-                  <img
+                  <img v-if="item.icon"
                     class="icon-img"
-                    src="../../assets/images/product/pcSlide1-1.png"
+                    :src="item.icon.body.static"
                     alt=""
                   />
                 </div>
                 <div class="slide-text">
-                  <p class="text-title">网址导航</p>
-                  <p class="text-desc">
-                    方便快速找到用户需要的网站入口，包含音乐、视频、小说、游戏、财经等上百个分类的优秀站点，提供最简单便捷的网上导航服务
-                  </p>
-                </div>
-              </div>
-            </swiper-slide>
-            <swiper-slide key="1">
-              <div class="slide-item">
-                <div class="img-bar">
-                  <img
-                    class="bg-img"
-                    src="../../assets/images/product/pcSlide2.png"
-                    alt=""
-                  />
-                  <img
-                    class="icon-img"
-                    src="../../assets/images/product/pcSlide2-1.png"
-                    alt=""
-                  />
-                </div>
-                <div class="slide-text">
-                  <p class="text-title">桌面图标</p>
-                  <p class="text-desc">
-                    是用户看到的第一眼最直接展现在桌面上的图标，它的受众面广、冲击力强，合理利用桌面广告位资源的同时也便捷了用户的上网使用
-                  </p>
-                </div>
-              </div>
-            </swiper-slide>
-            <swiper-slide key="2">
-              <div class="slide-item">
-                <div class="img-bar">
-                  <img
-                    class="bg-img"
-                    src="../../assets/images/product/pcSlide3.png"
-                    alt=""
-                  />
-                  <img
-                    class="icon-img"
-                    src="../../assets/images/product/pcSlide3-1.png"
-                    alt=""
-                  />
-                </div>
-                <div class="slide-text">
-                  <p class="text-title">游戏退弹</p>
-                  <p class="text-desc">
-                    在网民退出游戏客户端时，自动弹出的图片、Flash等形式的广告，网民对此类广告无所谓喜好或厌恶
-                  </p>
-                </div>
-              </div>
-            </swiper-slide>
-            <swiper-slide key="3">
-              <div class="slide-item">
-                <div class="img-bar">
-                  <img
-                    class="bg-img"
-                    src="../../assets/images/product/pcSlide4.png"
-                    alt=""
-                  />
-                </div>
-                <div class="slide-text">
-                  <p class="text-title">广告弹窗</p>
-                  <p class="text-desc">
-                    用户打开网站后会自动弹出的广告，无论点击还是不点击都会出现在用户的面前，具有高曝光性
-                  </p>
-                </div>
-              </div>
-            </swiper-slide>
-            <swiper-slide key="4">
-              <div class="slide-item">
-                <div class="img-bar">
-                  <img
-                    class="bg-img"
-                    src="../../assets/images/product/pcSlide5.png"
-                    alt=""
-                  />
-                  <img
-                    class="icon-img"
-                    src="../../assets/images/product/pcSlide5-1.png"
-                    alt=""
-                  />
-                </div>
-                <div class="slide-text">
-                  <p class="text-title">右下角升窗</p>
-                  <p class="text-desc">
-                    打开指定游戏进程后，从右下角升出的广告，对正常运营及玩家上网不产生任何负面作用
+                  <p class="text-title bold-text">{{ item.title.body.static }}</p>
+                  <p class="text-desc normal-text">
+                    {{ item.text.body.static }}
                   </p>
                 </div>
               </div>
@@ -154,38 +47,14 @@
     <div class="mobile">
       <div class="m-solution-bar">
         <div class="title-bar">
-          <h2 class="solution-title">移动APP</h2>
+          <h2 class="solution-title">{{ data.title.body.static }}</h2>
         </div>
         <div class="tabs-row">
-          <div
-            :class="['tabs-item', activeIndex == 0 ? 'active' : '']"
-            @click="setIndex(0)"
+          <div v-for="(item, index) in data.content" :key="index"
+            :class="['tabs-item', activeIndex == index ? 'active' : '']"
+            @click="setIndex(index)"
           >
-            <span>网址导航</span>
-          </div>
-          <div
-            :class="['tabs-item', activeIndex == 1 ? 'active' : '']"
-            @click="setIndex(1)"
-          >
-            <span>桌面图标</span>
-          </div>
-          <div
-            :class="['tabs-item', activeIndex == 2 ? 'active' : '']"
-            @click="setIndex(2)"
-          >
-            <span>游戏退弹</span>
-          </div>
-          <div
-            :class="['tabs-item', activeIndex == 3 ? 'active' : '']"
-            @click="setIndex(3)"
-          >
-            <span>广告弹窗</span>
-          </div>
-          <div
-            :class="['tabs-item', activeIndex == 4 ? 'active' : '']"
-            @click="setIndex(4)"
-          >
-            <span>右下角升窗</span>
+            <span>{{ item.title.body.static }}</span>
           </div>
         </div>
         <div class="m-swiper-main">
@@ -194,109 +63,24 @@
             @swiper="onSwiperM"
             @slideChange="handleSlideChange"
           >
-            <swiper-slide key="0">
+            <swiper-slide v-for="(item, index) in data.content" :key="index">
               <div class="img-bar">
                 <img
                   class="icon-img"
-                  src="../../assets/images/product/rectangle.png"
+                  src="/images/product/rectangle.png"
                   alt=""
                 />
                 <img
                   class="banner-img"
-                  src="../../assets/images/product/pcSlide1.png"
+                  :src="item.image.body.static"
                   alt=""
                 />
               </div>
               <div class="content-item">
-                <p class="text-1">电商类</p>
+                <p class="text-1">{{ item.title.body.static }}</p>
                 <p class="text-2">
-                  在云袭电商场景下全方位为商家提供生意服务，提升用户活跃、下单、购买商品等行为。
+                  {{ item.text.body.static }}
                 </p>
-                <p class="text-3">
-                  【品牌推广】【商品推广】【搜索广告】【定向投放】
-                </p>
-              </div>
-            </swiper-slide>
-            <swiper-slide key="1">
-              <div class="img-bar">
-                <img
-                  class="icon-img"
-                  src="../../assets/images/product/rectangle.png"
-                  alt=""
-                />
-                <img
-                  class="banner-img"
-                  src="../../assets/images/product/pcSlide2.png"
-                  alt=""
-                />
-              </div>
-              <div class="content-item">
-                <p class="text-1">APP应用&游戏</p>
-                <p class="text-2">满足客户激活下载转化类的营销需求。</p>
-                <p class="text-3">
-                  【社交媒体】【应用商店】【精准投放】【数据分析】
-                </p>
-              </div>
-            </swiper-slide>
-            <swiper-slide key="2">
-              <div class="img-bar">
-                <img
-                  class="icon-img"
-                  src="../../assets/images/product/rectangle.png"
-                  alt=""
-                />
-                <img
-                  class="banner-img"
-                  src="../../assets/images/product/pcSlide3.png"
-                  alt=""
-                />
-              </div>
-              <div class="content-item">
-                <p class="text-1">金融</p>
-                <p class="text-2">帮助金融机构拓展新客户，扩大市场规模。</p>
-                <p class="text-3">【线索留资】【品牌建设】【精准营销】</p>
-              </div>
-            </swiper-slide>
-            <swiper-slide key="3">
-              <div class="img-bar">
-                <img
-                  class="icon-img"
-                  src="../../assets/images/product/rectangle.png"
-                  alt=""
-                />
-                <img
-                  class="banner-img"
-                  src="../../assets/images/product/pcSlide4.png"
-                  alt=""
-                />
-              </div>
-              <div class="content-item">
-                <p class="text-1">运动健康</p>
-                <p class="text-2">
-                  旗下产品“月野兔”有丰富的场馆资源和C端用户，可以为健身运动行业客户提供全方位解决方案。
-                </p>
-                <p class="text-3">【全方位服务】【线上线下一体化】</p>
-              </div>
-            </swiper-slide>
-            <swiper-slide key="4">
-              <div class="img-bar">
-                <img
-                  class="icon-img"
-                  src="../../assets/images/product/rectangle.png"
-                  alt=""
-                />
-                <img
-                  class="banner-img"
-                  src="../../assets/images/product/pcSlide5.png"
-                  alt=""
-                />
-              </div>
-              <div class="content-item">
-                <p class="text-1">运动健康</p>
-                <p class="text-2">
-                  旗下产品“月野兔”有丰富的场馆资源和C端用户，可以为健身运动行业客户提供全方位解决方案。
-                </p>
-                <p class="text-3">【全方位服务】【线上线下一体化】</p>
               </div>
             </swiper-slide>
           </swiper>
@@ -311,6 +95,9 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { useI18n } from 'vue-i18n';
+const { tm } = useI18n();
+const data = ref(tm('pc').pcSlide);
 
 const activeIndex = ref(0);
 const swiperInstance = ref();
@@ -353,7 +140,7 @@ function onSwiper(swiper) {
     min-width: 1200px;
     text-align: center;
     .access-title {
-      font-family: Source Han Sans CN;
+
       font-size: 36px;
       font-weight: 900;
       line-height: 38px;
@@ -389,7 +176,7 @@ function onSwiper(swiper) {
         color: #e65e24;
         border-radius: 2px;
         opacity: 1;
-        font-weight: 600;
+        font-weight: 500;
         &::after {
           content: "";
           position: absolute;
@@ -410,6 +197,7 @@ function onSwiper(swiper) {
     padding-bottom: 140px;
     .swiper {
       width: 100%;
+      box-shadow: 0px 0px 60px 0px rgba(0, 0, 0, 0.06);
       .slide-item {
         width: 100%;
         display: flex;
@@ -420,23 +208,23 @@ function onSwiper(swiper) {
         box-shadow: 0px 0px 60px 0px rgba(0, 0, 0, 0.06);
         .slide-text {
           width: 400px;
-          padding-left: 50px;
+          padding-left: 46px;
           .text-title {
-            font-family: Source Han Sans CN;
-            font-size: 26px;
+
+            font-size: 32px;
             font-weight: bold;
             line-height: 26px;
             color: #222222;
             text-align: left;
           }
           .text-desc {
-            font-family: 思源黑体;
+
             font-size: 16px;
             font-weight: normal;
-            line-height: 24px;
+            line-height: 16px;
             color: #222222;
             text-align: left;
-            margin-top: 14px;
+            margin-top: 31px;
           }
         }
         .img-bar {
@@ -446,14 +234,17 @@ function onSwiper(swiper) {
           .bg-img {
             width: 100%;
             height: 100%;
+            border-radius: 10px;
           }
           .icon-img {
             position: absolute;
             left: 50%;
             top: -50px;
+            border-radius: 50%;
             width: 247px;
             height: 247px;
             transform: translateX(-50%);
+            box-shadow: 0px 0px 30px 0px rgba(33, 33, 33, 0.4);
           }
         }
       }
@@ -462,19 +253,19 @@ function onSwiper(swiper) {
 }
 .mobile {
   display: none;
-  padding-top: 47px;
+  padding-top: 57px;
   width: 100%;
-  height: 640px;
+  height: 578px;
   background: #f8f8f8;
   .m-solution-bar {
     width: 100%;
     height: 100%;
-    padding: 0 15px;
     .title-bar {
+      margin-bottom: 32px;
       width: 100%;
       text-align: center;
       .solution-title {
-        font-family: Source Han Sans CN;
+
         font-size: 24px;
         font-weight: 900;
         line-height: 38px;
@@ -487,10 +278,11 @@ function onSwiper(swiper) {
       display: flex;
       align-items: center;
       justify-content: space-around;
-      margin-bottom: 55px;
+      margin-bottom: 21px;
       white-space: nowrap;
       .tabs-item {
         display: inline-block;
+        justify-content: center;
         width: 100px;
         height: 50px;
         padding: 3px;
@@ -500,13 +292,15 @@ function onSwiper(swiper) {
         color: #222222;
         cursor: pointer;
         font-size: 14px;
+        font-weight: normal;
         box-sizing: border-box;
         img {
           width: 45px;
           height: 45px;
         }
       }
-      .active {
+      .active span {
+        font-weight: 500;
         color: #e65e24;
         border-bottom: 3px solid #e65e24;
       }
@@ -517,13 +311,23 @@ function onSwiper(swiper) {
         width: 100%;
         display: flex;
         flex-direction: column;
+        .swiper-slide{
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+          align-items: center;
+        }
+
         .img-bar {
           position: relative;
-          width: 100%;
+          width: 326px;
+          height: 210px;
           padding: 25px 0;
+
           .banner-img {
             width: 100%;
-            height: 184px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 40px 0px rgba(153, 153, 153, 0.5);
           }
           .icon-img {
             position: absolute;
@@ -535,27 +339,22 @@ function onSwiper(swiper) {
           }
         }
         .content-item {
-          padding: 14px 17px 21px;
+          width: 300px;
           .text-1 {
-            font-family: Source Han Sans CN;
-            font-size: 18px;
+            margin-top: 28px;
+            font-size: 20px;
             font-weight: bold;
             line-height: 25.99px;
             color: #222222;
-            margin-bottom: 10px;
+            line-height: 26px;
+            margin-bottom: 13px;
           }
           .text-2 {
-            font-family: 思源黑体;
             font-size: 14px;
             font-weight: normal;
             color: #666666;
+            line-height: 20px;
             margin-bottom: 13px;
-          }
-          .text-3 {
-            font-family: 思源黑体;
-            font-size: 14px;
-            font-weight: normal;
-            color: #222222;
           }
         }
       }
