@@ -1,12 +1,6 @@
 <template>
   <div style="position: relative; z-index: 3">
-    <Head>
-      <Title>{{ title }}</Title>
-      <Meta name="description" :content="title" />
-      <!-- <Style type="text/css" children="body { background-color: green; }" /> -->
-    </Head>
-
-    <AloneBanner :data="banner" />
+    <AloneBanner :path="banner" />
     <!-- 丰富的商业化资源 -->
     <IndexResource></IndexResource>
     <!-- 多样化的接入方式 -->
@@ -23,11 +17,12 @@
 <script setup>
 import { appStore } from '@/stores'
 import { useI18n } from 'vue-i18n';
-const { t, tm } = useI18n();
-const banner = ref(tm('home').banner);
+const { t } = useI18n();
+const banner = ref('home.banner');
 const useAppStore = appStore()
-
-const title = ref(t("home.pageTitle"));
+useHead({
+  title: t("webSite"),
+});
 onMounted(() => {
 	window.addEventListener('scroll', handleScroll);
 })

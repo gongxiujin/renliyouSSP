@@ -4,43 +4,43 @@
     <div class="pc">
       <div class="solution-bar">
         <div class="title-bar">
-          <h2 class="solution-title">{{ data.title.body.static }}</h2>
-          <p class="solution-desc" :style="data.textStyle.body.static">
-            {{ data.text.body.static }}
+          <h2 class="solution-title">{{ $t(`${path}.title`) }}</h2>
+          <p class="solution-desc" :style="$t(`${path}.textStyle`)">
+            {{ $t(`${path}.text`) }}
           </p>
         </div>
         <div class="container">
           <div class="tabs">
             <div
-              v-for="(item, index) in data.content"
+              v-for="(item, index) in $tm(`${path}.content`)"
               :key="index"
               :class="['tabs-item', activeIndex == index ? 'active' : '']"
               @mouseover="handleMouseOver(index)"
             >
               <img
                 v-if="activeIndex == index"
-                :src="item.iconActive.body.static"
-                :alt="item.title.body.static"
+                :src="$t(`${path}.content[${index}].iconActive`)"
+                :alt="$t(`${path}.content[${index}].title`)"
               />
               <img
                 v-else
-                :src="item.icon.body.static"
-                :alt="item.title.body.static"
+                :src="$t(`${path}.content[${index}].icon`)"
+                :alt="$t(`${path}.content[${index}].title`)"
               />
-              <span>{{ item.title.body.static }}</span>
+              <span>{{ $t(`${path}.content[${index}].title`) }}</span>
             </div>
           </div>
           <div class="content">
             <div class="content-item">
               <div class="content-phone">
                 <img
-                  :src="image.body.static"
+                  :src="$t(`${path}.content[${activeIndex}].image[${idx}]`)"
                   alt=""
-                  v-for="(image, idx) in data.content[activeIndex].image"
+                  v-for="(image, idx) in $tm(`${path}.content[${activeIndex}].image`)"
                   :class="`images-${idx}`"
                   :key="idx"
                 />
-                <img src="/images/product/cross.jpg" alt="" class="cross up" />
+                <img src="/images/product/cross.jpg" :alt="$t(`${path}.content[${activeIndex}].title`)" class="cross up" />
                 <img
                   src="/images/product/cross.jpg"
                   alt=""
@@ -50,10 +50,10 @@
 
               <div class="content-text">
                 <p class="text-1 bold-text">
-                  {{ data.content[activeIndex].title.body.static }}
+                  {{ $t(`${path}.content[${activeIndex}].title`) }}
                 </p>
                 <p class="text-2 normal-text">
-                  {{ data.content[activeIndex].text.body.static }}
+                  {{ $t(`${path}.content[${activeIndex}].text`) }}
                 </p>
               </div>
             </div>
@@ -64,9 +64,9 @@
     <div class="mobile">
       <div class="m-solution-bar">
         <div class="title-bar">
-          <h2 class="solution-title">{{ data.title.body.static }}</h2>
-          <p class="solution-desc" :style="data.textStyle.body.static">
-            {{ data.text.body.static }}
+          <h2 class="solution-title">{{ $t(`${path}.title`) }}</h2>
+          <p class="solution-desc" :style="$t(`${path}.textStyle`)">
+            {{ $t(`${path}.text`) }}
           </p>
         </div>
         <div class="m-swiper-main">
@@ -80,11 +80,11 @@
             @slideChange="slideChange"
 
           >
-            <swiper-slide v-for="(item, index) in data.content" :key="index">
+            <swiper-slide v-for="(item, index) in $tm(`${path}.content`)" :key="index">
               <img
                 class="banner-img"
-                :src="item.image[0].body.static"
-                :alt="item.title.body.static"
+                :src="$t(`${path}.content[${index}].image[0]`)"
+                :alt="$t(`${path}.content[${index}].title`)"
               />
             </swiper-slide>
           </swiper>
@@ -92,10 +92,10 @@
         <div class="bottom-content">
           <div class="content-item">
             <p class="text-1 bold-text">
-              {{ data.content[activeIndex].title.body.static }}
+              {{ $t(`${path}.content[${activeIndex}].title`) }}
             </p>
             <p class="text-2 normal-text">
-              {{ data.content[activeIndex].text.body.static }}
+              {{ $t(`${path}.content[${activeIndex}].text`) }}
             </p>
           </div>
         </div>
@@ -118,25 +118,13 @@ function handleMouseOver(index) {
   activeIndex.value = index;
   swiperInstance.value?.slideTo(index);
 }
-const props = defineProps(["data"]);
+const props = defineProps(["path", "backgroundColor"]);
 
 function slideChange(swiper) {
   // 获取当前活动Slide的索引
   const index = swiper.activeIndex;
   const length = swiper.slides.length;
   activeIndex.value = index;
-  swiper.slides[index].style.transform = "scale(1)";
-  // 根据索引判断是否为中间Slide
-  // if (index > 0) {
-  //   if (length - 1 > index) {
-  //     swiper.slides[index - 1].style.transform = "scale(0.9)";
-  //     swiper.slides[index + 1].style.transform = "scale(0.9)";
-  //   } else {
-  //     swiper.slides[index - 1].style.transform = "scale(0.9)";
-  //   }
-  // } else {
-  //   swiper.slides[index + 1].style.transform = "scale(0.9)";
-  // }
 }
 
 function onSwiperM(swiper) {
@@ -321,7 +309,7 @@ function onSwiper(swiper) {
   display: none;
   padding-top: 47px;
   width: 100%;
-  background: #f8f8f8;
+  background: v-bind(backgroundColor);
   .m-solution-bar {
     width: 100%;
     height: 100%;
@@ -358,11 +346,15 @@ function onSwiper(swiper) {
         width: 100%;
         display: flex;
         flex-direction: column;
-        background: #f8f8f8;
+        background: v-bind(backgroundColor);
 
         .swiper-slide {
           justify-content: center;
           display: flex;
+          scale: 0.9;
+          &.swiper-slide-active{
+            scale: 1;
+          }
           .banner-img {
             border-radius: 35px;
             border: 12px solid #222;

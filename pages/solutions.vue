@@ -4,35 +4,35 @@
     <div class="pc">
       <div class="access-bar">
         <div class="title-bar">
-          <h2 class="access-title">{{ data.title.body.static }}</h2>
+          <h2 class="access-title">{{ $t(`${path}.title`) }}</h2>
         </div>
         <div class="slide-bar">
-          <div class="slide-item" v-for="(item, index) in data.content" :key="index">
+          <div class="slide-item" v-for="(item, index) in $tm(`${path}.content`)" :key="index">
             <div class="text-bar" :style="{ order: index % 2 !== 0 ? 1 : '' }">
-              <p class="text-title bold-text">{{ item.slide.title.body.static }}</p>
+              <p class="text-title bold-text">{{ $t(`${path}.content[${index}].slide.title`) }}</p>
               <p class="text-desc normal-text">
-                {{ item.slide.text.body.static }}
+                {{ $t(`${path}.content[${index}].slide.text`) }}
               </p>
             </div>
             <div class="content-bar">
               <img
                 class="banner-img"
-                :src="item.content.image.body.static"
-                :alt="item.content.title.body.static"
+                :src="$t(`${path}.content[${index}].content.image`)"
+                :alt="$t(`${path}.content[${index}].content.title`)"
               />
               <div class="right-content">
                 <img
                   class="content-icon"
-                  :src="item.content.icon.body.static"
-                  :alt="item.content.title.body.static"
+                  :src="$t(`${path}.content[${index}].content.icon`)"
+                  :alt="$t(`${path}.content[${index}].content.title`)"
                 />
-                <p class="content-title bold-text">{{ item.content.title.body.static }}</p>
-                <p class="content-desc normal-text">{{ item.content.text.body.static }}</p>
+                <p class="content-title bold-text">{{ $t(`${path}.content[${index}].content.title`) }}</p>
+                <p class="content-desc normal-text">{{ $t(`${path}.content[${index}].content.text`) }}</p>
                 <p class="content-num harmony-text">
-                  <span class="num">{{ item.content.num.body.static }}</span>
-                  <span class="unit">{{ item.content.numUnit.body.static }}</span>
+                  <span class="num">{{ $t(`${path}.content[${index}].content.num`) }}</span>
+                  <span class="unit">{{ $t(`${path}.content[${index}].content.numUnit`) }}</span>
                 </p>
-                <p class="content-tips">{{ item.content.numtext.body.static }}</p>
+                <p class="content-tips">{{ $t(`${path}.content[${index}].content.numtext`) }}</p>
               </div>
             </div>
           </div>
@@ -42,37 +42,37 @@
     <div class="mobile">
       <div class="m-access-bar">
         <div class="title-bar">
-          <h2 class="access-title">{{ data.title.body.static }}</h2>
+          <h2 class="access-title">{{ $t(`${path}.title`) }}</h2>
         </div>
         <div class="slide-bar">
-          <div class="slide-item" v-for="(item, index) in data.content" :key="index">
+          <div class="slide-item" v-for="(item, index) in $tm(`${path}.content`)" :key="index">
             <div class="image-content">
               <img
               class="banner-img"
-              :src="item.content.mbimage.body.static"
-              :alt="item.content.title.body.static"
+              :src="$t(`${path}.content[${index}].content.mbimage`)"
+              :alt="$t(`${path}.content[${index}].content.title`)"
             />
             <div class="right-content">
               <img
                 class="content-icon"
-                :src="item.content.icon.body.static"
-                :alt="item.content.title.body.static"
+                :src="$t(`${path}.content[${index}].content.icon`)"
+                  :alt="$t(`${path}.content[${index}].content.title`)"
               />
-              <p class="content-title bold-text">{{ item.content.title.body.static }}</p>
+              <p class="content-title bold-text">{{ $t(`${path}.content[${index}].content.title`) }}</p>
               <p class="content-desc normal-text">
-                {{ item.content.text.body.static }}
+                {{ $t(`${path}.content[${index}].content.text`) }}
               </p>
               <p class="content-num harmony-text">
-                <span class="num bold-text">{{ item.content.num.body.static }}</span>
-                <span class="unit normal-text">{{ item.content.numUnit.body.static }}</span>
+                <span class="num bold-text">{{ $t(`${path}.content[${index}].content.num`) }}</span>
+                <span class="unit normal-text">{{ $t(`${path}.content[${index}].content.numUnit`) }}</span>
               </p>
-              <p class="content-tips">{{ item.content.numtext.body.static }}</p>
+              <p class="content-tips">{{ $t(`${path}.content[${index}].content.numtext`) }}</p>
             </div>
             </div>
             <div class="text-slide">
-              <p class="text-title bold-text">{{ item.slide.title.body.static }}</p>
+              <p class="text-title bold-text">{{ $t(`${path}.content[${index}].slide.title`) }}</p>
               <p class="text-desc normal-text">
-                {{ item.slide.text.body.static }}
+                {{ $t(`${path}.content[${index}].slide.text`) }}
               </p>
             </div>
           </div>
@@ -84,8 +84,11 @@
 
 <script setup>
 import { useI18n } from 'vue-i18n';
-const { tm } = useI18n();
-const data = ref(tm('solutions').access);
+const { t } = useI18n();
+const path = ref('solutions.access');
+useHead({
+  title: t("solutions.pageTitle"),
+});
 </script>
 
 <style lang="scss" scoped>

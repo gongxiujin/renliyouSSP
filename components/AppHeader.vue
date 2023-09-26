@@ -9,10 +9,12 @@
     <div class="heard-right">
       <LanguageSelector />
       <a href="/login"
-        ><span class="header_sign_in" xt-marked="ok" style="display: none;">登录</span></a
+        ><span class="header_sign_in" xt-marked="ok" style="display: none"
+          >登录</span
+        ></a
       >
       <button type="button" class="btn-sign-up">
-        <span class="pangle-btn-inner" xt-marked="ok">{{ $t('justNow') }}</span>
+        <span class="pangle-btn-inner" xt-marked="ok">{{ $t("justNow") }}</span>
       </button>
     </div>
     <img
@@ -58,15 +60,25 @@
       </el-menu>
       <!-- 登录注册 -->
       <div class="login-btn-bar">
-        <div class="login-btn">登录/注册</div>
+        <div class="login-btn" @click="showLogin = true">登录/注册</div>
       </div>
     </el-drawer>
+  </div>
+  <div v-if="showLogin" class="modal">
+    <!-- 关闭按钮 -->
+    <el-icon @click="showLogin = false" class="close" :size="20" color="#000"><close /></el-icon>
+    <!-- 引入的组件 -->
+    <div class="login-form">
+      <LoginForm />
+    </div>
+
   </div>
 </template>
 
 <script setup>
-
+import { Close } from "@element-plus/icons-vue";
 const navIndex = ref(0);
+const showLogin = ref(false);
 const isCollapse = ref(false);
 const navList = ref([
   { name: "首页", link: "/" },
@@ -149,6 +161,31 @@ const menuSelect = (opt) => {
     }
   }
 }
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  z-index: 1000; /* 确保弹出层在其他元素之上 */
+  .close {
+    position: absolute;
+    top: 20px;
+    width: 20px;
+    height: 20px;
+    right: 20px;
+    color: #000;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+  }
+  .login-form{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    padding: 1.28rem 32px 24px 32px;
+  }
+}
+
 .header-white {
   width: 100%;
   height: $header-height;
@@ -193,6 +230,7 @@ const menuSelect = (opt) => {
     font-size: 1rem;
     line-height: 3rem;
     color: #ff0017;
+    background-color: #fff;
     width: 10rem;
     height: 3rem;
     text-align: center;

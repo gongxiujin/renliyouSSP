@@ -4,16 +4,16 @@
     <div class="pc">
       <div class="access-bar">
         <div class="title-bar">
-          <h2 class="access-title">{{ data.title.body.static }}</h2>
+          <h2 class="access-title">{{ $t(`${path}.title`) }}</h2>
         </div>
         <div class="menu-bar">
           <div class="menu">
             <div
-              v-for="(item, index) in data.content" :key="index"
+              v-for="(item, index) in $tm(`${path}.content`)" :key="index"
               @mouseover="setIndex(index)"
               :class="['menu-item', activeIndex == index ? 'active' : '']"
             >
-              {{ item.title.body.static }}
+              {{ $t(`${path}.content[${index}].title`) }}
             </div>
           </div>
         </div>
@@ -23,17 +23,17 @@
             @swiper="onSwiper"
             @slideChange="handleSlideChange"
           >
-            <swiper-slide v-for="(item, index) in data.content" :key="index">
+            <swiper-slide v-for="(item, index) in $tm(`${path}.content`)" :key="index">
               <div class="slide-item">
                 <div class="slide-text">
-                  <p class="text-title">{{ item.title.body.static }}</p>
+                  <p class="text-title">{{ $t(`${path}.content[${index}].title`) }}</p>
                   <p class="text-desc">
-                    {{ item.text.body.static }}
+                    {{ $t(`${path}.content[${index}].text`) }}
                   </p>
                 </div>
                 <img
                   class="banner-img"
-                  :src="item.image.body.static"
+                  :src="$t(`${path}.content[${index}].image`)"
                   alt=""
                 />
               </div>
@@ -45,19 +45,19 @@
     <div class="mobile">
       <div class="m-access-bar">
         <div class="title-bar">
-          <h2 class="access-title">{{ data.title.body.static }}</h2>
+          <h2 class="access-title">{{ $t(`${path}.title`) }}</h2>
         </div>
         <div class="slide-bar">
-          <div class="slide-item" v-for="(item, index) in data.content" :key="index">
+          <div class="slide-item" v-for="(item, index) in $tm(`${path}.content`)" :key="index">
             <img
               class="banner-img"
-              :src="item.image.body.static"
-              :alt="data.title.body.static"
+              :src="$t(`${path}.content[${index}].image`)"
+              :alt="$t(`${path}.title`)"
             />
             <div class="slide-text">
-              <p class="text-title">{{ item.title.body.static }}</p>
+              <p class="text-title">{{ $t(`${path}.content[${index}].title`) }}</p>
               <p class="text-desc">
-                {{ item.text.body.static }}
+                {{ $t(`${path}.content[${index}].text`) }}
               </p>
             </div>
           </div>
@@ -72,9 +72,7 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { useI18n } from 'vue-i18n';
-const { tm } = useI18n();
-const data = ref(tm('dataGrowth').dataService);
+const path = ref("dataGrowth.dataService");
 
 const activeIndex = ref(0);
 const swiperInstance = ref();

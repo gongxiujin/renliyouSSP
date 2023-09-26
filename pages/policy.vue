@@ -8,21 +8,21 @@
       <div class="container">
         <div class="container-left">
           <div
-            v-for="(item, index) in data" :key="index"
+            v-for="(item, index) in $tm(`${path}`)" :key="index"
             @click="setIndex(index)"
             :class="['tabs', activeIndex == index ? 'active' : '']"
           >
-            {{ item.title.body.static }}
+            {{ $t(`${path}[${index}].title`) }}
           </div>
         </div>
         <div
         class="container-right">
           <div class="title-right">
-            <img :src="data[activeIndex].image.body.static" alt="" />
-            <p>{{ data[activeIndex].title.body.static }}</p>
+            <img :src="$t(`${path}[${activeIndex}].image`)" alt="" />
+            <p>{{ $t(`${path}[${activeIndex}].title`) }}</p>
           </div>
           <div class="content-text" :style="{ whiteSpace: 'pre-line' }">
-            {{ data[activeIndex].text.body.static }}
+            {{ $t(`${path}[${activeIndex}].text`) }}
           </div>
         </div>
       </div>
@@ -31,20 +31,20 @@
       <div class="container">
         <div class="container-left">
           <div
-            v-for="(item, index) in data" :key="index"
+            v-for="(item, index) in $tm(`${path}`)" :key="index"
             @click="setIndex(index)"
             :class="['tabs', activeIndex == index ? 'active' : '']"
           >
-            {{ item.title.body.static }}
+            {{ $t(`${path}[${index}].title`) }}
           </div>
         </div>
         <div class="container-right">
           <div class="title-right">
-            <img :src="data[activeIndex].image.body.static" alt="" />
-            <p>{{ data[activeIndex].title.body.static }}</p>
+            <img :src="$t(`${path}[${activeIndex}].image`)" alt="" />
+            <p>{{ $t(`${path}[${activeIndex}].title`) }}</p>
           </div>
           <div class="content-text" :style="{ whiteSpace: 'pre-line' }">
-            {{ data[activeIndex].text.body.static }}
+            {{ $t(`${path}[${activeIndex}].text`) }}
           </div>
         </div>
       </div>
@@ -54,15 +54,16 @@
 
 <script setup>
 import { useI18n } from 'vue-i18n';
-const { t, tm } = useI18n();
-const data = ref(tm('policy').content);
-const title = ref(t('policy.pageTitle'));
+const { t } = useI18n();
+const path = ref("policy.content");
 const activeIndex = ref(0);
-const crumbTitle = ref(data.value[0].currentTitle.body.static);
-
+const crumbTitle = ref(t(`policy.content[0].currentTitle`));
+useHead({
+  title: t("policy.pageTitle"),
+});
 function setIndex(index) {
   activeIndex.value = index;
-  crumbTitle.value = data.value[index].currentTitle.body.static;
+  crumbTitle.value = t(`policy.content[${index}].currentTitle`);
 }
 </script>
 

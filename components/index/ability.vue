@@ -1,30 +1,38 @@
 <template>
-  <div style="width: 100%;">
-    <!-- 强大的产品能力 -->
+  <div style="width: 100%">
+
     <div class="pc">
       <div class="ability-bar">
         <div class="title-bar">
-          <h2 class="ability-title">{{ data.title.body.static }}</h2>
+          <h2 class="ability-title">{{ $t(`${path}.title`) }}</h2>
         </div>
         <div class="menu-bar">
           <div class="menu">
             <div
-              v-for="(item, index) in data.content"
+              v-for="(item, index) in $tm(`${path}.content`)"
               :key="index"
               @click="setIndex(index)"
               :class="['menu-item', activeIndex == index ? 'active' : '']"
             >
-              {{ item.title.body.static }}
+              {{ $t(`${path}.content[${index}].title`) }}
             </div>
           </div>
         </div>
         <div class="slide-bar">
-          <swiper class="swiper" @swiper="onSwiper" @slideChange="handleSlideChange">
-            <swiper-slide v-for="(item, index) in data.content" :key="index">
+          <swiper
+            class="swiper"
+            @swiper="onSwiper"
+            @slideChange="handleSlideChange"
+          >
+            <swiper-slide v-for="(item, index) in $tm(`${path}.content`)" :key="index">
               <div class="slide-item">
                 <div class="slide-text">
-                  <p class="text-title">{{ item.title.body.static }}</p>
-                  <div class="text-desc" v-for="(text, index) in item.text" :key="index">
+                  <p class="text-title">{{ $t(`${path}.content[${index}].title`)  }}</p>
+                  <div
+                    class="text-desc"
+                    v-for="(text, idx) in $tm(`${path}.content[${index}].text`)"
+                    :key="idx"
+                  >
                     <div class="desc-icon">
                       <img
                         class="icon-img"
@@ -33,15 +41,11 @@
                       />
                     </div>
                     <div class="desc-text">
-                      {{ text.body.static }}
+                      {{ $t(`${path}.content[${index}].text[${idx}]`) }}
                     </div>
                   </div>
                 </div>
-                <img
-                  class="banner-img"
-                  :src="item.image.body.static"
-                  :alt="item.title.body.static"
-                />
+                <img class="banner-img" :src="$t(`${path}.content[${index}].image`)" :alt="$t(`${path}.content[${index}].title`)" />
               </div>
             </swiper-slide>
           </swiper>
@@ -51,27 +55,38 @@
     <div class="mobile">
       <div class="m-ability-bar">
         <div class="title-bar">
-          <h2 class="ability-title">{{ data.title.body.static }}</h2>
+          <h2 class="ability-title">{{ $t(`${path}.title`) }}</h2>
         </div>
         <div class="menu-bar">
           <div class="menu">
             <div
-              v-for="(item, index) in data.content"
+              v-for="(item, index) in $tm(`${path}.content`)"
               :key="index"
               @click="setIndex(index)"
               :class="['menu-item', activeIndex == index ? 'active' : '']"
             >
-              {{ item.title.body.static }}
+              {{ $t(`${path}.content[${index}].title`) }}
             </div>
           </div>
         </div>
         <div class="slide-bar">
-          <swiper class="swiper" @swiper="onSwiper" @slideChange="handleSlideChange">
-            <swiper-slide v-for="(item, index) in data.content" :key="index">
-              <div class="slide-item">
+          <swiper
+            class="swiper"
+            :centeredSlides="true"
+            :spaceBetween="15"
+            :slidesPerView="1.3"
+            @swiper="onSwiper"
+            @slideChange="handleSlideChange"
+          >
+          <swiper-slide v-for="(item, index) in $tm(`${path}.content`)" :key="index">
+            <div class="slide-item">
                 <div class="slide-text">
-                  <p class="text-title">{{ item.title.body.static }}</p>
-                  <div class="text-desc" v-for="(text, index) in item.text" :key="index">
+                  <p class="text-title">{{ $t(`${path}.content[${index}].title`)  }}</p>
+                  <div
+                    class="text-desc"
+                    v-for="(text, idx) in $tm(`${path}.content[${index}].text`)"
+                    :key="idx"
+                  >
                     <div class="desc-icon">
                       <img
                         class="icon-img"
@@ -80,15 +95,11 @@
                       />
                     </div>
                     <div class="desc-text">
-                      {{ text.body.static }}
+                      {{ $t(`${path}.content[${index}].text[${idx}]`) }}
                     </div>
                   </div>
                 </div>
-                <img
-                  class="banner-img"
-                  :src="item.image.body.static"
-                  :alt="item.title.body.static"
-                />
+                <img class="banner-img" :src="$t(`${path}.content[${index}].image`)" :alt="$t(`${path}.content[${index}].title`)" />
               </div>
             </swiper-slide>
           </swiper>
@@ -104,9 +115,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import { useI18n } from 'vue-i18n';
-const { tm } = useI18n();
-const data = ref(tm('home').ability);
+const path = ref("home.ability");
 
 const activeIndex = ref(0);
 const swiperInstance = ref();
@@ -294,7 +303,7 @@ function onSwiper(swiper) {
         display: flex;
         justify-content: space-between;
         .menu-item {
-          color: #fff;
+          color: #666666;
           height: 40px;
           line-height: 40px;
           font-weight: 400;
@@ -330,7 +339,7 @@ function onSwiper(swiper) {
       .swiper {
         width: 100%;
         .swiper-wrapper {
-            padding: 0 20px;
+          padding: 0 20px;
         }
         .slide-item {
           width: 100%;
@@ -341,8 +350,9 @@ function onSwiper(swiper) {
           justify-content: center;
           height: 462px;
           border-radius: 10px;
-          background: #FFFFFF;
+          background: #ffffff;
           .slide-text {
+            order: 1;
             width: 100%;
             padding: 15px 30px 0;
             .text-title {

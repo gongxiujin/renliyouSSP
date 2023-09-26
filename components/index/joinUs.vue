@@ -1,8 +1,8 @@
 <!-- 立即加入我们，助力你获得收益 -->
 <template>
     <div class="pc">
-        <img class="bg-img" src="../../assets/images/index/joinUsBg.png" alt="">
-        <h2 class="title">{{ $t('joinUs.title') }}</h2>
+        <img class="bg-img" src="/images/index/joinUsBg.png" alt="">
+        <h2 class="title">{{ $t('joinUs') }}</h2>
         <div class="btn-bar">
             <a class="register" href="/">{{ $t('registorNow') }}</a>
             <a class="link" href="/">{{ $t('contactUs') }}</a>

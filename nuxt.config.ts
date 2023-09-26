@@ -18,7 +18,7 @@ export default defineNuxtConfig({
 		],
 		defaultLocale: 'zh',
 		langDir: 'locales/',
-
+		debug: false,
 	},
 	tailwindcss: {
 		config: {

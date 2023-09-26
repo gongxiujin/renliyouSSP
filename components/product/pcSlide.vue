@@ -4,11 +4,16 @@
       <div class="access-bar">
         <div class="menu-bar">
           <div class="menu">
-            <div v-for="(item, index) in data.content" :key="index"
+            <div
+              v-for="(item, index) in $tm(`${path}.content`)"
+              :key="index"
               @mouseover="setIndex(index)"
-              :class="['menu-item normal-text', activeIndex == index ? 'active' : '']"
+              :class="[
+                'menu-item normal-text',
+                activeIndex == index ? 'active' : '',
+              ]"
             >
-            {{ item.title.body.static }}
+              {{ $t(`${path}.content[${index}].title`) }}
             </div>
           </div>
         </div>
@@ -18,24 +23,33 @@
             @swiper="onSwiper"
             @slideChange="handleSlideChange"
           >
-            <swiper-slide v-for="(item, index) in data.content" :key="index">
+            <swiper-slide
+              v-for="(item, index) in $tm(`${path}.content`)"
+              :key="index"
+            >
               <div class="slide-item">
                 <div class="img-bar">
                   <img
                     class="bg-img"
-                    :src="item.image.body.static"
+                    :src="$t(`${path}.content[${index}].image`)"
                     alt=""
                   />
-                  <img v-if="item.icon"
+                  <img
+                    v-if="
+                      $t(`${path}.content[${index}].icon`) !=
+                      `${path}.content[${index}].icon`
+                    "
                     class="icon-img"
-                    :src="item.icon.body.static"
+                    :src="$t(`${path}.content[${index}].icon`)"
                     alt=""
                   />
                 </div>
                 <div class="slide-text">
-                  <p class="text-title bold-text">{{ item.title.body.static }}</p>
+                  <p class="text-title bold-text">
+                    {{ $t(`${path}.content[${index}].title`) }}
+                  </p>
                   <p class="text-desc normal-text">
-                    {{ item.text.body.static }}
+                    {{ $t(`${path}.content[${index}].text`) }}
                   </p>
                 </div>
               </div>
@@ -47,14 +61,16 @@
     <div class="mobile">
       <div class="m-solution-bar">
         <div class="title-bar">
-          <h2 class="solution-title">{{ data.title.body.static }}</h2>
+          <h2 class="solution-title">{{ $t(`${path}.title`) }}</h2>
         </div>
         <div class="tabs-row">
-          <div v-for="(item, index) in data.content" :key="index"
+          <div
+            v-for="(item, index) in $tm(`${path}.content`)"
+            :key="index"
             :class="['tabs-item', activeIndex == index ? 'active' : '']"
             @click="setIndex(index)"
           >
-            <span>{{ item.title.body.static }}</span>
+            <span>{{ $t(`${path}.content[${index}].title`) }}</span>
           </div>
         </div>
         <div class="m-swiper-main">
@@ -63,7 +79,10 @@
             @swiper="onSwiperM"
             @slideChange="handleSlideChange"
           >
-            <swiper-slide v-for="(item, index) in data.content" :key="index">
+            <swiper-slide
+              v-for="(item, index) in $tm(`${path}.content`)"
+              :key="index"
+            >
               <div class="img-bar">
                 <img
                   class="icon-img"
@@ -72,14 +91,16 @@
                 />
                 <img
                   class="banner-img"
-                  :src="item.image.body.static"
+                  :src="$t(`${path}.content[${index}].image`)"
                   alt=""
                 />
               </div>
               <div class="content-item">
-                <p class="text-1">{{ item.title.body.static }}</p>
+                <p class="text-1">
+                  {{ $t(`${path}.content[${index}].title`) }}
+                </p>
                 <p class="text-2">
-                  {{ item.text.body.static }}
+                  {{ $t(`${path}.content[${index}].text`) }}
                 </p>
               </div>
             </swiper-slide>
@@ -95,9 +116,7 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { useI18n } from 'vue-i18n';
-const { tm } = useI18n();
-const data = ref(tm('pc').pcSlide);
+const path = ref("pc.pcSlide");
 
 const activeIndex = ref(0);
 const swiperInstance = ref();
@@ -140,7 +159,6 @@ function onSwiper(swiper) {
     min-width: 1200px;
     text-align: center;
     .access-title {
-
       font-size: 36px;
       font-weight: 900;
       line-height: 38px;
@@ -210,7 +228,6 @@ function onSwiper(swiper) {
           width: 400px;
           padding-left: 46px;
           .text-title {
-
             font-size: 32px;
             font-weight: bold;
             line-height: 26px;
@@ -218,7 +235,6 @@ function onSwiper(swiper) {
             text-align: left;
           }
           .text-desc {
-
             font-size: 16px;
             font-weight: normal;
             line-height: 16px;
@@ -265,7 +281,6 @@ function onSwiper(swiper) {
       width: 100%;
       text-align: center;
       .solution-title {
-
         font-size: 24px;
         font-weight: 900;
         line-height: 38px;
@@ -311,7 +326,7 @@ function onSwiper(swiper) {
         width: 100%;
         display: flex;
         flex-direction: column;
-        .swiper-slide{
+        .swiper-slide {
           display: flex;
           flex-direction: column;
           flex-wrap: wrap;

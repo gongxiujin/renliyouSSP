@@ -4,7 +4,7 @@
     <div class="pc">
       <div class="access-bar">
         <div class="title-bar">
-          <h2 class="access-title">{{ data.title.body.static }}</h2>
+          <h2 class="access-title">{{ $t(`${path}.title`) }}</h2>
         </div>
         <div class="slide-bar">
           <swiper
@@ -14,28 +14,28 @@
             :autoplay="{ delay: 3000 }"
             @slideChange="handleSlideChange"
           >
-            <swiper-slide v-for="(item, index) in data.content" :key="index">
+            <swiper-slide v-for="(item, index) in $tm(`${path}.content`)" :key="index">
               <div class="slide-item">
                 <img
                   class="banner-img"
-                  :src="item.image.body.static"
-                  :alt="item.title.body.static"
+                  :src="$t(`${path}.content[${index}].image`)"
+                  :alt="$t(`${path}.content[${index}].title`)"
                 />
                 <div class="right-content">
                   <img
                     class="content-icon"
-                    :src="item.icon.body.static"
-                    :alt="item.title.body.static"
+                    :src="$t(`${path}.content[${index}].icon`)"
+                    :alt="$t(`${path}.content[${index}].title`)"
                   />
-                  <p class="content-title bold-text">{{ item.title.body.static }}</p>
+                  <p class="content-title bold-text">{{ $t(`${path}.content[${index}].title`) }}</p>
                   <p class="content-desc normal-text">
-                    {{ item.text.body.static }}
+                    {{ $t(`${path}.content[${index}].text`) }}
                   </p>
                   <p class="content-num">
-                    <span class="num">{{ item.num.body.static }}</span>
-                    <span class="unit">{{ item.numunit.body.static }}</span>
+                    <span class="num">{{ $t(`${path}.content[${index}].num`) }}</span>
+                    <span class="unit">{{ $t(`${path}.content[${index}].numunit`) }}</span>
                   </p>
-                  <p class="content-tips normal-text">{{ item.numtext.body.static }}</p>
+                  <p class="content-tips normal-text">{{ $t(`${path}.content[${index}].numtext`) }}</p>
                 </div>
               </div>
             </swiper-slide>
@@ -43,7 +43,7 @@
         </div>
         <div class="banner-progress-bar">
           <div
-            v-for="(item, index) in data.content" :key="index"
+            v-for="(item, index) in $tm(`${path}.content`)" :key="index"
             @click="setIndex(index)"
             :class="[
               activeIndex == index ? 'banner-progress-active' : 'banner-progress',
@@ -56,7 +56,7 @@
     <div class="mobile">
       <div class="m-access-bar">
         <div class="title-bar">
-          <h2 class="access-title">{{ data.title.body.static }}</h2>
+          <h2 class="access-title">{{ $t(`${path}.title`) }}</h2>
         </div>
         <div class="slide-bar">
           <swiper
@@ -66,28 +66,28 @@
             :autoplay="{ delay: 3000 }"
             @slideChange="handleSlideChange"
           >
-            <swiper-slide v-for="(item, index) in data.content" :key="index">
+            <swiper-slide v-for="(item, index) in $tm(`${path}.content`)" :key="index">
               <div class="slide-item">
                 <img
                   class="banner-img"
-                  :src="item.mbImage.body.static"
-                  :alt="item.title.body.static"
+                  :src="$t(`${path}.content[${index}].mbImage`)"
+                  :alt="$t(`${path}.content[${index}].title`)"
                 />
                 <div class="right-content">
                   <img
                     class="content-icon"
-                    :src="item.icon.body.static"
-                    alt=""
+                    :src="$t(`${path}.content[${index}].icon`)"
+                    :alt="$t(`${path}.content[${index}].title`)"
                   />
-                  <p class="content-title">{{ item.title.body.static }}</p>
+                  <p class="content-title">{{ $t(`${path}.content[${index}].title`) }}</p>
                   <p class="content-desc">
-                    {{ item.text.body.static }}
+                    {{ $t(`${path}.content[${index}].text`) }}
                   </p>
                   <p class="content-num">
-                    <span class="num">{{ item.num.body.static }}</span>
-                    <span class="unit">{{ item.numunit.body.static }}</span>
+                    <span class="num">{{ $t(`${path}.content[${index}].num`) }}</span>
+                    <span class="unit">{{ $t(`${path}.content[${index}].numunit`) }}</span>
                   </p>
-                  <p class="content-tips normal-text">{{ item.numtext.body.static }}</p>
+                  <p class="content-tips normal-text">{{ $t(`${path}.content[${index}].numtext`) }}</p>
                 </div>
               </div>
             </swiper-slide>
@@ -118,9 +118,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination } from "swiper";
-import { useI18n } from 'vue-i18n';
-const { tm } = useI18n();
-const data = ref(tm('dataGrowth').dataCase);
+const path = ref("dataGrowth.dataCase");
 const modules = ref([Autoplay, Pagination]);
 
 const activeIndex = ref(0);

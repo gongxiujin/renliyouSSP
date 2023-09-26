@@ -1,4 +1,5 @@
 export default {
+  webSite: "任礼游",
   language: "中文",
   justNow: "立即变现",
   login: {
@@ -88,7 +89,7 @@ export default {
       content: [
         {
           title: "SDK",
-          text: "平台功能强大易用，7*16小时在线技术支持，为客户提供精细化贴心服务。",
+          text: "开发者按照开发文档，在自己的应用内嵌入任礼游SSP的SDK，实现广告的最终投放。",
           image: "/images/index/access-1.png",
         },
         {
@@ -194,6 +195,9 @@ export default {
     pageTitle: "移动变现",
     banner: {
       image: "/images/product/appbanner.png",
+      mbImage: "/images/product/appbanner-mini.png",
+      icon: "",
+      mbTop: "459px",
       title: "移动变现",
       text: "多平台资源实时投放，利用人工智能算法，分析全行业流量数据，优先展示高单价流量，同步深入优化素材，筛选最适合的客户素材进行精准投放，智能提升变现效率",
     },
@@ -318,6 +322,10 @@ export default {
   pc: {
     pageTitle: "商业PC变现",
     banner: {
+      icon: "/images/product/pcbanner-icon.png",
+      image: "",
+      mbImage: "/images/product/pcbanner-mini.png",
+      mbTop: "463px",
       title: "商业PC变现",
       text: "PC流量变现的流量营销专家，专注于pc流量媒体、WAP站长媒体等全渠道合作，利用多元化的变现业务，创造高收益、稳定价值体系",
     },
@@ -385,6 +393,10 @@ export default {
   dataGrowth: {
     pageTitle: "数据增长",
     banner: {
+      image: "/images/product/growthbanner.png",
+      icon: "",
+      mbImage: "/images/product/growthbanner-mini.png",
+      mbTop: "451px",
       title: "数据增长",
       text: "数据分析系统采用最先进的技术，可以对广告投放过程中的种种数据进行实时监测和分析，并在此基础上推出针对性的优化策略。通过该系统，企业可以更好地了解广告投放效果，得出有效的决策。",
     },
@@ -552,6 +564,7 @@ export default {
     banner: {
       title: "公司介绍",
       text: "        任礼游平台是国内的流量变现服务平台，拥有海量广告资源，丰富的广告样式，支持多种售卖方式，为媒体提供高效、便捷、专业的流量变现解决方案，帮助媒体构建自己的商业化运营体系。\n\n        公司致力于为流量主提供专业、易用、高效的广告管理与变现服务，深度挖掘流量价值，实现多层级变现，多维度充分提升流量溢价与变现能力。",
+      mbImage: "/images/aboutUs/aboutusbanner-mini.png",
     },
     solution: {
       title: "企业文化",
@@ -590,8 +603,12 @@ export default {
     }
   ]
   },
+  callUs: "联系电话",
+  phoneNum: "17060666669",
+  wechatCode: "微信扫码",
   registorNow: "立即注册",
   contactUs: "联系我们",
+  joinUs: "立即加入我们，助力你获得收益",
   image: "/images/index/joinUsBg.png",
   address:
     "云袭网络技术（河北）有限公司\n地址：河北省石家庄市裕华区怀特商业广场D座5层\n市场合作：17060666669",
@@ -610,7 +627,7 @@ export default {
         title: "其他",
         row: [
           { text: "关于我们", link: "/aboutUs" },
-          { text: "联系我们", link: "/conectUs" },
+          { text: "联系我们", link: "/aboutUs" },
           { text: "用户协议", link: "/policy" },
           { text: "隐私政策", link: "/policy" },
         ],

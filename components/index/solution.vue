@@ -4,70 +4,51 @@
     <div class="pc">
       <div class="solution-bar">
         <div class="title-bar">
-          <h2 class="solution-title">{{ data.title.body.static }}</h2>
-          <p class="solution-desc">{{ data.text.body.static }}</p>
+          <h2 class="solution-title">{{ $t(`${path}.title`) }}</h2>
+          <p class="solution-desc">{{ $t(`${path}.text`) }}</p>
         </div>
         <div class="container">
           <div class="tabs">
             <img
               class="bgImg"
-              :src="data.content[activeIndex].iconBg.body.static"
-              :alt="data.content[activeIndex].title.body.static"
+              :src="$t(`${path}.content[${activeIndex}].iconBg`)"
+              :alt="$t(`${path}.content[${activeIndex}].title`)"
             />
-            <div v-for="(item, index) in data.content" :key="index"
+            <div v-for="(item, index) in $tm(`${path}.content`)" :key="index"
               :class="['tabs-item', activeIndex == index ? 'active' : '']"
               @mouseover="handleMouseOver(index)"
             >
               <img
                 v-if="activeIndex == index"
-                :src="item.iconActive.body.static"
-                :alt="item.title.body.static"
+                :src="$t(`${path}.content[${index}].iconActive`)"
+                :alt="$t(`${path}.content[${index}].title`)"
               />
               <img
                 v-else
-                :src="item.icon.body.static"
-                :alt="item.title.body.static"
+                :src="$t(`${path}.content[${index}].icon`)"
+                :alt="$t(`${path}.content[${index}].title`)"
               />
-              <span class="tab-title">{{ item.title.body.static }}</span>
+              <span class="tab-title">{{ $t(`${path}.content[${index}].title`) }}</span>
             </div>
           </div>
           <div class="content">
             <div class="content-item" >
-              <p class="text-1">{{data.content[activeIndex].title.body.static}}</p>
+              <p class="text-1">{{$t(`${path}.content[${activeIndex}].title`)}}</p>
               <p class="text-2">
-                {{data.content[activeIndex].text.body.static}}
+                {{$t(`${path}.content[${activeIndex}].text`) }}
               </p>
               <p class="text-3">
-                {{ data.content[activeIndex].light.body.static }}
+                {{ $t(`${path}.content[${activeIndex}].light`) }}
               </p>
             </div>
-            <!-- <div class="content-item" v-else-if="activeIndex == 1">
-              <p class="text-1">APP应用&游戏</p>
-              <p class="text-2">满足客户激活下载转化类的营销需求。</p>
-              <p class="text-3">
-                【社交媒体】【应用商店】【精准投放】【数据分析】
-              </p>
-            </div>
-            <div class="content-item" v-else-if="activeIndex == 2">
-              <p class="text-1">金融</p>
-              <p class="text-2">帮助金融机构拓展新客户，扩大市场规模。</p>
-              <p class="text-3">【线索留资】【品牌建设】【精准营销】</p>
-            </div>
-            <div class="content-item" v-else>
-              <p class="text-1">运动健康</p>
-              <p class="text-2">
-                旗下产品“月野兔”有丰富的场馆资源和C端用户，可以为健身运动行业客户提供全方位解决方案。
-              </p>
-              <p class="text-3">【全方位服务】【线上线下一体化】</p>
-            </div> -->
           </div>
           <div class="swiper-main">
             <swiper class="swiper" @swiper="onSwiper">
-              <swiper-slide v-for="(item, index) in data.content" :key="index">
+              <swiper-slide v-for="(item, index) in $tm(`${path}.content`)" :key="index">
                 <img
                   class="banner-img"
-                  :src="item.image.body.static"
-                  :alt="item.title.body.static"
+                  :src="$t(`${path}.content[${index}].image`)"
+                  :alt="$t(`${path}.content[${index}].title`)"
                 />
               </swiper-slide>
             </swiper>
@@ -78,42 +59,46 @@
     <div class="mobile">
       <div class="m-solution-bar">
         <div class="title-bar">
-          <h2 class="solution-title">{{ data.title.body.static }}</h2>
-          <p class="solution-desc">{{ data.text.body.static }}</p>
+          <h2 class="solution-title">{{ $t(`${path}.title`) }}</h2>
+          <p class="solution-desc">{{ $t(`${path}.text`) }}</p>
         </div>
         <div class="tabs-row">
-          <div v-for="(item, index) in data.content" :key="index"
+          <div v-for="(item, index) in $tm(`${path}.content`)" :key="index"
             :class="['tabs-item', activeIndex == index ? 'active' : '']"
             @click="handleMouseOver(index)"
           >
             <img
               v-if="activeIndex == index"
-              :src="data.content[index].iconActive.body.static"
-              alt=""
+              :src="$t(`${path}.content[${index}].iconActive`)"
+              :alt="$t(`${path}.content[${index}].title`)"
             />
             <img
               v-else
-              :src="data.content[index].icon.body.static"
+              :src="$t(`${path}.content[${index}].icon`)"
               alt=""
             />
-            <span class="tab-title normal-text">{{ item.title.body.static }}</span>
+            <span class="tab-title normal-text">{{ $t(`${path}.content[${index}].title`) }}</span>
           </div>
         </div>
         <div class="m-swiper-main">
-          <swiper class="swiper" @swiper="onSwiperM" @slideChange="handleSlideChange">
-            <swiper-slide v-for="(item, index) in data.content" :key="index">
+          <swiper
+          class="swiper"
+
+          @swiper="onSwiperM"
+          @slideChange="handleSlideChange">
+            <swiper-slide v-for="(item, index) in $tm(`${path}.content`)" :key="index">
               <img
                 class="banner-img"
-                :src="item.mbimage.body.static"
+                :src="$t(`${path}.content[${index}].mbimage`)"
                 alt=""
               />
               <div class="content-item">
-                <p class="text-1 bold-text">{{ item.title.body.static }}</p>
+                <p class="text-1 bold-text">{{ $t(`${path}.content[${index}].title`) }}</p>
                 <p class="text-2 normal-text">
-                  {{ item.text.body.static }}
+                  {{ $t(`${path}.content[${index}].text`) }}
                 </p>
                 <p class="text-3 normal-text">
-                  {{ item.light.body.static }}
+                  {{ $t(`${path}.content[${index}].light`) }}
                 </p>
               </div>
             </swiper-slide>
@@ -130,9 +115,7 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { useI18n } from 'vue-i18n';
-const { tm } = useI18n();
-const data = ref(tm('home').solution);
+const path = ref("home.solution");
 
 const activeIndex = ref(0);
 const swiperInstance = ref();
@@ -323,9 +306,9 @@ function onSwiper(swiper) {
   height: 640px;
   background: #f8f8f8;
   .m-solution-bar {
-    width: 100%;
+    width: 325px;
     height: 100%;
-    padding: 0 15px;
+    margin: 0 auto;
     .title-bar {
       width: 100%;
       text-align: center;

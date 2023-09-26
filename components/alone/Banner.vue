@@ -8,25 +8,25 @@
         :autoplay="{ delay: 3000 }"
         :modules="modules"
       >
-        <swiper-slide v-for="(item, index) in data.content" :key="index">
+        <swiper-slide v-for="(item, index) in $tm(`${path}.content`)" :key="index">
           <img
             class="banner-img"
-            :src="item.image.body.static"
-            :alt="item.title.body.static"
+            :src="$t(`${path}.content[${index}].image`)"
+            :alt="$t(`${path}.content[${index}].title`)"
           />
           <div class="banner-title">
             <h2 class="title" :style="{ whiteSpace: 'pre-line' }">
-              {{ item.title.body.static }}
+              {{ $t(`${path}.content[${index}].title`) }}
             </h2>
             <p class="text normal-text">
-              {{ item.text.body.static }}
+              {{ $t(`${path}.content[${index}].text`) }}
             </p>
           </div>
         </swiper-slide>
       </swiper>
       <div class="banner-progress-bar">
         <div
-          v-for="(item, index) in data.content"
+          v-for="(item, index) in $tm(`${path}.content`)"
           :key="index"
           @click="goToSlide(index)"
           :class="[
@@ -36,21 +36,9 @@
       </div>
       <!-- 统计 -->
       <div class="statistics-bar">
-        <div class="statistics-item">
-          <div class="text-[24px] text-[#222222]">2000+</div>
-          <div class="text-[16px] text-[#666666]">活跃APP</div>
-        </div>
-        <div class="statistics-item">
-          <div class="text-[24px] text-[#222222]">5000+</div>
-          <div class="text-[16px] text-[#666666]">优质广告主</div>
-        </div>
-        <div class="statistics-item">
-          <div class="text-[24px] text-[#222222]">6亿+</div>
-          <div class="text-[16px] text-[#666666]">日均请求次数</div>
-        </div>
-        <div class="statistics-item">
-          <div class="text-[24px] text-[#222222]">3亿+</div>
-          <div class="text-[16px] text-[#666666]">月覆盖用户量</div>
+        <div class="statistics-item" v-for="(item, idx) in $tm(`${path}.info`)" :key="idx">
+          <div class="text-[24px] text-[#222222]">{{ $t(`${path}.info[${idx}].title`) }}</div>
+          <div class="text-[16px] text-[#666666]">{{ $t(`${path}.info[${idx}].text`) }}</div>
         </div>
       </div>
     </div>
@@ -64,10 +52,10 @@
           />
           <div class="banner-title">
             <h2 class="title" :style="{ whiteSpace: 'pre-line' }">
-              {{ data.content[0].title.body.static }}
+              {{ $t(`${path}.content[0].title`) }}
             </h2>
             <p class="text normal-text">
-              {{ data.content[0].text.body.static }}
+              {{ $t(`${path}.content[0].text`) }}
             </p>
           </div>
         </swiper-slide>
@@ -86,7 +74,7 @@ import { Autoplay, Pagination } from "swiper";
 
 const modules = ref([Autoplay, Pagination]);
 
-const { data } = defineProps(["data"]);
+const { path } = defineProps(["path"]);
 
 const activeIndex = ref(0);
 const swiperInstance = ref();

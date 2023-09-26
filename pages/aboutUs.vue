@@ -1,25 +1,38 @@
 <template>
   <!-- 关于我们 -->
-  <div>
-    <div class="banner-top"></div>
+  <div style="position: relative; z-index: 3">
+    <div class="banner-top">
+      <div class="banner-title">
+        <h2 class="title" :style="{ whiteSpace: 'pre-line' }">
+          {{ $t(`${bannerPath}.title`) }}
+        </h2>
+        <p class="text normal-text" :style="{ whiteSpace: 'pre-line' }">
+          {{ $t(`${bannerPath}.text`) }}
+        </p>
+      </div>
+    </div>
     <!-- 企业文化 -->
     <div class="pc">
       <div class="solution-bar">
         <div class="title-bar">
-          <h2 class="solution-title">{{ data.title.body.static }}</h2>
-          <p class="solution-desc bold-text">{{ data.text.body.static }}</p>
+          <h2 class="solution-title">{{ $t(`${path}.title`) }}</h2>
+          <p class="solution-desc bold-text">{{ $t(`${path}.text`) }}</p>
         </div>
         <div class="container">
-          <div class="content-item" v-for="(item, index) in data.content" :key="index">
+          <div
+            class="content-item"
+            v-for="(item, index) in $tm(`${path}.content`)"
+            :key="index"
+          >
             <div class="content-round">
               <img
                 class="round-img"
-                :src="item.image.body.static"
-                :alt="item.title.body.static"
+                :src="$t(`${path}.content[${index}].image`)"
+                :alt="$t(`${path}.content[${index}].title`)"
               />
             </div>
-            <p class="title bold-text">{{ item.title.body.static }}</p>
-            <p class="desc normal-text">{{ item.text.body.static }}</p>
+            <p class="title bold-text">{{ $t(`${path}.content[${index}].title`) }}</p>
+            <p class="desc normal-text">{{ $t(`${path}.content[${index}].text`) }}</p>
           </div>
         </div>
       </div>
@@ -28,74 +41,64 @@
     <div class="join-us">
       <img class="bg-img" src="/images/index/joinUsBg.png" alt="" />
       <div class="title-content">
-        <h2 class="title">{{ $t('contactUs') }}</h2>
-        <p :style="{ whiteSpace: 'pre-line' }">{{ $t("address") }}</p>
+        <h2 class="title">{{ $t(`contactUs`) }}</h2>
+        <p :style="{ whiteSpace: 'pre-line' }">{{ $t(`address`) }}</p>
       </div>
     </div>
     <div class="mobile">
       <div class="m-solution-bar">
         <div class="title-bar">
-          <h2 class="solution-title">企业文化</h2>
-          <p class="solution-desc">开放共赢</p>
+          <h2 class="solution-title">{{ $t(`${path}.title`) }}</h2>
+          <p class="solution-desc bold-text">{{ $t(`${path}.text`) }}</p>
         </div>
         <div class="container">
-          <div class="content-item">
+          <div
+            class="content-item"
+            v-for="(item, index) in $tm(`${path}.content`)"
+            :key="index"
+          >
             <div class="content-round">
               <img
                 class="round-img"
-                src="../assets/images/aboutUs/aboutUs1-1.png"
-                alt=""
+                :src="$t(`${path}.content[${index}].image`)"
+                :alt="$t(`${path}.content[${index}].title`)"
               />
             </div>
-            <p class="title">改革</p>
-            <p class="desc">开放创新，给予他人，成就自我</p>
-          </div>
-          <div class="content-item">
-            <div class="content-round">
-              <img
-                class="round-img"
-                src="../assets/images/aboutUs/aboutUs1-2.png"
-                alt=""
-              />
-            </div>
-            <p class="title">做事</p>
-            <p class="desc">思路出彩，过程出色，结果出众</p>
-          </div>
-          <div class="content-item">
-            <div class="content-round">
-              <img
-                class="round-img"
-                src="../assets/images/aboutUs/aboutUs1-3.png"
-                alt=""
-              />
-            </div>
-            <p class="title">心态</p>
-            <p class="desc">终身成长，持续奋斗，舍我其谁</p>
+            <p class="title bold-text">{{ $t(`${path}.content[${index}].title`) }}</p>
+            <p class="desc normal-text">{{ $t(`${path}.content[${index}].text`) }}</p>
           </div>
         </div>
       </div>
     </div>
     <!-- 联系我们 -->
     <div class="m-join-us">
-      <img class="bg-img" src="../assets/images/index/joinUsBg.png" alt="" />
-      <h2 class="title">联系我们</h2>
-      <p>云袭网络技术（河北）有限公司</p>
-      <p>地址：河北省石家庄市裕华区怀特商业广场D座5层</p>
-      <p>市场合作：17060666669</p>
+      <img class="bg-img" src="/images/index/joinUsBg.png" alt="" />
+      <h2 class="title heavy-text">{{ $t(`contactUs`) }}</h2>
+      <p class="normal-text" :style="{ whiteSpace: 'pre-line' }">
+        {{ $t(`address`) }}
+      </p>
     </div>
   </div>
 </template>
 
 <script setup>
-import { useI18n } from 'vue-i18n';
-const { tm } = useI18n();
-const data = ref(tm('aboutUs').solution);
+const { t } = useI18n();
+const bannerPath = ref("aboutUs.banner");
+const miniBanner = "url(" + t("aboutUs.banner.mbImage") + ")";
+const path = ref("aboutUs.solution");
+const offset = "640px";
+// const offset = inject("offset", coffset);
+provide('offset', offset)
+useHead({
+  title: t("aboutUs.pageTitle"),
+});
 </script>
 
 <style lang="scss" scoped>
 @media (max-width: $mobile-width) {
   .banner-top {
     min-width: 100% !important;
+    background-image: v-bind(miniBanner) !important;
   }
   .pc {
     display: none !important;
@@ -110,13 +113,63 @@ const data = ref(tm('aboutUs').solution);
     display: flex !important;
   }
 }
+
+.layer-parallax .parallax-svg {
+  padding-top: 640px!important;
+}
 .banner-top {
   width: 100%;
   min-width: 1200px;
-  height: 434px;
+  height: 544px;
   background-image: url("/images/aboutUs/aboutUsBanner.png");
   background-size: 100% 100%;
+  object-fit: cov;
   position: relative;
+  .banner-title {
+    position: absolute;
+    top: 151px;
+    left: 21%;
+    width: 665px;
+    text-align: left;
+    color: #222;
+    .title {
+      font-family: SourceHans-heavy;
+      font-size: 36px;
+      font-weight: normal;
+      line-height: 38px;
+    }
+    .text {
+      margin-top: 43px;
+      font-size: 16px;
+      font-weight: normal;
+      line-height: 24px;
+    }
+  }
+  @media (max-width: $mobile-width) {
+    display: flex;
+    .banner-title {
+      position: relative;
+      margin: 163px auto 0;
+      width: 300px;
+      text-align: left;
+      color: #222;
+      position: relative;
+      left: unset;
+      top: unset;
+      .title {
+        font-size: 32px;
+        text-align: center;
+        font-weight: normal;
+        line-height: 36px;
+      }
+      .text {
+        margin-top: 19px;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 22px;
+      }
+    }
+  }
 }
 .pc {
   position: relative;
@@ -130,7 +183,6 @@ const data = ref(tm('aboutUs').solution);
       min-width: 1200px;
       text-align: center;
       .solution-title {
-
         font-size: 36px;
         font-weight: 900;
         line-height: 38px;
@@ -145,6 +197,7 @@ const data = ref(tm('aboutUs').solution);
         color: #777777;
       }
     }
+
     .container {
       width: 1200px;
       min-width: 1200px;
@@ -228,7 +281,6 @@ const data = ref(tm('aboutUs').solution);
     align-items: center;
     justify-content: space-around;
     .title {
-
       font-size: 36px;
       font-weight: 900;
       line-height: 38px;
@@ -236,7 +288,6 @@ const data = ref(tm('aboutUs').solution);
       margin-bottom: 10px;
     }
     p {
-
       font-size: 16px;
       font-weight: normal;
       line-height: 40px;
@@ -260,7 +311,6 @@ const data = ref(tm('aboutUs').solution);
       width: 100%;
       text-align: center;
       .solution-title {
-
         font-size: 24px;
         font-weight: 900;
         line-height: 38px;
@@ -355,7 +405,6 @@ const data = ref(tm('aboutUs').solution);
     z-index: -2;
   }
   .title {
-
     font-size: 24px;
     font-weight: 900;
     line-height: 38px;
@@ -363,10 +412,9 @@ const data = ref(tm('aboutUs').solution);
     margin-bottom: 6px;
   }
   p {
-
     font-size: 14px;
     font-weight: normal;
-    line-height: 10px;
+    line-height: 30px;
     text-align: center;
     color: #ffffff;
   }

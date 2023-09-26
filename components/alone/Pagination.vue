@@ -2,7 +2,7 @@
 	<div class="al-pagination">
 		<ul class="al-pagination-ul">
 			<li>上一页</li>
-			<li :class="{'active':index==page}" v-for="index in 5">
+			<li :class="{'active':index==page}" v-for="index in 5" :key="index">
 				<nuxt-link @click="page=index" :to="'?page='+index">{{index}}</nuxt-link>
 			</li>
 			<li>下一页</li>

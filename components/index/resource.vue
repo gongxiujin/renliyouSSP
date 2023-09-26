@@ -4,15 +4,15 @@
 		<div class="pc">
 			<div class="resource-bar">
 				<div class="title-bar">
-					<h2 class="resource-title heavy-text">{{ data.title.body.static }}</h2>
-					<p class="resource-desc normal-text">{{ data.text.body.static }}</p>
+					<h2 class="resource-title heavy-text">{{ $t(`${path}.title`) }}</h2>
+					<p class="resource-desc normal-text">{{ $t(`${path}.text`) }}</p>
 				</div>
 				<div class="resource-block" >
-					<div class="resource-item" v-for="(item, index) in data.content" :key="index">
-						<img class="item-img" :src="item.image.body.static" alt="">
+					<div class="resource-item" v-for="(item, index) in $tm(`${path}.content`)" :key="index">
+						<img class="item-img" :src="$t(`${path}.content[${index}].image`)" :alt="$t(`${path}.content[${index}].title`)">
 						<div class="item-text">
-							<p class="text-content medium-text">{{item.title.body.static}}</p>
-							<p class="text-desc normal-text">{{ item.text.body.static }}</p>
+							<p class="text-content medium-text">{{$t(`${path}.content[${index}].title`)}}</p>
+							<p class="text-desc normal-text">{{ $t(`${path}.content[${index}].text`)}}</p>
 						</div>
 					</div>
 				</div>
@@ -22,15 +22,15 @@
 		<div class="mobile">
 			<div class="m-resource-bar">
 				<div class="title-bar">
-					<h2 class="resource-title heavy-text">{{ data.title.body.static }}</h2>
-					<p class="resource-desc normal-text">{{ data.text.body.static }}</p>
+					<h2 class="resource-title heavy-text">{{ $t(`${path}.title`)}}</h2>
+					<p class="resource-desc normal-text">{{ $t(`${path}.text`)}}</p>
 				</div>
 				<div class="resource-block" >
-					<div class="resource-item" v-for="(item, index) in data.content" :key="index">
-						<img class="item-img" :src="item.image.body.static" alt="">
+					<div class="resource-item" v-for="(item, index) in $tm(`${path}.content`)" :key="index">
+						<img class="item-img" :src="$t(`${path}.content[${index}].image`)" :alt="$t(`${path}.content[${index}].title`)">
 						<div class="item-text">
-							<p class="text-content medium-text">{{item.title.body.static}}</p>
-							<p class="text-desc normal-text">{{ item.text.body.static }}</p>
+							<p class="text-content medium-text">{{$t(`${path}.content[${index}].title`) }}</p>
+							<p class="text-desc normal-text">{{ $t(`${path}.content[${index}].text`) }}</p>
 						</div>
 					</div>
 				</div>
@@ -39,9 +39,7 @@
     </div>
 </template>
 <script setup>
-import { useI18n } from 'vue-i18n';
-const { tm } = useI18n();
-const data = ref(tm('home').resource);
+const path = ref("home.resource");
 </script>
 <style lang="scss" scoped>
 	@media (max-width: $mobile-width) {

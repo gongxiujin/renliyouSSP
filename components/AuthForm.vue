@@ -23,14 +23,12 @@
       >{{ $t('login.aggreeText[0]') }}<el-link type="danger" href="/">{{ $t('login.aggreeText[1]') }}</el-link
       >{{ $t('login.aggreeText[2]') }}<el-link type="danger" href="/">{{ $t('login.aggreeText[3]') }}</el-link>
     </el-checkbox>
-    <el-form-item>
       <el-button
         class="login-btn"
         type="danger"
         @click="handleSubmit('resetPassword')"
         >{{ $t('login.resetButton') }}</el-button
       >
-    </el-form-item>
   </el-form>
 </template>
 

@@ -7,13 +7,13 @@
       <div class="footer-main">
         <div class="pangle-footer-links">
           <div class="footerContainer">
-            <div class="col" v-for="(item, index) in data.up" :key="index">
+            <div class="col" v-for="(item, index) in $tm(`${path}`)" :key="index">
               <div class="content">
-                <p class="title">{{ item.title.body.static }}</p>
+                <p class="title">{{ $t(`${path}[${index}].title`) }}</p>
                 <a
-                v-for="(text, idx) in item.row" :key="idx"
-                :href="text.link.body.static" class="link"
-                >{{ text.text.body.static }}</a>
+                v-for="(text, idx) in $tm(`${path}[${index}].row`)" :key="idx"
+                :href="text.link" class="link"
+                >{{ $t(`${path}[${index}].row[${idx}].text`) }}</a>
               </div>
             </div>
             <div class="col">
@@ -69,15 +69,15 @@
     <div class="footer-terms">
       <div class="pangle-container-section">
         <a
-        v-for="(text, idx) in data.up[1].row" :key="idx"
-        :href="text.link.body.static" class="term-link"
-        >{{ text.text.body.static }}</a>
+        v-for="(text, idx) in $tm(`${path}[1].row`)" :key="idx"
+        :href="$t(`${path}[1].row[${idx}].link`)" class="term-link"
+        >{{ $t(`${path}[1].row[${idx}].text`) }}</a>
       </div>
     </div>
     <div class="footer-bottom">
       <div class="pangle-bottom-section">
-        <a href="" class="term-link">© 2023 云袭网络 冀ICP备14015686号-14 </a>
-        <a href="" class="term-link">云袭网络技术河北有限公司</a>
+        <a :href="$t(`copyright[0].link`)" class="term-link">{{ $t(`copyright[0].text`) }}</a>
+        <a :href="$t(`copyright[1].link`)" class="term-link">{{ $t(`copyright[1].text`) }}</a>
       </div>
     </div>
   </footer>
@@ -89,13 +89,13 @@
       <div class="footer-main">
         <div class="pangle-footer-links">
           <div class="footerContainer">
-            <div class="col" v-for="(item, index) in data.up" :key="index">
+            <div class="col" v-for="(item, index) in $tm(`${path}`)" :key="index">
               <div class="content">
-                <p class="title">{{ item.title.body.static }}</p>
+                <p class="title">{{ $t(`${path}[${index}].title`) }}</p>
                 <a
-                v-for="(text, idx) in item.row" :key="idx"
-                :href="text.link.body.static" class="link"
-                >{{ text.text.body.static }}</a>
+                v-for="(text, idx) in $tm(`${path}[${index}].row`)" :key="idx"
+                :href="text.link" class="link"
+                >{{ $t(`${path}[${index}].row[${idx}].text`) }}</a>
               </div>
             </div>
             <div class="col">
@@ -139,25 +139,23 @@
     </div>
     <div class="footer-terms">
       <div class="pangle-container-section">
-        <a href="/aboutUs" class="term-link">关于我们</a>
-        <a href="" class="term-link">联系我们</a>
-        <a href="" class="term-link">用户协议</a>
-        <a href="/policy" class="term-link">隐私政策</a>
+        <a
+        v-for="(text, idx) in $tm(`${path}[1].row`)" :key="idx"
+        :href="$t(`${path}[1].row[${idx}].link`)" class="term-link"
+        >{{ $t(`${path}[1].row[${idx}].text`) }}</a>
       </div>
     </div>
     <div class="footer-bottom">
       <div class="pangle-bottom-section">
-        <a href="" class="term-link">© 2023 云袭网络 冀ICP备14015686号-14 </a>
-        <a href="" class="term-link">云袭网络技术河北有限公司</a>
+        <a :href="$t(`copyright[0].link`)" class="term-link">{{ $t(`copyright[0].text`) }}</a>
+        <a :href="$t(`copyright[1].link`)" class="term-link">{{ $t(`copyright[1].text`) }}</a>
       </div>
     </div>
   </footer>
 </template>
 
 <script setup>
-import { useI18n } from 'vue-i18n';
-const { tm } = useI18n();
-const data = ref(tm('footer'));
+const path = ref("footer.up");
 </script>
 
 <style lang="scss" scoped>

@@ -23,7 +23,7 @@
 	.page-top{
 		width: 100%;
 		height: $page-top-item-height;
-		background-image: url("~/assets/images/bg-top.png");
+		background-image: url("/images/bg-top.png");
 		background-size: 100% 100%;
 		display: flex;
 		align-items: center;

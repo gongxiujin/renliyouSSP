@@ -1,6 +1,7 @@
 export default {
+    webSite: "RenliYou",
     language: 'English',
-    justus: 'Now',
+    justNow: 'Now',
     login:{
         pageTitle: "login/registor",
         login: "login",
@@ -24,6 +25,15 @@ export default {
         registorNow: "registor now",
         otherWay: "other way: ",
         returnLogin: "return login",
+    },
+    navList: {
+        home: "Home",
+        proCenter: "Product Center",
+        app: "Mobile Monetization",
+        pc: "PC Monetization",
+        dataGrowth: "Data Growth",
+        solutions: "Solutions",
+        aboutUs: "About Us",
     },
     home: {
         pageTitle: "Home",
@@ -165,294 +175,456 @@ export default {
         joinUs: {
           title: "Join us now to boost your revenue",
         },
-      },
-      app: {
+    },
+    app: {
         pageTitle: "Mobile Monetization",
-        banner: {title: "Mobile Monetization", text: "Real-time delivery across multiple platforms, leveraging AI algorithms to analyze industry-wide traffic data, prioritizing the display of high-priced traffic, synchronizing in-depth optimization of materials, selecting the most suitable customer materials for precise delivery, and intelligently enhancing monetization efficiency."},
+        banner: {
+          image: "/images/product/appbanner.png",
+          mbImage: "/images/product/appbanner-mini.png",
+          mbTop: "459px",
+          title: "Mobile Monetization",
+          text: "Real-time multi-platform resource launch, utilizing AI algorithms to analyze industry-wide traffic data, prioritizing the display of high-priced traffic, synchronously deeply optimizing materials, selecting the most suitable customer materials for precise placement, intelligently enhancing monetization efficiency.",
+        },
         appSlide: {
-            title: "Mobile APP",
-            text: "A variety of ad styles to meet different scenario needs",
-            content: [
-                {
-                    icon: "/images/product/appTabs1.png",
-                    iconActive: "/images/product/appTabs1Act.png",
-                    image: "/images/product/appPhone1.png",
-                    title: "Splash Screen Ad", text: "Startup page advertisement, displayed during APP startup loading, showcasing the ad image or video for a fixed time (usually 5s-15s). After the display, it automatically closes and enters the main APP page. Seizing the \"golden 5 seconds\" of app startup, it has high user attention."},
-                {
-                    icon: "/images/product/appTabs2.png",
-                    iconActive: "/images/product/appTabs2Act.png",
-                    image: "/images/product/appPhone2.png",
-                    title: "Information Stream Ad", text: "Native image and video ads in the recommended list page, article detail page, and video detail page of the user's browsing APP."},
-                {
-                    icon: "/images/product/appTabs3.png",
-                    iconActive: "/images/product/appTabs3Act.png",
-                    image: "/images/product/appPhone3.png",
-                    title: "Banner", text: "Fixed at the top, middle, bottom, or other positions of the app, spanning the entire app page horizontally. It has a high exposure rate, a wide target audience, is easy to operate, and its effectiveness can be continuously optimized."},
-                {
-                    icon: "/images/product/appTabs4.png",
-                    iconActive: "/images/product/appTabs4Act.png",
-                    image: "/images/product/appPhone4.png",
-                    title: "Interstitial Ad", text: "Triggered ads that pop up in the form of images, videos, etc., either half-screen or full-screen, after the user takes a corresponding action (such as start, pause, pass level, jump, exit). High exposure and strong visual impact."},
-                {
-                    icon: "/images/product/appTabs5.png",
-                    iconActive: "/images/product/appTabs5Act.png",
-                    image: "/images/product/appPhone5.png",
-                    title: "Reward Video", text: "A 15-30 second full-screen video ad deeply adapted to the native mode of traffic APP. Users can choose to watch the video ad in exchange for rewards in the app or game."}
-            ]
+          title: "Mobile APP",
+          text: "Rich advertising styles to meet different scenario needs",
+          textStyle: "",
+          content: [
+            {
+              icon: "/images/product/appTabs1.png",
+              iconActive: "/images/product/appTabs1Act.png",
+              image: [
+                "/images/product/appPhone1.png"
+              ],
+              title: "Splash Ads",
+              text: "Launch page ads appear when the APP is launched and loaded, displaying ad images or videos for a fixed time (generally 5s-15s), automatically closing after the display and entering the main APP page. Seize the 'golden 5 seconds' of app opening, attracting high user attention.",
+            },
+            {
+              icon: "/images/product/appTabs2.png",
+              iconActive: "/images/product/appTabs2Act.png",
+              image: [
+                "/images/product/appPhone2.png"
+              ],
+              title: "Information Flow Ads",
+              text: "Native text and video ads in the recommended list page, article detail page, and video detail page of the APP that users browse and read.",
+            },
+            {
+              icon: "/images/product/appTabs3.png",
+              iconActive: "/images/product/appTabs3Act.png",
+              image: [
+                "/images/product/appPhone3.png",
+                "/images/product/appPhone3-2.png"
+              ],
+              title: "Banner",
+              text: "Fixed at the top, middle, bottom, or other positions of the app, spanning the entire app page horizontally, high exposure, wide target audience, easy to operate, and continuously optimized effects.",
+            },
+            {
+              icon: "/images/product/appTabs4.png",
+              iconActive: "/images/product/appTabs4Act.png",
+              image: [
+                "/images/product/appPhone4.png",
+                "/images/product/appPhone4-2.png"
+              ],
+              title: "Interstitial Ads",
+              text: "Triggered ads that pop up in the form of images, videos, etc., as half-screen or full-screen ads after the user performs corresponding operations (such as opening, pausing, passing, jumping, exiting). High exposure and strong visual impact.",
+            },
+            {
+              icon: "/images/product/appTabs5.png",
+              iconActive: "/images/product/appTabs5Act.png",
+              image: [
+                "/images/product/appPhone5.png"
+              ],
+              title: "Incentive Video",
+              text: "15-30 seconds full-screen video ads that deeply adapt to the native mode of traffic APP. Users can choose to watch video ads in exchange for rewards within the application or game.",
+            },
+          ],
         },
         appWap: {
-            title: "Mobile WAP Site",
-            text: "Mobile WAP site ad delivery customizes promotional plans for you, helping you acquire potential customers at low cost and high efficiency, providing comprehensive solutions for enterprises, with over 1000 successful industry cases as evidence!",
-            content: [
-                // ... (The content here is the same as the appSlide content, so I won't repeat it.)
-            ]
+          title: "Mobile WAP Site",
+          text: "Mobile WAP site ad placement customizes promotion plans for you, helping you to acquire potential customers at low cost and high efficiency, providing comprehensive solutions for enterprises, and witnessing by 1000+ industry successful cases!",
+          textStyle: "text-align: left;",
+          content: [
+            {
+              iconActive: "/images/product/appTabs1Act.png",
+              icon: "/images/product/appTabs1.png",
+              image: [
+                "/images/product/appWAP1.png",
+                "/images/product/appWAP1-2.png"
+              ],
+              title: "Information Flow Ads",
+              text: "An ad slot that is consistent with the following content in form or content, good user experience, higher implantation brings better click-through and conversion rates.",
+            },
+            {
+              iconActive: "/images/product/appTabs2Act.png",
+              icon: "/images/product/appTabs2.png",
+              image: [
+                "/images/product/appWAP2.png",
+                "/images/product/appWAP2-2.png"
+              ],
+              title: "Banner Ad Slot",
+              text: "Appears at the top, middle, or bottom of the APP interface, static image, GIF image, text link, or multi-frame ad image scrolling, better flexibility, beautiful style, higher click rate, and increased budget revenue.",
+            }
+          ],
         },
         appSystem: {
-            title: "A safe and efficient ecosystem, free from worries",
-            content: [
-                {
-                    image: "/images/product/system1.png",
-                    title: "Efficient Bidding", text: "A single exposure opportunity will be publicly bid to all in-app bidding ad platforms. Yunxi SSP will choose the highest bid ad for display to ensure maximum developer revenue."},
-                {
-                    image: "/images/product/system2.png",
-                    title: "Ad Layering", text: "Accurately identify ads, layer them, automatically match high-net-worth users, increase conversions, and ensure that high-quality ad sources get ample exposure opportunities."},
-                {
-                    image: "/images/product/system3.png",
-                    title: "Efficient Request Strategy", text: "Supports serial and parallel requests. Developers can choose freely, increasing the exposure opportunities of valuable ad sources."},
-                {
-                    image: "/images/product/system4.png",
-                    title: "Multi-dimensional Traffic Grouping", text: "Users with the same features and tags often have common preferences. Yunxi SSP supports user grouping by region, age, device type, etc., catering to their preferences to assist in refined operations."},
-                {
-                    image: "/images/product/system5.png",
-                    title: "A/B test", text: "Provides a multi-layer traffic experiment framework, making it easy to implement AB tests."},
-                {
-                    image: "/images/product/system6.png",
-                    title: "Smart Hybrid Waterfall Flow", text: "The hybrid waterfall flow mode combines the advantages of traditional waterfall flow and in-app bidding. Developers can flexibly set the waterfall flow according to the characteristics of the application."},
-            ]
+          title: "Safe and Efficient Ecosystem, Free from Worries",
+          mbTitle: "Safe and Efficient Ecosystem\nFree from Worries",
+          content: [
+            {
+              image: "/images/product/system1.png",
+              title: "Efficient Bidding",
+              text: "A single exposure opportunity will be publicly bid to all in-app bidding ad platforms. Yunxi SSP will select the highest bid ad for display to ensure the maximum revenue for developers.",
+            },
+            {
+              image: "/images/product/system2.png",
+              title: "Ad Layering",
+              text: "Accurately identify ads, layer them, automatically match high-net-worth users, increase conversion, and ensure that high-quality ad sources get sufficient exposure opportunities.",
+            },
+            {
+              image: "/images/product/system3.png",
+              title: "Efficient Request Strategy",
+              text: "Supports serial and parallel requests, developers can choose, increase the exposure opportunities of valuable ad sources.",
+            },
+            {
+              image: "/images/product/system4.png",
+              title: "Multi-Dimensional Traffic Grouping",
+              text: "Users with the same features and tags often have common preferences. Yunxi SSP supports user grouping by region, age, device type, etc., to help fine-tune operations.",
+            },
+            {
+              image: "/images/product/system5.png",
+              title: "A/B Test",
+              text: "Provides a multi-layer traffic experiment framework, convenient for implementing AB tests.",
+            },
+            {
+              image: "/images/product/system6.png",
+              title: "Intelligent Mixed Waterfall Flow",
+              text: "The mixed waterfall flow mode combines the advantages of traditional waterfall flow and in-app bidding. Developers can flexibly set the waterfall flow according to the application characteristics.",
+            },
+          ],
         },
     },
 
     pc: {
-        pageTitle: "商业PC变现",
-        banner: {title: "商业PC变现", text: "PC流量变现的流量营销专家，专注于pc流量媒体、WAP站长媒体等全渠道合作，利用多元化的变现业务，创造高收益、稳定价值体系",},
-        pcSlide: {
-            content: [
-                {
-                    image: "/images/product/pcSlide1.png",
-                    icon: "/images/product/pcSlide1-1.png",
-                    title: "网址导航", text: "方便快速找到用户需要的网站入口，包含音乐、视频、小说、游戏、财经等上百个分类的优秀站点，提供最简单便捷的网上导航服务"},
-                {
-                    image: "/images/product/pcSlide2.png",
-                    icon: "/images/product/pcSlide2-1.png",
-                    title: "桌面图标", text: "是用户看到的第一眼最直接展现在桌面上的图标，它的受众面广、冲击力强，合理利用桌面广告位资源的同时也便捷了用户的上网使用"},
-                {
-                    image: "/images/product/pcSlide3.png",
-                    icon: "/images/product/pcSlide3-1.png",
-                    title: "游戏退弹", text: "在网民退出游戏客户端时，自动弹出的图片、Flash等形式的广告，网民对此类广告无所谓喜好或厌恶"},
-                {
-                    image: "/images/product/pcSlide4.png",
-                    icon: "/images/product/pcSlide4-1.png",
-                    title: "广告弹窗", text: "用户打开网站后会自动弹出的广告，无论点击还是不点击都会出现在用户的面前，具有高曝光性"},
-                {
-                    image: "/images/product/pcSlide5.png",
-                    icon: "/images/product/pcSlide5-1.png",
-                    title: "右下角升窗", text: "打开指定游戏进程后，从右下角升出的广告，对正常运营及玩家上网不产生任何负面作用"}
-            ]
+    pageTitle: "Commercial PC Monetization",
+    banner: {
+        icon: "/images/product/pcbanner-icon.png",
+        mbImage: "/images/product/pcbanner-mini.png",
+        mbTop: "463px",
+        title: "Commercial PC Monetization",
+        text: "Traffic marketing experts for PC traffic monetization, focusing on full-channel cooperation such as PC traffic media and WAP webmasters, using diversified monetization businesses to create high revenue and a stable value system.",
+    },
+    pcSlide: {
+        title: "Mobile APP",
+        content: [
+        {
+            image: "/images/product/pcSlide1.png",
+            icon: "/images/product/pcSlide1-1.png",
+            title: "Website Navigation",
+            text: "Conveniently and quickly find the website entrance that users need, including excellent sites in hundreds of categories such as music, video, novels, games, finance, etc., providing the simplest and most convenient online navigation service.",
         },
-        pcAdvantage: {
-            title: "商业PC变现的优势",
-            content: [
-                {
-                    image: "/images/product/PC-1.png",
-                    title: "安全稳定，持续发展", text: "每项业务均通过严格测试力求创新，无缝衔接，收入可持续"},
-                {
-                    image: "/images/product/PC-2.png",
-                    title: "信业务多元，优化整合", text: "合理开发网吧资源，多元化业务接入资源整合，力求增值收益最大化"},
-                {
-                    image: "/images/product/PC-3.png",
-                    title: "业务多元，优化整合", text: "诚信为本，坚决抵制数据作假。精准数据统计，支付及时不拖欠"},
-                {
-                    image: "/images/product/PC-4.png",
-                    title: "数据精准，及时透明", text: "触发式广告，在用户做出相应的操作（如开启、暂停、过关、跳转、退出）后，弹出的以图片、视频等为表现形式的半屏或全屏广告。曝光度高，视觉冲击力强。"},
-                {
-                    image: "/images/product/PC-5.png",
-                    title: "激励视频", text: "自主研发管理系统，操作更简单7x24小时服务，随时解决问题"}
-            ]
+        {
+            image: "/images/product/pcSlide2.png",
+            icon: "/images/product/pcSlide2-1.png",
+            title: "Desktop Icon",
+            text: "It is the first icon that users see and is directly displayed on the desktop. It has a wide audience and strong impact, reasonably utilizing desktop advertising space resources while also making internet use convenient for users.",
         },
+        {
+            image: "/images/product/pcSlide3.png",
+            icon: "/images/product/pcSlide3-1.png",
+            title: "Game Bounce",
+            text: "Ads in the form of images, Flash, etc., that automatically pop up when netizens exit the game client. Netizens are indifferent to this type of advertisement.",
+        },
+        {
+            image: "/images/product/pcSlide4.png",
+            title: "Ad Pop-up",
+            text: "Ads that automatically pop up when users open a website, whether clicked or not, will appear in front of users, with high exposure.",
+        },
+        {
+            image: "/images/product/pcSlide5.png",
+            icon: "/images/product/pcSlide5-1.png",
+            title: "Bottom Right Rising Window",
+            text: "After opening a specified game process, ads that rise from the bottom right, have no negative effects on normal operations and internet usage by players.",
+        },
+        ],
+    },
+    pcAdvantage: {
+        title: "Advantages of Commercial PC Monetization",
+        content: [
+        {
+            image: "/images/product/PC-1.png",
+            title: "Safe and Stable, Continuous Development",
+            text: "Each business undergoes strict testing to strive for innovation, seamless connection, and sustainable income.",
+        },
+        {
+            image: "/images/product/PC-2.png",
+            title: "Diverse Business, Optimized Integration",
+            text: "Reasonably develop internet cafe resources, diversify business access resource integration, and strive to maximize value-added income.",
+        },
+        {
+            image: "/images/product/PC-3.png",
+            title: "Accurate Data, Timely and Transparent",
+            text: "Integrity-based, resolutely resist data fraud. Accurate data statistics, timely payment without arrears.",
+        },
+        {
+            image: "/images/product/PC-4.png",
+            title: "Convenient Operation, Efficient Service",
+            text: "Self-developed management system, simpler operation. 7x24 hours service, solve problems at any time.",
+        },
+        ],
+    },
     },
     dataGrowth: {
-        pageTitle: "数据增长",
-        banner: {title: "数据增长", text: "数据分析系统采用最先进的技术，可以对广告投放过程中的种种数据进行实时监测和分析，并在此基础上推出针对性的优化策略。通过该系统，企业可以更好地了解广告投放效果，得出有效的决策。",},
-        dataService: {
-            title: "全生命周期提供数据服务",
-            content: [
-                {
-                    image: "/images/product/dataService1-1.png",
-                    title: "数据收集和监测", text: "收集各类广告投放的数据，监测用户的行为、收集竞争者的数据。"},
-                {
-                    image: "/images/product/dataService1-2.png",
-                    title: "数据分析和挖掘", text: "用最先进的算法对广告投放过程中的数据进行分析和挖掘，寻找其中的规律与趋势，为决策提供科学的依据。"},
-                {
-                    image: "/images/product/dataService1-3.png",
-                    title: "优化策略输出", text: "通过对数据分析的结果，输出一系列针对性的优化策略，如降本增效、改进目标受众等。"},
-                {
-                    image: "/images/product/dataService1-4.png",
-                    title: "监测和评估", text: "对投放效果进行监测和评估，了解并分析优化策略的实施效果。"},
-            ]
-        },
-        dataQuality: {
-            title: "全方位保证服务质量",
-            content: [
-                {
-                    image: "/images/product/dataService2-1.png",
-                    title: "科技领先", text: "我们采用最先进的技术手段和最新的算法，确保数据收集和分析的准确性和精度。"},
-                {
-                    image: "/images/product/dataService2-2.png",
-                    title: "个性化", text: "我们的系统可以根据不同企业的需求和特点进行个性化的定制，提供更加精细化的服务。"},
-                {
-                    image: "/images/product/dataService2-3.png",
-                    title: "安全可靠", text: "我们的系统非常注重数据安全，采取严格的措施保护客户的数据隐私。"},
-            ]
-        },
-        dataCase: {
-            title: "优秀案例分享",
-            content: [
-                {
-                    image: "/images/product/dataCase1.png",
-                    icon: "/images/product/dataCase3.png",
-                    title: "掌阅", text: "掌阅专注于数字阅读，是全球领先的数字阅读平台之一。", num: "1.6亿+", numtext: "月活"},
-                {
-                    image: "/images/product/dataCase2.png",
-                    icon: "/images/product/dataCase4.png",
-                    title: "游民星空", text: "游民星空是国内专注单机游戏的综合性娱乐媒体，是大型游戏领域头部游戏社区。", num: "3000w+", numtext: "用户"},
-            ]
-        },
+    pageTitle: "Data Growth",
+    banner: {
+        image: "/images/product/growthbanner.png",
+        mbImage: "/images/product/growthbanner-mini.png",
+        mbTop: "451px",
+        title: "Data Growth",
+        text: "The data analysis system uses the most advanced technology to monitor and analyze various data in real-time during the ad placement process, and launch targeted optimization strategies based on this. Through this system, companies can better understand the effects of ad placements and make effective decisions.",
     },
+    dataService: {
+        title: "Provide Data Services Throughout the Entire Lifecycle",
+        content: [
+        {
+            image: "/images/product/dataService1-1.png",
+            title: "Data Collection and Monitoring",
+            text: "Collect data from various ad placements, monitor user behavior, and collect competitor data.",
+        },
+        {
+            image: "/images/product/dataService1-2.png",
+            title: "Data Analysis and Mining",
+            text: "Use the most advanced algorithms to analyze and mine data during the ad placement process, find patterns and trends, and provide a scientific basis for decision-making.",
+        },
+        {
+            image: "/images/product/dataService1-3.png",
+            title: "Optimization Strategy Output",
+            text: "Output a series of targeted optimization strategies through data analysis results, such as cost reduction, audience improvement, etc.",
+        },
+        {
+            image: "/images/product/dataService1-4.png",
+            title: "Monitoring and Evaluation",
+            text: "Monitor and evaluate the effects of placements, understand and analyze the implementation effects of optimization strategies.",
+        },
+        ],
+    },
+    dataQuality: {
+        title: "Ensure Service Quality in All Aspects",
+        content: [
+        {
+            image: "/images/product/dataService2-1.png",
+            title: "Leading Technology",
+            text: "We use the most advanced technical means and the latest algorithms to ensure the accuracy and precision of data collection and analysis.",
+        },
+        {
+            image: "/images/product/dataService2-2.png",
+            title: "Personalization",
+            text: "Our system can be customized according to the needs and characteristics of different enterprises, providing more refined services.",
+        },
+        {
+            image: "/images/product/dataService2-3.png",
+            title: "Safe and Reliable",
+            text: "Our system pays great attention to data security, taking strict measures to protect customer data privacy.",
+        },
+        ],
+    },
+    dataCase: {
+        title: "Excellent Case Sharing",
+        content: [
+        {
+            image: "/images/product/dataCase1.png",
+            mbImage: "/images/product/dataCase1-mini.png",
+            icon: "/images/product/dataCase3.png",
+            title: "Zhang Yue",
+            text: "Zhang Yue focuses on digital reading and is one of the world's leading digital reading platforms.",
+            num: "1.6",
+            numunit: "Billion+",
+            numtext: "Monthly Active Users",
+        },
+        {
+            image: "/images/product/dataCase2.png",
+            mbImage: "/images/product/dataCase2-mini.png",
+            icon: "/images/product/dataCase4.png",
+            title: "Gamersky",
+            text: "Gamersky is a comprehensive entertainment media in China focusing on single-player games and is a leading gaming community in the large game field.",
+            num: "3000",
+            numunit: "w+",
+            numtext: "Users",
+        },
+        ],
+    },
+    },
+
     solutions: {
-        pageTitle: "优秀案例及解决方案",
+        pageTitle: "Solutions",
         access: {
-            content: [
-                {
-                    slide:{
-                        image: "/images/solution/solution1.png",
-                        title: "体育", text: "将游戏发行与商业化一站式打通，提供发行、买量、变现的全生命周期解决方案。"},
-                    content: {
-                        icon: "/images/solution/solutionIcon1.png",
-                        title: "懂球帝",
-                        text: "懂球帝提供英超、西甲、意甲、中超等足球赛事专业的资讯、战术分析、直播、集锦、积分赛程等，是足球迷手机上必备的神器。",
-                        num: "300w+",
-                        numtext: "月活",
-                    }
-                },
-                {
-                    slide:{
-                        image: "/images/solution/solution2.png",
-                        title: "大型游戏类", text: "拥抱混合变现新风口，通过激励视频突破收益天花板，精准买量、精细运营，兼顾用户体验与转化。"},
-                    content: {
-                        icon: "/images/solution/solutionIcon2.png",
-                        title: "游民星空",
-                        text: "游民星空是国内专注单机游戏的综合性娱乐媒体，是大型游戏领域头部游戏社区。",
-                        num: "3000w+",
-                        numtext: "用户",
-                    }
-                },
-                {
-                    slide:{
-                        image: "/images/solution/solution3.png",
-                        title: "工具类", text: "独家内容资源帮助提升用户留存，打破“即用即走”魔咒，更多细分行业定制场景助力适配提收。"},
-                    content: {
-                        icon: "/images/solution/solutionIcon3.png",
-                        title: "91桌面",
-                        text: "91桌面是下一款智能手机桌面美化手机管理软件，是智能机时代管理手机的必备工具。",
-                        num: "30亿+",
-                        numtext: "用户",
-                    }
-                },
-                {
-                    slide:{
-                        image: "/images/solution/solution4.png",
-                        title: "阅读", text: "抖音电商预算红利，强适配于视频内容场景；多样式组合，全面兼收留存与收益。"},
-                    content: {
-                        icon: "/images/solution/solutionIcon4.png",
-                        title: "掌阅",
-                        text: "掌阅专注于数字阅读，是全球领先的数字阅读平台之一。",
-                        num: "1.6亿+",
-                        numtext: "月活",
-                    }
-                },
-                {
-                    slide:{
-                        image: "/images/solution/solution5.png",
-                        title: "社交", text: "独家内容资源帮助提升用户留存，打破“即用即走”魔咒，更多细分行业定制场景助力适配提收。"},
-                    content: {
-                        icon: "/images/solution/solutionIcon5.png",
-                        title: "Soul",
-                        text: "Soul是基于兴趣图谱和游戏化玩法的产品设计，属于新一代年轻人的虚拟社交网络。",
-                        num: "3000w+",
-                        numtext: "用户",
-                    }
-                },
-            ]
+          title: "Excellent Cases and Solutions",
+          content: [
+            {
+              slide: {
+                title: "Sports",
+                text: "Integrate game distribution and commercialization in one stop, providing distribution, buying volume, and monetization solutions for the entire lifecycle.",
+              },
+              content: {
+                icon: "/images/solution/solutionIcon1.png",
+                image: "/images/solution/solution1.png",
+                mbimage: "/images/solution/solution1-mini.png",
+                title: "DongQiuDi",
+                text: "DongQiuDi provides professional information, tactical analysis, live broadcasts, highlights, scores, schedules, etc., for football events such as the Premier League, La Liga, Serie A, and the Super League. It is a must-have artifact for football fans on mobile phones.",
+                num: "300",
+                numUnit: "w+",
+                numtext: "Monthly Active Users",
+              },
+            },
+            {
+              slide: {
+                title: "Large Games",
+                text: "Embrace the new opportunity of mixed monetization, break through the revenue ceiling with incentive videos, precise buying volume, and fine operation, balancing user experience and conversion.",
+              },
+              content: {
+                icon: "/images/solution/solutionIcon2.png",
+                image: "/images/solution/solution2.png",
+                mbimage: "/images/solution/solution2-mini.png",
+                title: "Gamersky",
+                text: "Gamersky is a comprehensive entertainment media in China focusing on single-player games and is a leading gaming community in the large game field.",
+                num: "3000",
+                numUnit: "w+",
+                numtext: "Users",
+              },
+            },
+            {
+              slide: {
+                title: "Tools",
+                text: "Exclusive content resources help improve user retention, breaking the 'use and leave' curse, and more segmented industry custom scenarios help adapt and increase revenue.",
+              },
+              content: {
+                icon: "/images/solution/solutionIcon3.png",
+                image: "/images/solution/solution3.png",
+                mbimage: "/images/solution/solution3-mini.png",
+                title: "91 Desktop",
+                text: "91 Desktop is the next smart phone desktop beautification mobile management software, a must-have tool for managing mobile phones in the smart machine era.",
+                num: "30",
+                numUnit: "B+",
+                numtext: "Users",
+              },
+            },
+            {
+              slide: {
+                title: "Reading",
+                text: "Douyin e-commerce budget bonus, strong adaptation to video content scenes; diverse style combinations, comprehensively considering retention and revenue.",
+              },
+              content: {
+                icon: "/images/solution/solutionIcon4.png",
+                image: "/images/solution/solution4.png",
+                mbimage: "/images/solution/solution4-mini.png",
+                title: "Zhang Yue",
+                text: "Zhang Yue focuses on digital reading and is one of the world's leading digital reading platforms.",
+                num: "1.6",
+                numUnit: "B+",
+                numtext: "Monthly Active Users",
+              },
+            },
+            {
+              slide: {
+                title: "Social",
+                text: "Exclusive content resources help improve user retention, breaking the 'use and leave' curse, and more segmented industry custom scenarios help adapt and increase revenue.",
+              },
+              content: {
+                icon: "/images/solution/solutionIcon5.png",
+                image: "/images/solution/solution5.png",
+                mbimage: "/images/solution/solution5-mini.png",
+                title: "Soul",
+                text: "Soul is based on interest graph and gamified gameplay product design, belonging to the virtual social network of the new generation of young people.",
+                num: "3000",
+                numUnit: "w+",
+                numtext: "Users",
+              },
+            },
+          ],
         },
     },
     aboutUs: {
-        pageTitle: "公司介绍",
-        banner: {title: "公司介绍", text: "        任礼游平台是国内的流量变现服务平台，拥有海量广告资源，丰富的广告样式，支持多种售卖方式，为媒体提供高效、便捷、专业的流量变现解决方案，帮助媒体构建自己的商业化运营体系。\n\n        公司致力于为流量主提供专业、易用、高效的广告管理与变现服务，深度挖掘流量价值，实现多层级变现，多维度充分提升流量溢价与变现能力。",},
-        solution: {
-            title: "企业文化",
-            content: [
-                {
-                    image: "/images/aboutUs/aboutUs1-1.png",
-                    title: "改革", text: "开放创新，  给予他人，  成就自我"},
-                {
-                    image: "/images/aboutUs/aboutUs1-2.png",
-                    title: "做事", text: "思路出彩，  过程出色，  结果出众"},
-                {
-                    image: "/images/aboutUs/aboutUs1-3.png",
-                    title: "心态", text: "终身成长，  持续奋斗，  舍我其谁"},
-            ]
-        },
+    pageTitle: "About Us",
+    banner: {
+        title: "About Us",
+        text: "Ren Li You platform is a domestic traffic monetization service platform, possessing massive advertising resources, a wealth of advertising styles, and supporting various selling methods. It provides efficient, convenient, and professional traffic monetization solutions for media, helping media build their own commercial operation system.\n\nThe company is committed to providing traffic owners with professional, easy-to-use, and efficient advertising management and monetization services, deeply mining the value of traffic, achieving multi-level monetization, and fully enhancing traffic premium and monetization capabilities in multiple dimensions.",
+        mbImage: "/images/aboutUs/aboutusbanner-mini.png",
     },
-    registorNow: "立即注册",
-    contactUs: "联系我们",
+    solution: {
+        title: "Corporate Culture",
+        text: "Openness and Win-Win",
+        content: [
+        {
+            image: "/images/aboutUs/aboutUs1-1.png",
+            title: "Reform",
+            text: "Open innovation, giving to others, achieving self",
+        },
+        {
+            image: "/images/aboutUs/aboutUs1-2.png",
+            title: "Action",
+            text: "Creative thinking, excellent process, outstanding results",
+        },
+        {
+            image: "/images/aboutUs/aboutUs1-3.png",
+            title: "Mindset",
+            text: "Lifelong growth, continuous struggle, who if not me",
+        },
+        ],
+    },
+    },
+    policy: {
+        pageTitle: "User Agreement",
+        content: [{
+            currentTitle: "User Agreement",
+            image: "/images/policy/001.png",
+            title: "Ren Li You User Agreement",
+            text: "To use the services provided by the Ren Li You platform (hereinafter referred to as 'this platform'), you should read and comply with the 'Ren Li You User Agreement' (hereinafter referred to as 'this Agreement'). Please fully understand and accept this Agreement before registering to use this platform. This Agreement is the rights and obligations standard that you establish for registration, login, use of the Ren Li You platform, and all other related behaviors. Your actions such as ticking 'agree' and other buttons during the registration process, logging in and using after registration, all indicate that you have fully understood, agreed to, and accepted this Agreement, and are willing to comply with all the contents of this Agreement and the rules and specifications publicly displayed by the Ren Li You platform. If you do not agree with this Agreement or any of its terms, you should immediately stop registering, logging in, or using the Ren Li You platform. ... (The text continues)"
+        }, {
+            currentTitle: "Privacy Policy",
+            image: "/images/policy/002.png",
+            title: "Privacy Policy",
+            text: "The Ren Li You platform and service provider Yun Xi Network Technology Hebei Co., Ltd. (hereinafter referred to as 'we') attach great importance to user privacy and personal information security protection. We will take corresponding security protection measures in accordance with legal requirements to do our best to ensure the security and control of your personal information. We hope to explain to you through this 'Privacy Policy' (hereinafter referred to as 'this Policy') how this website collects, uses, and processes personal information related to you, and how you can exercise your user rights. ... (The text continues)"
+        }]
+    },
+    registorNow: "Register Now",
+    contactUs: "Contact Us",
+    joinUs: "Join us now to boost your earnings",
     image: "/images/index/joinUsBg.png",
-    address: "云袭网络技术（河北）有限公司\n地址：河北省石家庄市裕华区怀特商业广场D座5层\n市场合作：17060666669",
+    address: "Yunxi Network Technology (Hebei) Co., Ltd.\nAddress: 5th Floor, Block D, Huai Te Business Plaza, Yuhua District, Shijiazhuang City, Hebei Province\nMarket Cooperation: 17060666669",
     footer: {
         up: [
-            {
-                title: "热门推荐",
-                row: [
-                    {"text": "移动变现", "link": "/app"},
-                    {"text": "商业PC变现", "link": "/pc"},
-                    {"text": "数据增长", "link": "/dataGrowth"},
-                    {"text": "解决方案", "link": "/solutions"},
-                ]
-            },
-            {
-                title: "其他",
-                row: [
-                    {text: "关于我们", "link:": "/aboutUs"},
-                    {text: "联系我们", "link:": "/conectUs"},
-                    {text: "用户协议", "link:": "/privacyPolicy"},
-                    {text: "隐私政策", "link:": "/privacyPolicy"},
-                ]
-            },
-            {
-                title: "友情链接",
-                row: [
-                    {text: "云袭广告投放平台", "link:": "http://www.ireader.com.cn/"},
-                ]
-            }
+          {
+            title: "Hot Recommendations",
+            row: [
+              { text: "Mobile Monetization", link: "/products/app" },
+              { text: "Commercial PC Monetization", link: "/products/pc" },
+              { text: "Data Growth", link: "/products/dataGrowth" },
+              { text: "Solutions", link: "/solutions" },
+            ],
+          },
+          {
+            title: "Others",
+            row: [
+              { text: "About Us", link: "/aboutUs" },
+              { text: "Contact Us", link: "/aboutUs" },
+              { text: "User Agreement", link: "/policy" },
+              { text: "Privacy Policy", link: "/policy" },
+            ],
+          },
+          {
+            title: "Friendly Links",
+            row: [
+              { text: "Yunxi Advertising Platform", link: "http://www.ireader.com.cn/" },
+            ],
+          },
         ],
-        down: [
-            "关于我们",
-            "联系我们",
-            "用户协议",
-            "隐私政策"
-        ],
+        followUs: "Follow Us",
+        hotLine: "24-Hour Service Hotline",
+        email: "Email",
+        weChat: "WeChat Service Number",
     },
     copyright: [
-        {text: "© 2023 云袭网络 冀ICP备14015686号-14", link: "/"},
-        {text: "云袭网络技术河北有限公司", link: "http://www.beian.miit.gov.cn"},
+        {text: "© 2023 Yunxi Network 冀ICP备14015686号-14", link: "/"},
+        {text: "Yunxi Network Technology Hebei Co., Ltd.", link: "http://www.beian.miit.gov.cn"},
     ]
+
 };

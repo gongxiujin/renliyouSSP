@@ -1,7 +1,7 @@
 <template>
   <el-dropdown trigger="click">
     <span class="el-dropdown-link">
-      {{ $t('language') }}
+      {{ $t("language") }}
       <el-icon class="el-icon--right"><arrow-down /></el-icon>
     </span>
     <template #dropdown>
@@ -43,16 +43,6 @@ export default {
   }
   &:focus {
     outline: none;
-  }
-}
-.dropdown-item {
-  &:hover {
-    background-color: transparent !important;
-    color: $primary-color !important;
-  }
-  &:focus {
-    background-color: transparent !important;
-    color: $primary-color !important;
   }
 }
 .el-menu-item {

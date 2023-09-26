@@ -4,19 +4,19 @@
     <div class="pc">
       <div class="system-bar">
         <div class="title-bar">
-          <h2 class="system-title">{{ data.title.body.static }}</h2>
+          <h2 class="system-title">{{ $t(`${path}.title`) }}</h2>
         </div>
-        <div class="system-item" v-for="(item, index) in data.content" :key="index">
+        <div class="system-item" v-for="(item, index) in $tm(`${path}.content`)" :key="index">
           <div class="item-content" :style="{ order: index % 2 !== 0 ? 1 : '' }">
-            <p class="title bold-text">{{ item.title.body.static }}</p>
+            <p class="title bold-text">{{ $t(`${path}.content[${index}].title`) }}</p>
             <p class="desc normal-text">
-              {{ item.text.body.static }}
+              {{ $t(`${path}.content[${index}].text`) }}
             </p>
           </div>
           <img
             class="system-img"
-            :src="item.image.body.static"
-            alt=""
+            :src="$t(`${path}.content[${index}].image`)"
+            :alt="$t(`${path}.content[${index}].title`)"
           />
         </div>
 
@@ -25,18 +25,18 @@
     <div class="mobile">
       <div class="m-system-bar">
         <div class="title-bar">
-          <h2 class="system-title">{{ data.title.body.static }}</h2>
+          <h2 class="system-title">{{ $t(`${path}.title`) }}</h2>
         </div>
-        <div class="system-item" v-for="(item, index) in data.content" :key="index">
+        <div class="system-item" v-for="(item, index) in $tm(`${path}.content`)" :key="index">
           <img
             class="system-img"
-            :src="item.image.body.static"
+            :src="$t(`${path}.content[${index}].image`)"
             alt=""
           />
           <div class="item-content" >
-            <p class="title">{{ item.title.body.static }}</p>
+            <p class="title">{{ $t(`${path}.content[${index}].title`) }}</p>
             <p class="desc">
-              {{ item.text.body.static }}
+              {{ $t(`${path}.content[${index}].text`) }}
             </p>
           </div>
         </div>
@@ -46,9 +46,7 @@
 </template>
 
 <script setup>
-import { useI18n } from 'vue-i18n';
-const { tm } = useI18n();
-const data = ref(tm('pc').pcAdvantage);
+const path = ref("pc.pcAdvantage");
 </script>
 
 <style lang="scss" scoped>

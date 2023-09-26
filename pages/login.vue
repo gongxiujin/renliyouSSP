@@ -8,9 +8,15 @@
   </div>
 </template>
 <script setup>
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
+useHead({
+  title: t("login.pageTitle"),
+});
 definePageMeta({
   layout: "login",
 });
+
 </script>
 <style lang="scss">
 .index-form {
@@ -24,7 +30,7 @@ definePageMeta({
   box-shadow: 0px 0px 12px 0px rgba(102, 132, 179, 0.3);
 }
 .background {
-  content: url("~/assets/images/login-bg.png");
+  content: url("/images/login-bg.png");
   width: 100%;
   height: 100%;
   position: absolute;

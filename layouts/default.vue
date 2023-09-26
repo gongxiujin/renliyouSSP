@@ -27,24 +27,24 @@
       <template #content>
         <div class="tooltip-main">
           <div class="phone">
-            <img src="../assets/images/phone.png" alt="" />
-            <span>联系电话:</span>
+            <img src="/images/phone.png" alt="" />
+            <span>{{ $t('callUs') }}:</span>
           </div>
-          <div class="phone-num">17060666669</div>
+          <div class="phone-num">{{ $t('phoneNum') }}</div>
           <div class="phone">
-            <img src="../assets/images/wechat.png" alt="" />
-            <span>微信扫码:</span>
+            <img src="/images/wechat.png" alt="" />
+            <span>{{ $t('wechatCode') }}:</span>
           </div>
           <img
             class="wechat-code"
-            src="../assets/images/wechat-code.png"
+            src="/images/wechat-code.png"
             alt=""
           />
         </div>
       </template>
       <div class="link-us">
-        <img src="../assets/images/link.png" alt="" />
-        <span>联系我们</span>
+        <img src="/images/link.png" alt="" />
+        <span>{{ $t('contactUs') }}</span>
       </div>
     </el-tooltip>
   </div>
@@ -56,6 +56,14 @@ export default {
     return {
       scrollY: 0,
     };
+  },
+  setup(){
+    const coffset = ref('1040px');
+    const offset = inject("offset", coffset);
+
+    return {
+      offset
+    }
   },
   mounted() {
     window.addEventListener("scroll", this.onScroll);
@@ -85,7 +93,7 @@ export default {
     z-index: 2;
     width: 325px;
     position: absolute;
-    padding-top: 1040px;
+    padding-top: v-bind(offset);
     pointer-events: none;
     transform: translateY(var(--scroll-y, 0px));
 
@@ -109,6 +117,28 @@ export default {
   .link-us {
     display: none !important;
   }
+}
+li.dropdown-item {
+  &:hover {
+    background-color: f4f4f4 !important;
+    color: $primary-color !important;
+  }
+  &:focus {
+    background-color: f4f4f4 !important;
+    color: $primary-color !important;
+  }
+}
+.el-sub-menu__title:hover{
+  background-color: #fff !important;
+}
+.el-sub-menu__title{
+  &:focus{
+    background-color: f4f4f4 !important;
+  }
+  &:active {
+    background-color: f4f4f4 !important;
+  }
+
 }
 .tooltip-main {
   padding: 20px;
@@ -143,6 +173,9 @@ export default {
   }
 }
 .link-us {
+  @media (max-width: $mobile-width) {
+    display: none !important;
+  }
   position: fixed;
   right: 32px;
   bottom: 64px;
