@@ -150,7 +150,7 @@ const itemPath = "home.resource.content";
 			flex-wrap: wrap;
 			justify-content: space-around;
 			.resource-item {
-				width: 185px;
+				width: auto;
 				display: flex;
 				flex-direction: column;
 				align-items: center;
@@ -161,6 +161,7 @@ const itemPath = "home.resource.content";
 					min-width: 86px;
 				}
 				.item-text {
+					position: relative;
 					width: 164px;
 					text-align: center;
 					.text-content {
