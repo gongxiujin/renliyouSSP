@@ -44,26 +44,28 @@
           </div>
           <div class="swiper-main">
             <swiper class="swiper"
-            :effect="'cards'"
-            :grabCursor="true"
+            :effect="'coverflow'"
+            :speed="600"
+            :modules="[EffectCoverflow]"
             :coverflowEffect="{
-              rotate: 40,
-              stretch: 0,
-              depth: 20,
-              modifier: 1,
-              stretch: '-20%'
+              rotate: 5,
+              depth: 10,
+              modifier: 2.5,
+              stretch: '10%'
             }"
             :slidesPerView="1.1"
             @swiper="onSwiper"
-
             >
-              <swiper-slide v-for="(item, index) in $tm(`${path}.content`)" :key="index">
+            <template v-for="(item, index) in $tm(`${path}.content`)" :key="index">
+              <swiper-slide :style="index === $tm(`${path}.content`).length - 1 ? 'left: -11%' : ''">
                 <img
                   class="banner-img"
                   :src="$t(`${itemPath}[${index}].image`)"
                   :alt="$t(`${itemPath}[${index}].title`)"
                 />
               </swiper-slide>
+            </template>
+
             </swiper>
           </div>
         </div>
@@ -127,11 +129,12 @@
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/pagination";
-import 'swiper/css/effect-cards';
+import 'swiper/css/effect-coverflow';
 import "swiper/css/navigation";
+import { EffectCoverflow } from "swiper";
+
 const path = ref("home.solution");
 const itemPath = "home.solution.content";
-
 const activeIndex = ref(0);
 const swiperInstance = ref();
 const swiperInstanceM = ref();
@@ -283,6 +286,7 @@ function onSwiper(swiper) {
         .text-2 {
 
           font-size: 16px;
+          width: 520px;
           font-weight: normal;
           color: #666666;
           margin-bottom: 13px;
@@ -300,7 +304,7 @@ function onSwiper(swiper) {
       bottom: 0px;
       right: -50px;
       height: 516px;
-      width: 392px;
+      width: 344px;
       .swiper {
         width: 100%;
         height: 100%;
@@ -309,6 +313,15 @@ function onSwiper(swiper) {
           width: 100%;
           height: 100%;
           object-fit: cover;
+        }
+        .swiper-slide {
+          left: -1.5%;
+          &.swiper-slide-active{
+            opacity: 1;
+          }
+          &.swiper-slide-next {
+            opacity: .1;
+          }
         }
       }
     }
