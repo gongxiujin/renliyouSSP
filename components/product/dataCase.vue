@@ -18,24 +18,24 @@
               <div class="slide-item">
                 <img
                   class="banner-img"
-                  :src="$t(`${path}.content[${index}].image`)"
-                  :alt="$t(`${path}.content[${index}].title`)"
+                  :src="$t(`${itemPath}[${index}].image`)"
+                  :alt="$t(`${itemPath}[${index}].title`)"
                 />
                 <div class="right-content">
                   <img
                     class="content-icon"
-                    :src="$t(`${path}.content[${index}].icon`)"
-                    :alt="$t(`${path}.content[${index}].title`)"
+                    :src="$t(`${itemPath}[${index}].icon`)"
+                    :alt="$t(`${itemPath}[${index}].title`)"
                   />
-                  <p class="content-title bold-text">{{ $t(`${path}.content[${index}].title`) }}</p>
+                  <p class="content-title bold-text">{{ $t(`${itemPath}[${index}].title`) }}</p>
                   <p class="content-desc normal-text">
-                    {{ $t(`${path}.content[${index}].text`) }}
+                    {{ $t(`${itemPath}[${index}].text`) }}
                   </p>
                   <p class="content-num">
-                    <span class="num">{{ $t(`${path}.content[${index}].num`) }}</span>
-                    <span class="unit">{{ $t(`${path}.content[${index}].numunit`) }}</span>
+                    <span class="num">{{ $t(`${itemPath}[${index}].num`) }}</span>
+                    <span class="unit">{{ $t(`${itemPath}[${index}].numunit`) }}</span>
                   </p>
-                  <p class="content-tips normal-text">{{ $t(`${path}.content[${index}].numtext`) }}</p>
+                  <p class="content-tips normal-text">{{ $t(`${itemPath}[${index}].numtext`) }}</p>
                 </div>
               </div>
             </swiper-slide>
@@ -70,24 +70,24 @@
               <div class="slide-item">
                 <img
                   class="banner-img"
-                  :src="$t(`${path}.content[${index}].mbImage`)"
-                  :alt="$t(`${path}.content[${index}].title`)"
+                  :src="$t(`${itemPath}[${index}].mbImage`)"
+                  :alt="$t(`${itemPath}[${index}].title`)"
                 />
                 <div class="right-content">
                   <img
                     class="content-icon"
-                    :src="$t(`${path}.content[${index}].icon`)"
-                    :alt="$t(`${path}.content[${index}].title`)"
+                    :src="$t(`${itemPath}[${index}].icon`)"
+                    :alt="$t(`${itemPath}[${index}].title`)"
                   />
-                  <p class="content-title">{{ $t(`${path}.content[${index}].title`) }}</p>
+                  <p class="content-title">{{ $t(`${itemPath}[${index}].title`) }}</p>
                   <p class="content-desc">
-                    {{ $t(`${path}.content[${index}].text`) }}
+                    {{ $t(`${itemPath}[${index}].text`) }}
                   </p>
                   <p class="content-num">
-                    <span class="num">{{ $t(`${path}.content[${index}].num`) }}</span>
-                    <span class="unit">{{ $t(`${path}.content[${index}].numunit`) }}</span>
+                    <span class="num">{{ $t(`${itemPath}[${index}].num`) }}</span>
+                    <span class="unit">{{ $t(`${itemPath}[${index}].numunit`) }}</span>
                   </p>
-                  <p class="content-tips normal-text">{{ $t(`${path}.content[${index}].numtext`) }}</p>
+                  <p class="content-tips normal-text">{{ $t(`${itemPath}[${index}].numtext`) }}</p>
                 </div>
               </div>
             </swiper-slide>
@@ -119,6 +119,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination } from "swiper";
 const path = ref("dataGrowth.dataCase");
+const itemPath = ref("dataGrowth.dataCase.content");
 const modules = ref([Autoplay, Pagination]);
 
 const activeIndex = ref(0);

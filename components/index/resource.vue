@@ -9,10 +9,10 @@
 				</div>
 				<div class="resource-block" >
 					<div class="resource-item" v-for="(item, index) in $tm(`${path}.content`)" :key="index">
-						<img class="item-img" :src="$t(`${path}.content[${index}].image`)" :alt="$t(`${path}.content[${index}].title`)">
+						<img class="item-img" :src="$t(`${itemPath}[${index}].image`)" :alt="$t(`${itemPath}[${index}].title`)">
 						<div class="item-text">
-							<p class="text-content medium-text">{{$t(`${path}.content[${index}].title`)}}</p>
-							<p class="text-desc normal-text">{{ $t(`${path}.content[${index}].text`)}}</p>
+							<p class="text-content medium-text">{{$t(`${itemPath}[${index}].title`)}}</p>
+							<p class="text-desc normal-text">{{ $t(`${itemPath}[${index}].text`)}}</p>
 						</div>
 					</div>
 				</div>
@@ -27,10 +27,10 @@
 				</div>
 				<div class="resource-block" >
 					<div class="resource-item" v-for="(item, index) in $tm(`${path}.content`)" :key="index">
-						<img class="item-img" :src="$t(`${path}.content[${index}].image`)" :alt="$t(`${path}.content[${index}].title`)">
+						<img class="item-img" :src="$t(`${itemPath}[${index}].image`)" :alt="$t(`${itemPath}[${index}].title`)">
 						<div class="item-text">
-							<p class="text-content medium-text">{{$t(`${path}.content[${index}].title`) }}</p>
-							<p class="text-desc normal-text">{{ $t(`${path}.content[${index}].text`) }}</p>
+							<p class="text-content medium-text">{{$t(`${itemPath}[${index}].title`) }}</p>
+							<p class="text-desc normal-text">{{ $t(`${itemPath}[${index}].text`) }}</p>
 						</div>
 					</div>
 				</div>
@@ -40,6 +40,7 @@
 </template>
 <script setup>
 const path = ref("home.resource");
+const itemPath = "home.resource.content";
 </script>
 <style lang="scss" scoped>
 	@media (max-width: $mobile-width) {

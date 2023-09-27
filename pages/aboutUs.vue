@@ -27,12 +27,12 @@
             <div class="content-round">
               <img
                 class="round-img"
-                :src="$t(`${path}.content[${index}].image`)"
-                :alt="$t(`${path}.content[${index}].title`)"
+                :src="$t(`${itemPath}[${index}].image`)"
+                :alt="$t(`${itemPath}[${index}].title`)"
               />
             </div>
-            <p class="title bold-text">{{ $t(`${path}.content[${index}].title`) }}</p>
-            <p class="desc normal-text">{{ $t(`${path}.content[${index}].text`) }}</p>
+            <p class="title bold-text">{{ $t(`${itemPath}[${index}].title`) }}</p>
+            <p class="desc normal-text">{{ $t(`${itemPath}[${index}].text`) }}</p>
           </div>
         </div>
       </div>
@@ -60,12 +60,12 @@
             <div class="content-round">
               <img
                 class="round-img"
-                :src="$t(`${path}.content[${index}].image`)"
-                :alt="$t(`${path}.content[${index}].title`)"
+                :src="$t(`${itemPath}[${index}].image`)"
+                :alt="$t(`${itemPath}[${index}].title`)"
               />
             </div>
-            <p class="title bold-text">{{ $t(`${path}.content[${index}].title`) }}</p>
-            <p class="desc normal-text">{{ $t(`${path}.content[${index}].text`) }}</p>
+            <p class="title bold-text">{{ $t(`${itemPath}[${index}].title`) }}</p>
+            <p class="desc normal-text">{{ $t(`${itemPath}[${index}].text`) }}</p>
           </div>
         </div>
       </div>
@@ -86,6 +86,7 @@ const { t } = useI18n();
 const bannerPath = ref("aboutUs.banner");
 const miniBanner = "url(" + t("aboutUs.banner.mbImage") + ")";
 const path = ref("aboutUs.solution");
+const itemPath = ref("aboutUs.solution.content");
 const offset = "640px";
 // const offset = inject("offset", coffset);
 provide('offset', offset)

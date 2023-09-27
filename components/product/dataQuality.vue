@@ -90,6 +90,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 const path = ref("dataGrowth.dataQuality");
+const itemPath = ref("dataGrowth.dataQuality.content");
 
 const activeIndex = ref(0);
 const swiperInstance = ref();

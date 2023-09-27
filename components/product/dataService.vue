@@ -13,7 +13,7 @@
               @mouseover="setIndex(index)"
               :class="['menu-item', activeIndex == index ? 'active' : '']"
             >
-              {{ $t(`${path}.content[${index}].title`) }}
+              {{ $t(`${itemPath}[${index}].title`) }}
             </div>
           </div>
         </div>
@@ -26,14 +26,14 @@
             <swiper-slide v-for="(item, index) in $tm(`${path}.content`)" :key="index">
               <div class="slide-item">
                 <div class="slide-text">
-                  <p class="text-title">{{ $t(`${path}.content[${index}].title`) }}</p>
+                  <p class="text-title">{{ $t(`${itemPath}[${index}].title`) }}</p>
                   <p class="text-desc">
-                    {{ $t(`${path}.content[${index}].text`) }}
+                    {{ $t(`${itemPath}[${index}].text`) }}
                   </p>
                 </div>
                 <img
                   class="banner-img"
-                  :src="$t(`${path}.content[${index}].image`)"
+                  :src="$t(`${itemPath}[${index}].image`)"
                   alt=""
                 />
               </div>
@@ -51,13 +51,13 @@
           <div class="slide-item" v-for="(item, index) in $tm(`${path}.content`)" :key="index">
             <img
               class="banner-img"
-              :src="$t(`${path}.content[${index}].image`)"
+              :src="$t(`${itemPath}[${index}].image`)"
               :alt="$t(`${path}.title`)"
             />
             <div class="slide-text">
-              <p class="text-title">{{ $t(`${path}.content[${index}].title`) }}</p>
+              <p class="text-title">{{ $t(`${itemPath}[${index}].title`) }}</p>
               <p class="text-desc">
-                {{ $t(`${path}.content[${index}].text`) }}
+                {{ $t(`${itemPath}[${index}].text`) }}
               </p>
             </div>
           </div>
@@ -73,6 +73,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 const path = ref("dataGrowth.dataService");
+const itemPath = ref("dataGrowth.dataService.content");
 
 const activeIndex = ref(0);
 const swiperInstance = ref();

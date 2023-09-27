@@ -109,7 +109,7 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
+slidesPerView
 const activeIndex = ref(0);
 const swiperInstance = ref();
 const swiperInstanceM = ref();

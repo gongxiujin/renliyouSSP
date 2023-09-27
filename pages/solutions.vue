@@ -9,30 +9,30 @@
         <div class="slide-bar">
           <div class="slide-item" v-for="(item, index) in $tm(`${path}.content`)" :key="index">
             <div class="text-bar" :style="{ order: index % 2 !== 0 ? 1 : '' }">
-              <p class="text-title bold-text">{{ $t(`${path}.content[${index}].slide.title`) }}</p>
+              <p class="text-title bold-text">{{ $t(`${itemPath}[${index}].slide.title`) }}</p>
               <p class="text-desc normal-text">
-                {{ $t(`${path}.content[${index}].slide.text`) }}
+                {{ $t(`${itemPath}[${index}].slide.text`) }}
               </p>
             </div>
             <div class="content-bar">
               <img
                 class="banner-img"
-                :src="$t(`${path}.content[${index}].content.image`)"
-                :alt="$t(`${path}.content[${index}].content.title`)"
+                :src="$t(`${itemPath}[${index}].content.image`)"
+                :alt="$t(`${itemPath}[${index}].content.title`)"
               />
               <div class="right-content">
                 <img
                   class="content-icon"
-                  :src="$t(`${path}.content[${index}].content.icon`)"
-                  :alt="$t(`${path}.content[${index}].content.title`)"
+                  :src="$t(`${itemPath}[${index}].content.icon`)"
+                  :alt="$t(`${itemPath}[${index}].content.title`)"
                 />
-                <p class="content-title bold-text">{{ $t(`${path}.content[${index}].content.title`) }}</p>
-                <p class="content-desc normal-text">{{ $t(`${path}.content[${index}].content.text`) }}</p>
+                <p class="content-title bold-text">{{ $t(`${itemPath}[${index}].content.title`) }}</p>
+                <p class="content-desc normal-text">{{ $t(`${itemPath}[${index}].content.text`) }}</p>
                 <p class="content-num harmony-text">
-                  <span class="num">{{ $t(`${path}.content[${index}].content.num`) }}</span>
-                  <span class="unit">{{ $t(`${path}.content[${index}].content.numUnit`) }}</span>
+                  <span class="num">{{ $t(`${itemPath}[${index}].content.num`) }}</span>
+                  <span class="unit">{{ $t(`${itemPath}[${index}].content.numUnit`) }}</span>
                 </p>
-                <p class="content-tips">{{ $t(`${path}.content[${index}].content.numtext`) }}</p>
+                <p class="content-tips">{{ $t(`${itemPath}[${index}].content.numtext`) }}</p>
               </div>
             </div>
           </div>
@@ -49,30 +49,30 @@
             <div class="image-content">
               <img
               class="banner-img"
-              :src="$t(`${path}.content[${index}].content.mbimage`)"
-              :alt="$t(`${path}.content[${index}].content.title`)"
+              :src="$t(`${itemPath}[${index}].content.mbimage`)"
+              :alt="$t(`${itemPath}[${index}].content.title`)"
             />
             <div class="right-content">
               <img
                 class="content-icon"
-                :src="$t(`${path}.content[${index}].content.icon`)"
-                  :alt="$t(`${path}.content[${index}].content.title`)"
+                :src="$t(`${itemPath}[${index}].content.icon`)"
+                  :alt="$t(`${itemPath}[${index}].content.title`)"
               />
-              <p class="content-title bold-text">{{ $t(`${path}.content[${index}].content.title`) }}</p>
+              <p class="content-title bold-text">{{ $t(`${itemPath}[${index}].content.title`) }}</p>
               <p class="content-desc normal-text">
-                {{ $t(`${path}.content[${index}].content.text`) }}
+                {{ $t(`${itemPath}[${index}].content.text`) }}
               </p>
               <p class="content-num harmony-text">
-                <span class="num bold-text">{{ $t(`${path}.content[${index}].content.num`) }}</span>
-                <span class="unit normal-text">{{ $t(`${path}.content[${index}].content.numUnit`) }}</span>
+                <span class="num bold-text">{{ $t(`${itemPath}[${index}].content.num`) }}</span>
+                <span class="unit normal-text">{{ $t(`${itemPath}[${index}].content.numUnit`) }}</span>
               </p>
-              <p class="content-tips">{{ $t(`${path}.content[${index}].content.numtext`) }}</p>
+              <p class="content-tips">{{ $t(`${itemPath}[${index}].content.numtext`) }}</p>
             </div>
             </div>
             <div class="text-slide">
-              <p class="text-title bold-text">{{ $t(`${path}.content[${index}].slide.title`) }}</p>
+              <p class="text-title bold-text">{{ $t(`${itemPath}[${index}].slide.title`) }}</p>
               <p class="text-desc normal-text">
-                {{ $t(`${path}.content[${index}].slide.text`) }}
+                {{ $t(`${itemPath}[${index}].slide.text`) }}
               </p>
             </div>
           </div>
@@ -86,6 +86,7 @@
 import { useI18n } from 'vue-i18n';
 const { t } = useI18n();
 const path = ref('solutions.access');
+const itemPath = ref('solutions.access.content');
 useHead({
   title: t("solutions.pageTitle"),
 });

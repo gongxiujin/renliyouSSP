@@ -14,7 +14,7 @@
               @click="setIndex(index)"
               :class="['menu-item', activeIndex == index ? 'active' : '']"
             >
-              {{ $t(`${path}.content[${index}].title`) }}
+              {{ $t(`${itemPath}[${index}].title`) }}
             </div>
           </div>
         </div>
@@ -27,10 +27,10 @@
             <swiper-slide v-for="(item, index) in $tm(`${path}.content`)" :key="index">
               <div class="slide-item">
                 <div class="slide-text">
-                  <p class="text-title">{{ $t(`${path}.content[${index}].title`)  }}</p>
+                  <p class="text-title">{{ $t(`${itemPath}[${index}].title`)  }}</p>
                   <div
                     class="text-desc"
-                    v-for="(text, idx) in $tm(`${path}.content[${index}].text`)"
+                    v-for="(text, idx) in $tm(`${itemPath}[${index}].text`)"
                     :key="idx"
                   >
                     <div class="desc-icon">
@@ -41,11 +41,11 @@
                       />
                     </div>
                     <div class="desc-text">
-                      {{ $t(`${path}.content[${index}].text[${idx}]`) }}
+                      {{ $t(`${itemPath}[${index}].text[${idx}]`) }}
                     </div>
                   </div>
                 </div>
-                <img class="banner-img" :src="$t(`${path}.content[${index}].image`)" :alt="$t(`${path}.content[${index}].title`)" />
+                <img class="banner-img" :src="$t(`${itemPath}[${index}].image`)" :alt="$t(`${itemPath}[${index}].title`)" />
               </div>
             </swiper-slide>
           </swiper>
@@ -65,7 +65,7 @@
               @click="setIndex(index)"
               :class="['menu-item', activeIndex == index ? 'active' : '']"
             >
-              {{ $t(`${path}.content[${index}].title`) }}
+              {{ $t(`${itemPath}[${index}].title`) }}
             </div>
           </div>
         </div>
@@ -81,10 +81,10 @@
           <swiper-slide v-for="(item, index) in $tm(`${path}.content`)" :key="index">
             <div class="slide-item">
                 <div class="slide-text">
-                  <p class="text-title">{{ $t(`${path}.content[${index}].title`)  }}</p>
+                  <p class="text-title">{{ $t(`${itemPath}[${index}].title`)  }}</p>
                   <div
                     class="text-desc"
-                    v-for="(text, idx) in $tm(`${path}.content[${index}].text`)"
+                    v-for="(text, idx) in $tm(`${itemPath}[${index}].text`)"
                     :key="idx"
                   >
                     <div class="desc-icon">
@@ -95,11 +95,11 @@
                       />
                     </div>
                     <div class="desc-text">
-                      {{ $t(`${path}.content[${index}].text[${idx}]`) }}
+                      {{ $t(`${itemPath}[${index}].text[${idx}]`) }}
                     </div>
                   </div>
                 </div>
-                <img class="banner-img" :src="$t(`${path}.content[${index}].image`)" :alt="$t(`${path}.content[${index}].title`)" />
+                <img class="banner-img" :src="$t(`${itemPath}[${index}].image`)" :alt="$t(`${itemPath}[${index}].title`)" />
               </div>
             </swiper-slide>
           </swiper>
@@ -116,6 +116,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 const path = ref("home.ability");
+const itemPath = ref("home.ability.content");
 
 const activeIndex = ref(0);
 const swiperInstance = ref();

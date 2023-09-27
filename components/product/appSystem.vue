@@ -7,15 +7,15 @@
         </div>
         <div class="system-item" v-for="(item, index) in $tm(`${path}.content`)" :key="index">
           <div class="item-content" :style="{ order: index % 2 !== 0 ? 1 : '' }">
-            <p class="title bold-text">{{ $t(`${path}.content[${index}].title`) }}</p>
+            <p class="title bold-text">{{ $t(`${itemPath}[${index}].title`) }}</p>
             <p class="desc normal-text">
-              {{ $t(`${path}.content[${index}].text`) }}
+              {{ $t(`${itemPath}[${index}].text`) }}
             </p>
           </div>
           <img
             class="system-img"
-            :src="$t(`${path}.content[${index}].image`)"
-            :alt="$t(`${path}.content[${index}].title`)"
+            :src="$t(`${itemPath}[${index}].image`)"
+            :alt="$t(`${itemPath}[${index}].title`)"
           />
         </div>
       </div>
@@ -28,12 +28,12 @@
         <div class="system-item" v-for="(item, index) in $tm(`${path}.content`)" :key="index">
           <img
             class="system-img"
-            :src="$t(`${path}.content[${index}].image`)"
-            :alt="$t(`${path}.content[${index}].title`)"
+            :src="$t(`${itemPath}[${index}].image`)"
+            :alt="$t(`${itemPath}[${index}].title`)"
           />
           <div class="item-content">
-            <p class="title">{{ $t(`${path}.content[${index}].title`) }}</p>
-            <p class="desc">{{ $t(`${path}.content[${index}].text`) }}</p>
+            <p class="title">{{ $t(`${itemPath}[${index}].title`) }}</p>
+            <p class="desc">{{ $t(`${itemPath}[${index}].text`) }}</p>
           </div>
         </div>
       </div>
@@ -43,6 +43,7 @@
 
 <script setup>
 const path = ref("app.appSystem");
+const itemPath = ref("app.appSystem.content");
 </script>
 
 <style lang="scss" scoped>

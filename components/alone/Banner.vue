@@ -11,15 +11,15 @@
         <swiper-slide v-for="(item, index) in $tm(`${path}.content`)" :key="index">
           <img
             class="banner-img"
-            :src="$t(`${path}.content[${index}].image`)"
-            :alt="$t(`${path}.content[${index}].title`)"
+            :src="$t(`${itemPath}[${index}].image`)"
+            :alt="$t(`${itemPath}[${index}].title`)"
           />
           <div class="banner-title">
             <h2 class="title" :style="{ whiteSpace: 'pre-line' }">
-              {{ $t(`${path}.content[${index}].title`) }}
+              {{ $t(`${itemPath}[${index}].title`) }}
             </h2>
             <p class="text normal-text">
-              {{ $t(`${path}.content[${index}].text`) }}
+              {{ $t(`${itemPath}[${index}].text`) }}
             </p>
           </div>
         </swiper-slide>
@@ -52,10 +52,10 @@
           />
           <div class="banner-title">
             <h2 class="title" :style="{ whiteSpace: 'pre-line' }">
-              {{ $t(`${path}.content[0].title`) }}
+              {{ $t(`${itemPath}[0].title`) }}
             </h2>
             <p class="text normal-text">
-              {{ $t(`${path}.content[0].text`) }}
+              {{ $t(`${itemPath}[0].text`) }}
             </p>
           </div>
         </swiper-slide>
@@ -75,6 +75,8 @@ import { Autoplay, Pagination } from "swiper";
 const modules = ref([Autoplay, Pagination]);
 
 const { path } = defineProps(["path"]);
+
+const itemPath = path+".content";
 
 const activeIndex = ref(0);
 const swiperInstance = ref();

@@ -11,8 +11,8 @@
           <div class="tabs">
             <img
               class="bgImg"
-              :src="$t(`${path}.content[${activeIndex}].iconBg`)"
-              :alt="$t(`${path}.content[${activeIndex}].title`)"
+              :src="$t(`${itemPath}[${activeIndex}].iconBg`)"
+              :alt="$t(`${itemPath}[${activeIndex}].title`)"
             />
             <div v-for="(item, index) in $tm(`${path}.content`)" :key="index"
               :class="['tabs-item', activeIndex == index ? 'active' : '']"
@@ -20,35 +20,48 @@
             >
               <img
                 v-if="activeIndex == index"
-                :src="$t(`${path}.content[${index}].iconActive`)"
-                :alt="$t(`${path}.content[${index}].title`)"
+                :src="$t(`${itemPath}[${index}].iconActive`)"
+                :alt="$t(`${itemPath}[${index}].title`)"
               />
               <img
                 v-else
-                :src="$t(`${path}.content[${index}].icon`)"
-                :alt="$t(`${path}.content[${index}].title`)"
+                :src="$t(`${itemPath}[${index}].icon`)"
+                :alt="$t(`${itemPath}[${index}].title`)"
               />
-              <span class="tab-title">{{ $t(`${path}.content[${index}].title`) }}</span>
+              <span class="tab-title">{{ $t(`${itemPath}[${index}].title`) }}</span>
             </div>
           </div>
           <div class="content">
             <div class="content-item" >
-              <p class="text-1">{{$t(`${path}.content[${activeIndex}].title`)}}</p>
+              <p class="text-1">{{$t(`${itemPath}[${activeIndex}].title`)}}</p>
               <p class="text-2">
-                {{$t(`${path}.content[${activeIndex}].text`) }}
+                {{$t(`${itemPath}[${activeIndex}].text`) }}
               </p>
               <p class="text-3">
-                {{ $t(`${path}.content[${activeIndex}].light`) }}
+                {{ $t(`${itemPath}[${activeIndex}].light`) }}
               </p>
             </div>
           </div>
           <div class="swiper-main">
-            <swiper class="swiper" @swiper="onSwiper">
+            <swiper class="swiper"
+            :effect="'cards'"
+            :grabCursor="true"
+            :coverflowEffect="{
+              rotate: 40,
+              stretch: 0,
+              depth: 20,
+              modifier: 1,
+              stretch: '-20%'
+            }"
+            :slidesPerView="1.1"
+            @swiper="onSwiper"
+
+            >
               <swiper-slide v-for="(item, index) in $tm(`${path}.content`)" :key="index">
                 <img
                   class="banner-img"
-                  :src="$t(`${path}.content[${index}].image`)"
-                  :alt="$t(`${path}.content[${index}].title`)"
+                  :src="$t(`${itemPath}[${index}].image`)"
+                  :alt="$t(`${itemPath}[${index}].title`)"
                 />
               </swiper-slide>
             </swiper>
@@ -69,15 +82,15 @@
           >
             <img
               v-if="activeIndex == index"
-              :src="$t(`${path}.content[${index}].iconActive`)"
-              :alt="$t(`${path}.content[${index}].title`)"
+              :src="$t(`${itemPath}[${index}].iconActive`)"
+              :alt="$t(`${itemPath}[${index}].title`)"
             />
             <img
               v-else
-              :src="$t(`${path}.content[${index}].icon`)"
+              :src="$t(`${itemPath}[${index}].icon`)"
               alt=""
             />
-            <span class="tab-title normal-text">{{ $t(`${path}.content[${index}].title`) }}</span>
+            <span class="tab-title normal-text">{{ $t(`${itemPath}[${index}].title`) }}</span>
           </div>
         </div>
         <div class="m-swiper-main">
@@ -89,16 +102,16 @@
             <swiper-slide v-for="(item, index) in $tm(`${path}.content`)" :key="index">
               <img
                 class="banner-img"
-                :src="$t(`${path}.content[${index}].mbimage`)"
+                :src="$t(`${itemPath}[${index}].mbimage`)"
                 alt=""
               />
               <div class="content-item">
-                <p class="text-1 bold-text">{{ $t(`${path}.content[${index}].title`) }}</p>
+                <p class="text-1 bold-text">{{ $t(`${itemPath}[${index}].title`) }}</p>
                 <p class="text-2 normal-text">
-                  {{ $t(`${path}.content[${index}].text`) }}
+                  {{ $t(`${itemPath}[${index}].text`) }}
                 </p>
                 <p class="text-3 normal-text">
-                  {{ $t(`${path}.content[${index}].light`) }}
+                  {{ $t(`${itemPath}[${index}].light`) }}
                 </p>
               </div>
             </swiper-slide>
@@ -114,8 +127,10 @@
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/pagination";
+import 'swiper/css/effect-cards';
 import "swiper/css/navigation";
 const path = ref("home.solution");
+const itemPath = "home.solution.content";
 
 const activeIndex = ref(0);
 const swiperInstance = ref();
@@ -285,7 +300,7 @@ function onSwiper(swiper) {
       bottom: 0px;
       right: -50px;
       height: 516px;
-      width: 292px;
+      width: 392px;
       .swiper {
         width: 100%;
         height: 100%;

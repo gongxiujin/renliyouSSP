@@ -136,6 +136,9 @@ a.el-link {
     font-size: 16px;
     line-height: 16px;
     height: 16px;
+    &:hover {
+      color: "#202020";
+    }
   }
 }
 .agree-check {
