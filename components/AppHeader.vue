@@ -60,7 +60,7 @@
       </el-menu>
       <!-- 登录注册 -->
       <div class="login-btn-bar">
-        <div class="login-btn" @click="showLogin = true">登录/注册</div>
+        <div class="login-btn" @click="showLogin = true">{{ $t('login.pageTitle') }}</div>
       </div>
     </el-drawer>
   </div>
@@ -73,10 +73,18 @@
     </div>
 
   </div>
+  <div class="mobile" v-if="isShowMobileBlock">
+        <a class="register" @click="showLogin = true">{{ $t('login.registorButon') }}</a>
+        <a class="login" @click="showLogin = true">{{ $t('login.loginButton') }}</a>
+    </div>
 </template>
 
 <script setup>
 import { Close } from "@element-plus/icons-vue";
+import { appStore } from '@/stores'
+import {storeToRefs} from "pinia";
+
+const { isShowMobileBlock } = storeToRefs(appStore())
 const navIndex = ref(0);
 const showLogin = ref(false);
 const isCollapse = ref(false);
@@ -111,6 +119,12 @@ const menuSelect = (opt) => {
   .m-btnMenu {
     display: block !important;
     margin-right: 4%;
+  }
+  .mobile {
+    width: 100%;
+    display: inline-flex !important;
+    opacity: 1 !important;
+    height: 60px !important;
   }
 }
 .header {
@@ -150,7 +164,7 @@ const menuSelect = (opt) => {
       border-radius: 0;
       border: none;
       margin-left: 24px !important;
-      background-color: #ff0017;
+      background-color: #E65E24;
       min-width: 90px;
       .pangle-btn-inner {
         font-weight: 400;
@@ -235,5 +249,46 @@ const menuSelect = (opt) => {
     height: 3rem;
     text-align: center;
   }
+}
+.mobile {
+    display: none;
+    opacity: 0;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 10;
+    width: 100%;
+    height: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.16);
+    transition: opacity .3s;
+    .register {
+        width: 163px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        border-radius: 2px;
+        background: #E65E24;
+        font-family: Source Han Sans CN;
+        font-size: 16px;
+        font-weight: 500;
+        color: #FFFFFF;
+    }
+    .login {
+        width: 163px;
+        height: 40px;
+        border-radius: 2px;
+        border: 1px solid #E65E24;
+        line-height: 40px;
+        text-align: center;
+        font-family: Source Han Sans CN;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 40px;
+        color: #E65E24;
+    }
 }
 </style>

@@ -85,7 +85,7 @@ const mbTop = t(path+`.mbTop`);
     }
     .banner-icon {
       content: v-bind(icon);
-      width: 23.48%;
+      width: 394px;
       height: auto;
       position: absolute;
       top: 14px;
@@ -101,10 +101,10 @@ const mbTop = t(path+`.mbTop`);
 
     position: relative;
     .banner-title {
-      position: absolute;
+      position: relative;
       top: 95px;
-      left: 19%;
-      width: 460px;
+      margin: 0 auto;
+      width: 1200px;
       text-align: left;
       color: #222;
       .title {
@@ -115,6 +115,7 @@ const mbTop = t(path+`.mbTop`);
       .text {
         margin-top: 28px;
         font-size: 16px;
+        width: 460px;
         font-weight: normal;
         line-height: 24px;
       }

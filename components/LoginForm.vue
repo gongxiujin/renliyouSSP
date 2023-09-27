@@ -223,6 +223,7 @@ span.title {
     display: flex;
     flex-direction: column;
     button {
+      background: #E65E24;
       position: absolute;
       bottom: 1.28rem;
       width: 80%;

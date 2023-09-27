@@ -109,7 +109,6 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-slidesPerView
 const activeIndex = ref(0);
 const swiperInstance = ref();
 const swiperInstanceM = ref();
@@ -239,10 +238,10 @@ function onSwiper(swiper) {
           display: flex;
           justify-content: center;
           img.images-0 {
-            border: 8px solid #222;
+            border: 13px solid #222;
             border-radius: 32px;
-            width: 233px;
-            height: 467px;
+            width: 204px;
+            height: auto;
             z-index: 4;
             position: relative;
           }

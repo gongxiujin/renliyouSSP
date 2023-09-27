@@ -130,9 +130,9 @@ function goToSlide(index) {
   justify-content: center;
   align-items: center;
   .banner-title {
-    position: absolute;
-    top: 121px;
-    left: 18.8%;
+    position: relative;
+    width: 1200px;
+    margin: 0 auto;
     text-align: left;
     .title {
       font-size: 60px;
@@ -172,6 +172,7 @@ function goToSlide(index) {
     }
   }
   .banner-img {
+    position: absolute;
     display: block;
     width: 100%;
     height: 100%;
@@ -184,7 +185,7 @@ function goToSlide(index) {
   width: 100%;
   min-width: 1200px;
   height: 112px;
-  background: #e9eaf2;
+  background: rgba(233,234,242,0.5);
   backdrop-filter: blur(20px);
   z-index: 1;
   display: flex;
@@ -202,13 +203,14 @@ function goToSlide(index) {
 }
 
 .banner-progress-bar {
-  position: absolute;
-  left: 9rem;
+  position: relative;
   bottom: 138px;
   z-index: 10;
   display: flex;
   align-items: center;
+  width: 1200px;
   cursor: pointer;
+  margin: 0 auto;
   .banner-progress {
     width: 56px;
     height: 3px;

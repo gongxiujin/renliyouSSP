@@ -12,7 +12,7 @@
                 <p class="title">{{ $t(`${path}[${index}].title`) }}</p>
                 <a
                 v-for="(text, idx) in $tm(`${path}[${index}].row`)" :key="idx"
-                :href="text.link" class="link"
+                :href="$t(`${path}[${index}].row[${idx}].link`)" class="link"
                 >{{ $t(`${path}[${index}].row[${idx}].text`) }}</a>
               </div>
             </div>
@@ -94,7 +94,7 @@
                 <p class="title">{{ $t(`${path}[${index}].title`) }}</p>
                 <a
                 v-for="(text, idx) in $tm(`${path}[${index}].row`)" :key="idx"
-                :href="text.link" class="link"
+                :href="$t(`${path}[${index}].row[${idx}].link`)" class="link"
                 >{{ $t(`${path}[${index}].row[${idx}].text`) }}</a>
               </div>
             </div>

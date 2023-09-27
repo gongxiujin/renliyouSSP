@@ -202,6 +202,7 @@ function onSwiper(swiper) {
           border-bottom: 10px solid #fa4b00;
           display: flex;
           align-items: center;
+          background: rgba(216,216,216,0.1);
           justify-content: center;
           border-bottom-left-radius: 15px;
           .banner-img {

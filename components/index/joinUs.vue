@@ -8,17 +8,10 @@
             <a class="link" href="/">{{ $t('contactUs') }}</a>
         </div>
     </div>
-    <div class="mobile" v-if="isShowMobileBlock">
-        <a class="register" href="">{{ $t('login.registorButon') }}</a>
-        <a class="login" href="">{{ $t('login.loginButton') }}</a>
-    </div>
+
 </template>
 
 <script setup>
-import { appStore } from '@/stores'
-import {storeToRefs} from "pinia";
-
-const { isShowMobileBlock } = storeToRefs(appStore())
 
 
 </script>
@@ -109,47 +102,6 @@ const { isShowMobileBlock } = storeToRefs(appStore())
                 z-index: -1;
             }
         }
-    }
-}
-.mobile {
-    display: none;
-    opacity: 0;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    z-index: 10;
-    width: 100%;
-    height: 0px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    background: #FFFFFF;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.16);
-    transition: opacity .3s;
-    .register {
-        width: 163px;
-        height: 40px;
-        line-height: 40px;
-        text-align: center;
-        border-radius: 2px;
-        background: #E65E24;
-        font-family: Source Han Sans CN;
-        font-size: 16px;
-        font-weight: 500;
-        color: #FFFFFF;
-    }
-    .login {
-        width: 163px;
-        height: 40px;
-        border-radius: 2px;
-        border: 1px solid #E65E24;
-        line-height: 40px;
-        text-align: center;
-        font-family: Source Han Sans CN;
-        font-size: 16px;
-        font-weight: 500;
-        line-height: 40px;
-        color: #E65E24;
     }
 }
 </style>

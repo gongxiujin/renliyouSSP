@@ -127,6 +127,9 @@ function onSwiper(swiper) {
   padding-top: 84px;
   .title-bar {
     min-width: 1200px;
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 38px;
     text-align: center;
     .access-title {
 

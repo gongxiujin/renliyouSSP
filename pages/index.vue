@@ -30,7 +30,7 @@ function handleScroll () {
 	const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     const scrollBottom = document.documentElement.scrollHeight - window.innerHeight - scrollTop;
 	// 714是手机端banner高度
-	if (scrollTop > 714 && scrollBottom > 10) {
+	if (scrollTop > 14 && scrollBottom > 10) {
 		useAppStore.isShowMobileBlock = true
 	} else {
 		useAppStore.isShowMobileBlock = false

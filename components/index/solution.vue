@@ -321,7 +321,7 @@ function onSwiper(swiper) {
   height: 640px;
   background: #f8f8f8;
   .m-solution-bar {
-    width: 325px;
+    width: 335px;
     height: 100%;
     margin: 0 auto;
     .title-bar {
