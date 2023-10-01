@@ -75,7 +75,7 @@
             :centeredSlides="true"
             :spaceBetween="15"
             :slidesPerView="1.3"
-            @swiper="onSwiper"
+            @swiper="onSwiperM"
             @slideChange="handleSlideChange"
           >
           <swiper-slide v-for="(item, index) in $tm(`${path}.content`)" :key="index">

@@ -57,7 +57,7 @@
           </div>
         </div>
         <div class="slide-bar">
-          <swiper class="swiper" @swiper="onSwiper" @slideChange="handleSlideChange">
+          <swiper class="swiper" @swiper="onSwiperM" @slideChange="handleSlideChange">
             <swiper-slide v-for="(item, index) in $tm(`${path}.content`)" :key="index">
               <div class="slide-item">
                 <div class="slide-text">
