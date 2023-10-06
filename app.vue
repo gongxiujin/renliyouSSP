@@ -5,7 +5,7 @@
     </NuxtLayout>
   </div>
 </template>
-<script setup>
+<script setup lang="ts">
 const isRouterAlive = ref(true);
 const reload = () => {
   isRouterAlive.value = false;

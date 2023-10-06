@@ -73,7 +73,6 @@
           <swiper
             class="swiper"
             :centeredSlides="true"
-            :modules="modules"
             :spaceBetween="23"
             :slidesPerView="1.6"
             @swiper="onSwiperM"
@@ -192,6 +191,7 @@ function onSwiper(swiper) {
     .tabs {
       position: relative;
       min-width: 206px;
+      height: 410px;
       display: flex;
       justify-content: center;
       flex-direction: column;

@@ -234,8 +234,7 @@ function onSwiper(swiper) {
     .title-bar {
       width: 100%;
       text-align: center;
-      .access-title {
-
+      .ability-title {
         font-size: 24px;
         font-weight: 900;
         line-height: 38px;

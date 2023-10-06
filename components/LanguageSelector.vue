@@ -21,13 +21,29 @@
 
 <script>
 import { ArrowDown } from "@element-plus/icons-vue";
+import { useCookies } from "vue3-cookies";
 export default {
+  setup() {
+    const { cookies } = useCookies();
+    const { locale, locales } = useI18n();
+    const switchLocalePath = useSwitchLocalePath();
+
+    const availableLocales = computed(() => {
+      return locales.value.filter((i) => i.code !== locale.value);
+    });
+    return {
+      cookies,
+      switchLocalePath,
+      availableLocales
+    };
+  },
   components: {
     ArrowDown,
   },
   methods: {
     dropdownClick(lang) {
       this.$i18n.locale = lang;
+      switchLocalePath(locale.code);
     },
   },
 };

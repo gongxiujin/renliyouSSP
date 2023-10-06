@@ -5,10 +5,10 @@
         <div class="nav-item">
           <div class="nav-item-title">
             <nuxt-link
-              :class="{ active: routePath == nav.link || isActiveLink(nav.link, nav.children) }"
-              :to="nav.link"
+              :class="{ 'router-link-active': routePath == nav.link || isActiveLink(routePath, nav.children) }"
+              :to="localePath({name: nav.key})"
             >
-              {{ $t(`navList.${nav.key}`) }}</nuxt-link
+              {{ $t(`pages.${nav.key}`) }}</nuxt-link
             >
           </div>
           <!-- 下拉菜单 -->
@@ -19,8 +19,8 @@
                 class="menuItem"
                 :key="navChildrenIndex"
               >
-                <nuxt-link :to="navChildren.link">{{
-                  $t("navList." + navChildren.key)
+                <nuxt-link :to="localePath(navChildren.key)">{{
+                  $t(`pages.${navChildren.name}`)
                 }}</nuxt-link>
               </div>
             </div>
@@ -42,20 +42,20 @@
 <script setup>
 const route = useRoute();
 const { data } = defineProps(["data"]);
+const localePath = useLocalePath();
 const navList = ref([
-  { name: "首页", link: "/", key: "home" },
+  { key: "index" },
   {
-    name: "产品中心",
     link: "#",
-    key: "proCenter",
+    key: "product",
     children: [
-      { name: "移动变现", link: "/products/app", key: "app" },
-      { name: "PC变现", link: "/products/pc", key: "pc" },
-      { name: "数据增长", link: "/products/dataGrowth", key: "dataGrowth" },
+      { key: "/products/app", name: "products.app" },
+      { key: "/products/pc", name: "products.pc" },
+      { key: "/products/dataGrowth", name: "products.dataGrowth" },
     ],
   },
-  { name: "解决方案", link: "/solutions", key: "solutions" },
-  { name: "关于我们", link: "/aboutUs", key: "aboutUs" },
+  { key: "solutions" },
+  { key: "aboutUs" },
 ]);
 
 const routePath = ref("");
@@ -69,11 +69,15 @@ onMounted(() => {
   routePath.value = route.path;
 });
 const isActiveLink = (link, children) => {
-  if (route.path === link) return true
+  let isActive = false;
   if (children) {
-    return children.some(child => route.path === child.link)
+    children.forEach(element => {
+      if (link.endsWith(element.key)){
+        isActive = true;
+      }
+    });
   }
-  return false
+  return isActive;
 }
 </script>
 
@@ -149,7 +153,7 @@ const isActiveLink = (link, children) => {
       width: inherit;
       white-space: nowrap;
 
-      .active {
+      .router-link-active {
         color: $primary-color;
         border-bottom: 3px solid $primary-color;
       }
@@ -175,7 +179,7 @@ const isActiveLink = (link, children) => {
     transition: 0.6s;
 
     .dropdown-menu {
-      width: 113px;
+      width: 133px;
 
       color: #fff;
       background-color: #fff;

@@ -16,9 +16,15 @@ export default defineNuxtConfig({
 			{ code: 'en', iso: 'en-US', file: 'en-US.js', name: 'English' },
 			{ code: 'zh', iso: 'zh-CN', file: 'zh-CN.js', name: '中文' },
 		],
+		strategy: 'prefix',
+		skipSettingLocaleOnNavigate: true,
 		defaultLocale: 'zh',
 		langDir: 'locales/',
 		debug: false,
+		detectBrowserLanguage: {
+			useCookie: false,
+			redirectOn: 'root',  // recommended
+		  },
 	},
 	tailwindcss: {
 		config: {

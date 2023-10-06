@@ -585,6 +585,19 @@ export default {
             text: "The Ren Li You platform and service provider Yun Xi Network Technology Hebei Co., Ltd. (hereinafter referred to as 'we') attach great importance to user privacy and personal information security protection. We will take corresponding security protection measures in accordance with legal requirements to do our best to ensure the security and control of your personal information. We hope to explain to you through this 'Privacy Policy' (hereinafter referred to as 'this Policy') how this website collects, uses, and processes personal information related to you, and how you can exercise your user rights. ... (The text continues)"
         }]
     },
+    // pages
+    pages: {
+      index: "Home",
+      product: "Product",
+      products: {
+        app: "Application",
+        pc: "PC",
+        dataGrowth: "Data Growth",
+      },
+      solutions: "Solutions",
+      aboutUs: "About Us",
+    },
+    // footer
     registorNow: "Register Now",
     contactUs: "Contact Us",
     joinUs: "Join us now to boost your earnings",
