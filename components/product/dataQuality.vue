@@ -32,7 +32,7 @@
                     :alt="$t(`${path}.content[${index}].title`)"
                   />
                 </div>
-                <div class="$t(`${path}.content[${index}]-text normal-text">
+                <div class="item-text normal-text">
                   {{ $t(`${path}.content[${index}].text`) }}
                 </div>
               </div>

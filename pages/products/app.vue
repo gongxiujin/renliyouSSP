@@ -17,9 +17,7 @@
 
 import { useI18n } from "vue-i18n";
 const { t } = useI18n();
-useHead({
-  title: t("app.pageTitle"),
-});
+
 const bannerData = ref("app.banner");
 const slideData = ref("app.appSlide");
 const slideColor = "#F8F8F8;"

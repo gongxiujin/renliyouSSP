@@ -4,6 +4,7 @@ $body-bg: #ffffff;
 
 $primary-color:#E65E24;
 $--color-primary: #E65E24 !default;
+$color-primary: #E65E24 !default;
 $--el-button-bg-color: #E65E24 !default;
 $color-text-primary: #E65E24;
 $on-color: #E65E24;
@@ -12,3 +13,10 @@ $header-height: 4rem;
 $page-top-item-height:24rem;
 $mobile-width: 576px;
 
+:root {
+    --el-color-primary: #E65E24 !important;
+    --el-menu-base-level-padding: 37px !important;
+}
+.el-drawer__body{
+    padding: 0;
+}

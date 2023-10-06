@@ -15,14 +15,14 @@
 </template>
 
 <script setup>
+import { parallaxOffset } from '@/stores'
 import { appStore } from '@/stores'
 import { useI18n } from 'vue-i18n';
 const { t } = useI18n();
 const banner = ref('home.banner');
 const useAppStore = appStore()
-useHead({
-  title: t("webSite"),
-});
+const background = parallaxOffset()
+background.height="1040px";
 onMounted(() => {
 	window.addEventListener('scroll', handleScroll);
 })

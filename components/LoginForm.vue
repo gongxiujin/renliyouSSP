@@ -45,7 +45,7 @@
         >{{ $t('login.registorNow') }}</el-link
       >
     </div>
-    <div class="other wechat" style="margin-top: 0">
+    <div class="other wechat" >
       <span style="font-size:12px; line-height: 12px;"
         >{{ $t('login.otherWay') }}
         <el-link><img src="/images/wechat.png" alt="wechat" /></el-link
@@ -121,6 +121,9 @@ export default {
   font-family: SourceHans-normal;
   span {
   color: #a1a1a1;
+  a.el-link{
+    top: -2.2px;
+  }
 }
 }
 a.el-link {
@@ -242,6 +245,7 @@ span.title {
       justify-content: center!important;;
       &.link-other {
         right: 10px;
+        bottom: 6rem;
       }
       &.wechat{
         left: 10px;

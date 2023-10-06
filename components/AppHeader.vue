@@ -1,9 +1,10 @@
 <template>
   <header class="header">
     <div class="heard-left">
-      <a href="/" class="block flex items-center"
-        ><img class="h-8 w-24 mr-12" src="/images/logo.png" alt=""
-      /></a>
+      <nuxt-link :to="localePath({name: 'index'})" class="block flex items-center">
+      <!-- <a href="/" class="block flex items-center" -->
+        <img class="h-8 w-24 mr-12" src="/images/logo.png" alt=""
+      /></nuxt-link>
       <AloneNavBar :data="navList" />
     </div>
     <div class="heard-right">
@@ -126,6 +127,9 @@ const menuSelect = (opt) => {
     opacity: 1 !important;
     height: 60px !important;
   }
+}
+.el-menu-item.is-active {
+  background: #FDF7F2;
 }
 .header {
   position: relative;

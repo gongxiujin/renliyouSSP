@@ -1,6 +1,9 @@
 <template>
   <div>
-    <a ref="/" alt="logo"><span class="logo" alt="logo"></span></a>
+    <!-- <a ref="/" alt="logo"><span class="logo" alt="logo"></span></a> -->
+    <nuxt-link :to="localePath({name: 'index'})">
+      <span class="logo" alt="logo"></span>
+    </nuxt-link>
     <img class="background" alt="login" />
     <div class="index-form">
       <LoginForm />
@@ -10,9 +13,6 @@
 <script setup>
 import { useI18n } from "vue-i18n";
 const { t } = useI18n();
-useHead({
-  title: t("login.pageTitle"),
-});
 definePageMeta({
   layout: "login",
 });

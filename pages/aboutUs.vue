@@ -82,17 +82,14 @@
 </template>
 
 <script setup>
+import { parallaxOffset } from '@/stores'
 const { t } = useI18n();
 const bannerPath = ref("aboutUs.banner");
 const miniBanner = "url(" + t("aboutUs.banner.mbImage") + ")";
 const path = ref("aboutUs.solution");
 const itemPath = ref("aboutUs.solution.content");
-const offset = "640px";
-// const offset = inject("offset", coffset);
-provide('offset', offset)
-useHead({
-  title: t("aboutUs.pageTitle"),
-});
+const background = parallaxOffset()
+background.height="640px";
 </script>
 
 <style lang="scss" scoped>

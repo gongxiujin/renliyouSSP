@@ -87,9 +87,6 @@ import { useI18n } from 'vue-i18n';
 const { t } = useI18n();
 const path = ref('solutions.access');
 const itemPath = ref('solutions.access.content');
-useHead({
-  title: t("solutions.pageTitle"),
-});
 </script>
 
 <style lang="scss" scoped>

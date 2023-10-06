@@ -51,6 +51,8 @@
 </template>
 
 <script>
+  import { parallaxOffset } from '@/stores'
+  import {storeToRefs} from "pinia";
 export default {
   data() {
     return {
@@ -58,11 +60,10 @@ export default {
     };
   },
   setup(){
-    const coffset = ref('1040px');
-    const offset = inject("offset", coffset);
+    const { height } = storeToRefs(parallaxOffset())
 
     return {
-      offset
+      height
     }
   },
   mounted() {
@@ -93,7 +94,7 @@ export default {
     z-index: 2;
     width: 325px;
     position: absolute;
-    padding-top: v-bind(offset);
+    padding-top: v-bind(height);
     pointer-events: none;
     transform: translateY(var(--scroll-y, 0px));
 

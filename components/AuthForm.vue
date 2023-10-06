@@ -1,5 +1,5 @@
 <template>
-  <el-link :underline="false" class="reset" @click="changeLogin">
+  <el-link :underline="false" class="reset title bold-text" @click="changeLogin">
     <el-icon class="el-icon--left" :size="22" color="#202020"><arrow-left /></el-icon>
     {{ $t('login.resetPassword') }}
   </el-link>

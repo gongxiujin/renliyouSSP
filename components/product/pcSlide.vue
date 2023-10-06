@@ -238,7 +238,7 @@ function onSwiper(swiper) {
           .text-desc {
             font-size: 16px;
             font-weight: normal;
-            line-height: 16px;
+            line-height: 24px;
             color: #222222;
             text-align: left;
             margin-top: 31px;

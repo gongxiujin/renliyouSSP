@@ -58,9 +58,6 @@ const { t } = useI18n();
 const path = ref("policy.content");
 const activeIndex = ref(0);
 const crumbTitle = ref(t(`policy.content[0].currentTitle`));
-useHead({
-  title: t("policy.pageTitle"),
-});
 function setIndex(index) {
   activeIndex.value = index;
   crumbTitle.value = t(`policy.content[${index}].currentTitle`);

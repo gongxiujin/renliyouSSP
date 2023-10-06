@@ -220,7 +220,7 @@ function onSwiper(swiper) {
             margin-bottom: 20px;
           }
           .content-desc {
-
+            width: 268px;
             font-size: 14px;
             font-weight: normal;
             line-height: 20px;

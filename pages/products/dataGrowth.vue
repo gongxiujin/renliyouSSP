@@ -15,9 +15,9 @@
 import { fetchTranslation } from "~/assets/js/base.js";
 import { useI18n } from "vue-i18n";
 const { t, tm } = useI18n();
-useHead({
-  title: t("dataGrowth.pageTitle"),
-});
+// useHead({
+//   title: t("dataGrowth.pageTitle"),
+// });
 
 const bannerData = ref("dataGrowth.banner");
 </script>

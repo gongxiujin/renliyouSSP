@@ -41,7 +41,7 @@
 
 <script setup>
 const route = useRoute();
-const { data } = defineProps(["data"]);
+// const { navList } = defineProps(["navList"]);
 const localePath = useLocalePath();
 const navList = ref([
   { key: "index" },
