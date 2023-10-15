@@ -9,7 +9,8 @@ export default defineNuxtConfig({
 				{ name: 'viewport', content: 'width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' },
 				{ name: 'description', content: '任礼游官网' },
 				{ name: 'description', content: '任礼游是全球广告变现平台,为媒体提供流量变现、广告变现、用户增长、LTV提升等全生命周期成长服务,目前已帮助超过10万个app在平台内流量变现,超过100万商业PC实现广告变现,也为超过5万广告主提供广告投放解决方案.'},
-				{name: 'keywords', content: '任礼游全球广告变现平台,流量变现,广告变现,广告平台'}
+				{name: 'keywords', content: '任礼游全球广告变现平台,流量变现,广告变现,广告平台'},
+				{name: 'Cache-Control', content: 'public'}
 			]
 		}
 	},

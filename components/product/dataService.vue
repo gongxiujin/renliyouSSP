@@ -132,11 +132,13 @@ function onSwiper(swiper) {
     border-bottom: 1px solid #d8d8d8;
     margin: 10px auto 0;
     .menu {
-      width: 800px;
+
       display: flex;
       justify-content: space-between;
       margin-top: 16px;
       .menu-item {
+        width: fit-content;
+        margin: 0 20px;
         color: #666666;
         height: 56px;
         line-height: 56px;

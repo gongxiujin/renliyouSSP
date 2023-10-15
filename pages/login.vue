@@ -6,7 +6,7 @@
     </nuxt-link>
     <img class="background" alt="login" />
     <div class="index-form">
-      <LoginForm />
+      <LoginForm action="login"/>
     </div>
   </div>
 </template>

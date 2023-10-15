@@ -174,13 +174,13 @@ function onSwiper(swiper) {
     position: relative;
     margin: 16px auto 43px;
     .menu {
-      width: 600px;
       display: flex;
       justify-content: space-between;
       margin-top: 16px;
       .menu-item {
+        width: fit-content;
+        margin: 0 20px;
         color: #666666;
-        width: 112px;
         height: 40px;
         line-height: 40px;
         font-weight: 400;

@@ -1,16 +1,19 @@
 <template>
   <header class="header">
     <div class="heard-left">
-      <nuxt-link :to="localePath({name: 'index'})" class="block flex items-center">
-      <!-- <a href="/" class="block flex items-center" -->
-        <img class="h-8 w-24 mr-12" src="/images/logo.png" alt=""
+      <nuxt-link
+        :to="localePath({ name: 'index' })"
+        class="block flex items-center"
+      >
+        <!-- <a href="/" class="block flex items-center" -->
+        <img class="h-8 w-24 mr-12 logo-nav" src="/images/logo.png" alt=""
       /></nuxt-link>
       <AloneNavBar :data="navList" />
     </div>
     <div class="heard-right">
       <LanguageSelector />
       <a href="/login"
-        ><span class="header_sign_in" xt-marked="ok" style="display: none"
+        ><span class="header_sign_in" xt-marked="ok"
           >登录</span
         ></a
       >
@@ -61,31 +64,37 @@
       </el-menu>
       <!-- 登录注册 -->
       <div class="login-btn-bar">
-        <div class="login-btn" @click="showLogin = true">{{ $t('login.pageTitle') }}</div>
+        <div class="login-btn" @click="showLogin = true">
+          {{ $t("login.pageTitle") }}
+        </div>
       </div>
     </el-drawer>
   </div>
   <div v-if="showLogin" class="modal">
     <!-- 关闭按钮 -->
-    <el-icon @click="showLogin = false" class="close" :size="20" color="#000"><close /></el-icon>
+    <el-icon @click="showLogin = false" class="close" :size="20" color="#000"
+      ><close
+    /></el-icon>
     <!-- 引入的组件 -->
     <div class="login-form">
-      <LoginForm />
+      <LoginForm :action="action"/>
     </div>
-
   </div>
+  <!-- 手机端登录浮动框 -->
   <div class="mobile" v-if="isShowMobileBlock">
-        <a class="register" @click="showLogin = true">{{ $t('login.registorButon') }}</a>
-        <a class="login" @click="showLogin = true">{{ $t('login.loginButton') }}</a>
-    </div>
+    <a class="register" @click="showLoginForm('register')">{{
+      $t("login.registorButon")
+    }}</a>
+    <a class="login" @click="showLoginForm('login')">{{ $t("login.loginButton") }}</a>
+  </div>
 </template>
 
 <script setup>
 import { Close } from "@element-plus/icons-vue";
-import { appStore } from '@/stores'
-import {storeToRefs} from "pinia";
+import { appStore } from "@/stores";
+import { storeToRefs } from "pinia";
 
-const { isShowMobileBlock } = storeToRefs(appStore())
+const { isShowMobileBlock } = storeToRefs(appStore());
 const navIndex = ref(0);
 const showLogin = ref(false);
 const isCollapse = ref(false);
@@ -103,10 +112,14 @@ const navList = ref([
   { name: "解决方案", link: "/solutions" },
   { name: "关于我们", link: "/aboutUs" },
 ]);
-
+const action = ref("login")
 const menuSelect = (opt) => {
   isCollapse.value = false;
 };
+function showLoginForm(_action){
+  action.value = _action
+  showLogin.value =true;
+}
 </script>
 
 <style lang="scss" scoped>
@@ -129,7 +142,7 @@ const menuSelect = (opt) => {
   }
 }
 .el-menu-item.is-active {
-  background: #FDF7F2;
+  background: #fdf7f2;
 }
 .header {
   position: relative;
@@ -138,7 +151,7 @@ const menuSelect = (opt) => {
   align-items: center;
   background-color: #ffffff;
   z-index: 999;
-  padding: 0 0 0 4%;
+  padding: 0 0 0 32.29px;
   position: fixed;
   top: 0;
   left: 0;
@@ -151,6 +164,10 @@ const menuSelect = (opt) => {
   .heard-left {
     display: flex;
     align-items: center;
+  }
+  .logo-nav {
+    width: 91.24px;
+    height: 32.39px;
   }
   .heard-right {
     display: flex;
@@ -168,7 +185,7 @@ const menuSelect = (opt) => {
       border-radius: 0;
       border: none;
       margin-left: 24px !important;
-      background-color: #E65E24;
+      background-color: #e65e24;
       min-width: 90px;
       .pangle-btn-inner {
         font-weight: 400;
@@ -196,7 +213,7 @@ const menuSelect = (opt) => {
     cursor: pointer;
     z-index: 1001;
   }
-  .login-form{
+  .login-form {
     position: relative;
     height: 100vh;
     width: 100vw;
@@ -227,6 +244,11 @@ const menuSelect = (opt) => {
   position: relative;
   margin-top: $header-height;
   font-size: 0.9rem;
+  li.el-menu-item {
+    a {
+      width: 100%;
+    }
+  }
 }
 
 .el-drawer__body {
@@ -255,44 +277,44 @@ const menuSelect = (opt) => {
   }
 }
 .mobile {
-    display: none;
-    opacity: 0;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    z-index: 10;
-    width: 100%;
-    height: 0px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    background: #FFFFFF;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.16);
-    transition: opacity .3s;
-    .register {
-        width: 163px;
-        height: 40px;
-        line-height: 40px;
-        text-align: center;
-        border-radius: 2px;
-        background: #E65E24;
-        font-family: Source Han Sans CN;
-        font-size: 16px;
-        font-weight: 500;
-        color: #FFFFFF;
-    }
-    .login {
-        width: 163px;
-        height: 40px;
-        border-radius: 2px;
-        border: 1px solid #E65E24;
-        line-height: 40px;
-        text-align: center;
-        font-family: Source Han Sans CN;
-        font-size: 16px;
-        font-weight: 500;
-        line-height: 40px;
-        color: #E65E24;
-    }
+  display: none;
+  opacity: 0;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+  width: 100%;
+  height: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: #ffffff;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.16);
+  transition: opacity 0.3s;
+  .register {
+    width: 163px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 2px;
+    background: #e65e24;
+    font-family: Source Han Sans CN;
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff;
+  }
+  .login {
+    width: 163px;
+    height: 40px;
+    border-radius: 2px;
+    border: 1px solid #e65e24;
+    line-height: 40px;
+    text-align: center;
+    font-family: Source Han Sans CN;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 40px;
+    color: #e65e24;
+  }
 }
 </style>

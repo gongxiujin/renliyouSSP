@@ -53,6 +53,7 @@
 <script>
   import { parallaxOffset } from '@/stores'
   import {storeToRefs} from "pinia";
+  import { appStore } from "@/stores"
 export default {
   data() {
     return {
@@ -61,13 +62,17 @@ export default {
   },
   setup(){
     const { height } = storeToRefs(parallaxOffset())
-
+    const useAppStore = appStore()
     return {
-      height
+      height,
+      useAppStore
     }
   },
   mounted() {
     window.addEventListener("scroll", this.onScroll);
+    onMounted(() => {
+      window.addEventListener('scroll', handleScroll);
+    })
   },
   unmounted() {
     window.removeEventListener("scroll", this.onScroll);
@@ -75,12 +80,25 @@ export default {
   methods: {
     onScroll() {
       this.scrollY = window.scrollY;
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollBottom = document.documentElement.scrollHeight - window.innerHeight - scrollTop;
+      // 714是手机端banner高度
+      if (scrollTop > 14 && scrollBottom > 10) {
+        this.useAppStore.isShowMobileBlock = true
+      } else {
+        this.useAppStore.isShowMobileBlock = false
+      }
     },
   },
 };
 </script>
 
 <style lang="scss">
+@media (min-width: $mobile-width) {
+  body {
+    min-width: 1200px;
+  }
+}
 .layer-parallax {
   position: absolute;
   top: -165px;
@@ -143,6 +161,8 @@ li.dropdown-item {
 }
 .tooltip-main {
   padding: 20px;
+  width: 180px;
+  height: 200px;
   background: #ffffff;
   .phone {
     display: flex;
@@ -165,7 +185,7 @@ li.dropdown-item {
     font-weight: normal;
     line-height: 18px;
     color: #777777;
-    margin-bottom: 21px;
+    margin-bottom: 19px;
   }
   .wechat-code {
     width: 74px;

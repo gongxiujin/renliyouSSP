@@ -23,19 +23,7 @@ const banner = ref('home.banner');
 const useAppStore = appStore()
 const background = parallaxOffset()
 background.height="1040px";
-onMounted(() => {
-	window.addEventListener('scroll', handleScroll);
-})
-function handleScroll () {
-	const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const scrollBottom = document.documentElement.scrollHeight - window.innerHeight - scrollTop;
-	// 714是手机端banner高度
-	if (scrollTop > 14 && scrollBottom > 10) {
-		useAppStore.isShowMobileBlock = true
-	} else {
-		useAppStore.isShowMobileBlock = false
-	}
-}
+
 </script>
 
 <style lang="scss" scoped>

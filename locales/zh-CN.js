@@ -219,7 +219,8 @@ export default {
           icon: "/images/product/appTabs2.png",
           iconActive: "/images/product/appTabs2Act.png",
           image: [
-            "/images/product/appPhone2.png"
+            "/images/product/appPhone2.png",
+            "/images/product/appPhone2-2.png"
           ],
           title: "信息流广告",
           text: "在用户浏览阅读APP的推荐列表页、文章详情页、视频详情页中的原生图文及视频广告。",
@@ -239,7 +240,6 @@ export default {
           iconActive: "/images/product/appTabs4Act.png",
           image: [
             "/images/product/appPhone4.png",
-            "/images/product/appPhone4-2.png"
           ],
           title: "插屏广告",
           text: "触发式广告，在用户做出相应的操作（如开启、暂停、过关、跳转、退出）后，弹出的以图片、视频等为表现形式的半屏或全屏广告。曝光度高，视觉冲击力强。",
@@ -330,7 +330,7 @@ export default {
       text: "PC流量变现的流量营销专家，专注于pc流量媒体、WAP站长媒体等全渠道合作，利用多元化的变现业务，创造高收益、稳定价值体系",
     },
     pcSlide: {
-      title: "移动APP",
+      title: "商业pc",
       content: [
         {
           image: "/images/product/pcSlide1.png",
@@ -648,7 +648,7 @@ export default {
       {
         title: "友情链接",
         row: [
-          { text: "云袭广告投放平台", link: "http://www.ireader.com.cn/" },
+          { text: "云袭广告投放平台", link: "http://dsp.llldou.cn/" },
         ],
       },
     ],

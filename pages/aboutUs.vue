@@ -41,8 +41,8 @@
     <div class="join-us">
       <img class="bg-img" src="/images/index/joinUsBg.png" alt="" />
       <div class="title-content">
-        <h2 class="title">{{ $t(`contactUs`) }}</h2>
-        <p :style="{ whiteSpace: 'pre-line' }">{{ $t(`address`) }}</p>
+        <h2 class="title heavy-text">{{ $t(`contactUs`) }}</h2>
+        <p class="regular-text" :style="{ whiteSpace: 'pre-line' }">{{ $t(`address`) }}</p>
       </div>
     </div>
     <div class="mobile">
@@ -272,12 +272,13 @@ background.height="640px";
     top: 0;
     width: 100%;
     height: 100%;
-    padding: 60px 0;
+    padding-top: 73px;
     background: rgba(30, 26, 25, 0.85);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+
+    justify-content: flex-start;
     .title {
       font-size: 36px;
       font-weight: 900;

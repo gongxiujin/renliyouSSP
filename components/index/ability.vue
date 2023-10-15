@@ -74,7 +74,7 @@
             class="swiper"
             :centeredSlides="true"
             :spaceBetween="15"
-            :slidesPerView="1.3"
+            :slidesPerView="1.25"
             @swiper="onSwiperM"
             @slideChange="handleSlideChange"
           >
@@ -175,18 +175,20 @@ function onSwiper(swiper) {
     border-bottom: 1px solid #273542;
     margin: 16px auto 0;
     .menu {
-      width: 416px;
+
       display: flex;
       justify-content: space-between;
       margin-top: 16px;
       .menu-item {
         color: #fff;
-        width: 112px;
+        width: fit-content;
         height: 56px;
+        margin: 0 30px;
         line-height: 56px;
         font-weight: 400;
         font-size: 16px;
         display: flex;
+        position: relative;
         justify-content: center;
         align-content: center;
         border-radius: 2px;
@@ -206,9 +208,11 @@ function onSwiper(swiper) {
           bottom: 0px;
           display: block;
           z-index: 1;
-          width: 32px;
+          width: 53px;
+          left: 50%;
           height: 3px;
           background: #e65e24;
+          transform: skew(-45deg) translateX(-50%);
         }
       }
     }
@@ -366,17 +370,17 @@ function onSwiper(swiper) {
             .text-desc {
               font-size: 14px;
               font-weight: normal;
-              line-height: 24px;
+              line-height: 20px;
               color: #666666;
               text-align: left;
               margin-top: 14px;
               display: flex;
               .desc-icon {
-                width: 19.78px;
-                height: 19.78px;
-                margin-right: 7px;
+                width: 17.9px;
+                height: 17.9px;
+
                 background: #fa4b00;
-                border-radius: 50%;
+                border-radius: 10px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -386,7 +390,8 @@ function onSwiper(swiper) {
                 }
               }
               .desc-text {
-                width: 100%;
+                margin-left: 7px;
+                width: 95%;
               }
             }
           }

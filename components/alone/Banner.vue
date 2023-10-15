@@ -176,6 +176,7 @@ function goToSlide(index) {
     display: block;
     width: 100%;
     height: 100%;
+    object-fit: cover;
   }
 }
 
@@ -236,7 +237,7 @@ function goToSlide(index) {
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: #ff0017;
+      background-color: #E65E24;
       animation: progress 3.2s linear;
     }
   }

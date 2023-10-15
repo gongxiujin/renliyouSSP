@@ -32,7 +32,7 @@
           </div>
           <div class="content">
             <div class="content-item">
-              <div class="content-phone">
+              <div :class="`content-phone content-${activeIndex}`">
                 <img
                   :src="$t(`${path}.content[${activeIndex}].image[${idx}]`)"
                   alt=""
@@ -191,7 +191,7 @@ function onSwiper(swiper) {
     .tabs {
       position: relative;
       min-width: 206px;
-      height: 410px;
+      height: 412px;
       display: flex;
       justify-content: center;
       flex-direction: column;
@@ -228,13 +228,21 @@ function onSwiper(swiper) {
       .content-item {
         position: relative;
         width: 100%;
+        height: 412px;
         padding: 0 70px;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        .content-1 {
+          img.images-1{
+            margin-top: 139px!important;
+          }
+
+        }
         .content-phone {
           position: relative;
           width: 331px;
+          height: 100%;
           display: flex;
           justify-content: center;
           img.images-0 {
@@ -248,13 +256,13 @@ function onSwiper(swiper) {
           img.images-1 {
             position: absolute;
             width: 100%;
-            margin: 50% 0;
+            margin-top: 50%;
             z-index: 5;
           }
           img.cross {
             position: absolute;
             width: 185px;
-            height: 156x;
+            height: 156px;
             z-index: 3;
             &.up {
               top: 39px;
@@ -340,6 +348,7 @@ function onSwiper(swiper) {
 
     .m-swiper-main {
       width: 100%;
+      height: 467px;
       margin: 21px 0;
       .swiper {
         width: 100%;
@@ -357,6 +366,7 @@ function onSwiper(swiper) {
           .banner-img {
             border-radius: 35px;
             border: 12px solid #222;
+            height: 467px;
           }
         }
       }
