@@ -12,7 +12,7 @@
 						<img class="item-img" :src="$t(`${itemPath}[${index}].image`)" :alt="$t(`${itemPath}[${index}].title`)">
 						<div class="item-text">
 							<p class="text-content medium-text">{{$t(`${itemPath}[${index}].title`)}}</p>
-							<p class="text-desc normal-text">{{ $t(`${itemPath}[${index}].text`)}}</p>
+							<p class="text-desc normal-text" :title="$t(`${itemPath}[${index}].text`)">{{ $t(`${itemPath}[${index}].text`)}}</p>
 						</div>
 					</div>
 				</div>

@@ -139,6 +139,7 @@ function goToSlide(index) {
       line-height: 70px;
       font-weight: normal;
       color: #212121;
+      max-width: 800px;
     }
     .text {
       margin-top: 33px;
@@ -146,6 +147,7 @@ function goToSlide(index) {
       font-weight: normal;
       line-height: 16px;
       color: #222222;
+      max-width: 800px;
     }
   }
   @media (max-width: $mobile-width) {
@@ -205,7 +207,7 @@ function goToSlide(index) {
 
 .banner-progress-bar {
   position: relative;
-  bottom: 138px;
+  bottom: 125px;
   z-index: 10;
   display: flex;
   align-items: center;

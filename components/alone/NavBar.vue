@@ -179,7 +179,7 @@ const isActiveLink = (link, children) => {
     transition: 0.6s;
 
     .dropdown-menu {
-      width: 133px;
+      min-width: 133px;
 
       color: #fff;
       background-color: #fff;

@@ -222,6 +222,7 @@ export default {
             "/images/product/appPhone2.png",
             "/images/product/appPhone2-2.png"
           ],
+          marginTop: "139px",
           title: "信息流广告",
           text: "在用户浏览阅读APP的推荐列表页、文章详情页、视频详情页中的原生图文及视频广告。",
         },
@@ -232,6 +233,7 @@ export default {
             "/images/product/appPhone3.png",
             "/images/product/appPhone3-2.png"
           ],
+          marginTop: "173px",
           title: "Banner",
           text: "固定于app顶部、中部、底部、或其他位置,横向贯穿整个app页面，高曝光率，目标受众广泛，易于操作，效果可持续优化。",
         },
@@ -267,6 +269,7 @@ export default {
             "/images/product/appWAP1.png",
             "/images/product/appWAP1-2.png"
           ],
+          marginTop: "135px",
           title: "信息流广告",
           text: "一种在形式或内容上与下文保持一致的广告位，良好的用户体验，更高的植入性带来更好的点击率和转化率",
         },
@@ -277,6 +280,7 @@ export default {
             "/images/product/appWAP2.png",
             "/images/product/appWAP2-2.png"
           ],
+          marginTop: "186px",
           title: "横幅广告位",
           text: "在APP界面顶部、中部或底部出现的静态图、GIF图、文字链，或多帧广告图片滚动的广告形式，灵活性更好，样式美观，点击率更高，预算收益提升",
         }
@@ -477,83 +481,93 @@ export default {
       title: "优秀案例及解决方案",
       content: [
         {
-          slide: {
-            title: "体育",
-            text: "将游戏发行与商业化一站式打通，提供发行、买量、变现的全生命周期解决方案。",
-          },
           content: {
-            icon: "/images/solution/solutionIcon1.png",
             image: "/images/solution/solution1.png",
             mbimage: "/images/solution/solution1-mini.png",
-            title: "懂球帝",
-            text: "懂球帝提供英超、西甲、意甲、中超等足球赛事专业的资讯、战术分析、直播、集锦、积分赛程等，是足球迷手机上必备的神器。",
-            num: "300",
-            numUnit: "w+",
-            numtext: "月活",
+            title: "视频影音",
+            text: [
+              "依托于云袭广告平台的技术能力，精准匹配影音应用属性，更好的帮助广告与用户价值的融合；",
+              "对用户群体做精细化分层运营，基于不同的用户场景，采用多元化的广告样式灵活搭配 ，在顾全用户体验的基础上，保障媒体收益。"
+            ],
+            button: [
+              "人人视频",
+              "影视大全",
+              "毒蛇影视",
+              "萤石云视频",
+              "芒果TV",
+              "韩剧TV"
+            ]
           },
         },
         {
-          slide: {
-            title: "大型游戏类",
-            text: "拥抱混合变现新风口，通过激励视频突破收益天花板，精准买量、精细运营，兼顾用户体验与转化。",
-          },
           content: {
-            icon: "/images/solution/solutionIcon2.png",
             image: "/images/solution/solution2.png",
             mbimage: "/images/solution/solution2-mini.png",
-            title: "游民星空",
-            text: "游民星空是国内专注单机游戏的综合性娱乐媒体，是大型游戏领域头部游戏社区。",
-            num: "3000",
-            numUnit: "w+",
-            numtext: "用户",
+            title: "游戏",
+            text: [
+              "云袭广告拓展优势广告场景，集激励视频、图文广告等多种广告形式于一体，提升变现效率，帮助媒体快速变现。"
+            ],
+            button: [
+              "我的汤姆猫",
+              "刀剑乱斗大战",
+              "开心消消乐",
+              "合成大西瓜",
+            ]
           },
         },
         {
-          slide: {
-            title: "工具类",
-            text: "独家内容资源帮助提升用户留存，打破“即用即走”魔咒，更多细分行业定制场景助力适配提收。",
-          },
           content: {
-            icon: "/images/solution/solutionIcon3.png",
             image: "/images/solution/solution3.png",
             mbimage: "/images/solution/solution3-mini.png",
-            title: "91桌面",
-            text: "91桌面是下一款智能手机桌面美化手机管理软件，是智能机时代管理手机的必备工具。",
-            num: "30",
-            numUnit: "亿+",
-            numtext: "用户",
+            title: "社交",
+            text: [
+              "云袭广告基于社交软件活跃度高、使用频次高等用户特征，在媒体内接入原生广告样式提高广告点击率与转化率。结合用户偏好，在合适的功能点接入互动型广告样式，吸引用户主动观看广告，实现用户体验和广告收益兼得。"
+            ],
+            button: [
+              "soul",
+              "小恩爱",
+              "POPi社交",
+              "恋爱纪念日",
+              "森遇",
+              "她趣"
+            ]
           },
         },
         {
-          slide: {
-            title: "阅读",
-            text: "抖音电商预算红利，强适配于视频内容场景；多样式组合，全面兼收留存与收益。",
-          },
           content: {
-            icon: "/images/solution/solutionIcon4.png",
             image: "/images/solution/solution4.png",
             mbimage: "/images/solution/solution4-mini.png",
-            title: "掌阅",
-            text: "掌阅专注于数字阅读，是全球领先的数字阅读平台之一。",
-            num: "1.6",
-            numUnit: "亿+",
-            numtext: "月活",
+            title: "阅读资讯",
+            text: [
+              "云袭广告具有丰富的广告资源，可满足阅读类app高频请求、高频曝光的特点，通过自研算法保证广告的精准匹配、提升广告位价值、流量变现收益最大化。"
+            ],
+            button: [
+              "得间小说",
+              "趣看点",
+              "时光小说",
+              "免费追书",
+              "九点读书",
+              "万读小说",
+              "全民咨询"
+            ]
           },
         },
         {
-          slide: {
-            title: "社交",
-            text: "独家内容资源帮助提升用户留存，打破“即用即走”魔咒，更多细分行业定制场景助力适配提收。",
-          },
           content: {
-            icon: "/images/solution/solutionIcon5.png",
             image: "/images/solution/solution5.png",
             mbimage: "/images/solution/solution5-mini.png",
-            title: "Soul",
-            text: "Soul是基于兴趣图谱和游戏化玩法的产品设计，属于新一代年轻人的虚拟社交网络。",
-            num: "3000",
-            numUnit: "w+",
-            numtext: "用户",
+            title: "移动工具",
+            text: [
+              "锁定目标人群，云袭广告针对不同工具类APP的应用场景，提供针对性解决方案，合理添置内容板块，增强用户粘性与时长，获取更多的广告展示空间。"
+            ],
+            button: [
+              "91桌面",
+              "爱豆开屏",
+              "星云天气",
+              "扫描王",
+              "墨迹天气",
+              "乐点日历"
+            ]
           },
         },
       ],
@@ -641,14 +655,14 @@ export default {
         row: [
           { text: "关于我们", link: "/aboutUs" },
           { text: "联系我们", link: "/aboutUs" },
-          { text: "用户协议", link: "/policy" },
-          { text: "隐私政策", link: "/policy" },
+          { text: "用户协议", link: "/policy?page=agreement" },
+          { text: "隐私政策", link: "/policy?page=policy" },
         ],
       },
       {
         title: "友情链接",
         row: [
-          { text: "云袭广告投放平台", link: "http://dsp.llldou.cn/" },
+          { text: "云袭广告投放平台", link: "https://dsp.llldou.cn/" },
         ],
       },
     ],

@@ -53,7 +53,7 @@
               modifier: 2.5,
               stretch: '10%'
             }"
-            :slidesPerView="1.1"
+            :slidesPerView="1.04"
             @swiper="onSwiper"
             >
             <template v-for="(item, index) in $tm(`${path}.content`)" :key="index">
@@ -203,6 +203,11 @@ function onSwiper(swiper) {
   .title-bar {
     min-width: 1200px;
     text-align: center;
+    display: flex;
+    align-content: space-around;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
     .solution-title {
       font-size: 36px;
       font-weight: 900;
@@ -212,7 +217,7 @@ function onSwiper(swiper) {
     }
     .solution-desc {
       margin-top: 18px;
-
+      width: 600px;
       font-size: 16px;
       font-weight: normal;
       line-height: 24px;
@@ -304,7 +309,7 @@ function onSwiper(swiper) {
       bottom: 0px;
       right: -50px;
       height: 516px;
-      width: 344px;
+      width: 283px;
       .swiper {
         width: 100%;
         height: 100%;

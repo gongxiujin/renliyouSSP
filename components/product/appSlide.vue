@@ -39,6 +39,7 @@
                   v-for="(image, idx) in $tm(`${path}.content[${activeIndex}].image`)"
                   :class="`images-${idx}`"
                   :key="idx"
+                  :style="idx == 1 ? {'margin-top': $t(`${path}.content[${activeIndex}].marginTop`)} : ''"
                 />
                 <img src="/images/product/cross.jpg" :alt="$t(`${path}.content[${activeIndex}].title`)" class="cross up" />
                 <img
@@ -183,6 +184,7 @@ function onSwiper(swiper) {
   .container {
     width: 1200px;
     min-width: 1200px;
+    height: 580px;
     margin: 64px auto 0;
     box-shadow: 0 4px 40px rgba(0, 0, 0, 0.04);
     border-radius: 2px;
@@ -191,7 +193,6 @@ function onSwiper(swiper) {
     .tabs {
       position: relative;
       min-width: 206px;
-      height: 412px;
       display: flex;
       justify-content: center;
       flex-direction: column;
@@ -233,12 +234,6 @@ function onSwiper(swiper) {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        .content-1 {
-          img.images-1{
-            margin-top: 139px!important;
-          }
-
-        }
         .content-phone {
           position: relative;
           width: 331px;
@@ -246,7 +241,7 @@ function onSwiper(swiper) {
           display: flex;
           justify-content: center;
           img.images-0 {
-            border: 13px solid #222;
+            border: 8px solid #222;
             border-radius: 32px;
             width: 204px;
             height: auto;
@@ -256,7 +251,6 @@ function onSwiper(swiper) {
           img.images-1 {
             position: absolute;
             width: 100%;
-            margin-top: 50%;
             z-index: 5;
           }
           img.cross {

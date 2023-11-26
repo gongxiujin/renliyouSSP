@@ -54,9 +54,16 @@
 
 <script setup>
 import { useI18n } from 'vue-i18n';
+const route = useRoute();
 const { t } = useI18n();
 const path = ref("policy.content");
 const activeIndex = ref(0);
+onMounted(() => {
+  const index = route.query.page;
+  console.log(index);
+  activeIndex.value = ["agreement", "policy"].indexOf(index)<0?0:["agreement", "policy"].indexOf(index);
+})
+
 const crumbTitle = ref(t(`policy.content[0].currentTitle`));
 function setIndex(index) {
   activeIndex.value = index;

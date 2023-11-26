@@ -37,7 +37,7 @@
           </div>
           <img
             class="wechat-code"
-            src="/images/wechat-code.png"
+            src="/images/index/code.png"
             alt=""
           />
         </div>
@@ -197,6 +197,8 @@ li.dropdown-item {
   @media (max-width: $mobile-width) {
     display: none !important;
   }
+  writing-mode: vertical-lr;
+  display: flex;
   position: fixed;
   right: 32px;
   bottom: 64px;

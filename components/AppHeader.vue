@@ -12,9 +12,9 @@
     </div>
     <div class="heard-right">
       <LanguageSelector />
-      <a href="/login"
+      <a :href="localePath('login')"
         ><span class="header_sign_in" xt-marked="ok"
-          >登录</span
+          >{{$t("login.loginButton")}}</span
         ></a
       >
       <button type="button" class="btn-sign-up">
